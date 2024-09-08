@@ -20,6 +20,9 @@ basics --booleans--> booleans["annalyns-infiltration"]
 booleans --numbers--> numbers["cars-assemble?"]
 %% style numbers fill:#0f0
 
+booleans --types--> types["???"]
+%% style types fill:#0f0
+
 numbers --conditionals--> conditionals["vehicle-purchase?"]
 %% style conditionals fill:#0f0
 
