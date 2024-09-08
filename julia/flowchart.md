@@ -17,58 +17,61 @@ start(("Start")) --basics--> basics["lasagna"]
 basics --booleans--> booleans["annalyns-infiltration"]
 %% style booleans fill:#0f0
 
-booleans --conditionals--> conditionals["cars-assemble"]
+booleans --numbers--> numbers["cars-assemble?"]
+%% style numbers fill:#0f0
+
+numbers --conditionals--> conditionals["vehicle-purchase?"]
 %% style conditionals fill:#0f0
 
-conditionals --vectors--> vectors["elyses-enchantments"]
-%% style vectors stroke:#0f0
+conditionals --arrays--> arrays["elyses-enchantments"]
+%% style arrays stroke:#0f0
 
 conditionals -.loops.-> loops["mixed-juices"]
 %% style loops stroke:#0f0
 
-name-attribute --lists--> lists["need-for-speed"]
+name-attribute -.lists.-> lists["need-for-speed"]
 
-vectors --vector-filtering--> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
+arrays -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
-vector-filtering --name-attribute--> name-attribute["??"]
+vector-filtering -.name-attribute.-> name-attribute["??"]
 %% style name-attribute fill:#f00,color:#fff
 
-vector-filtering --vector-functions--> vector-functions["??"]
+vector-filtering -.vector-functions.-> vector-functions["??"]
 %% style vector-functions stroke:#f00
 
-vector-filtering --nothingness--> nothingness["name-badges"]
+vector-filtering -.nothingness.-> nothingness["name-badges"]
 %% style vector-filtering stroke:#0f0
 
-vectors --strings--> strings["log-levels?<br/>tech-palace?"]
+arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
 %% style strings stroke:#0f0
 
-strings --nothingness--> nothingness["name-badges"]
+strings -.nothingness.-> nothingness["name-badges"]
 %% style nothingness stroke:#0f0
 
-strings --randomness--> randomness["captains-log"]
+strings -.randomness.-> randomness["captains-log"]
 %% style randomness stroke:#0f0
 
-strings --regular-expressions--> regular-expressions["regular-chatbot"]
+strings -.regular-expressions.-> regular-expressions["regular-chatbot"]
 
-vector-functions --matrices-arrays--> matrices-arrays["??"]
+vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
 
 %% style apply-functions fill:#f00,color:#fff
 
-vector-functions --dataframes--> dataframes["??"]
+vector-functions -.dataframes.-> dataframes["??"]
 %% style dataframes fill:#f00,color:#fff
 
-matrices-arrays --dataframes--> dataframes
+matrices-arrays -.dataframes.-> dataframes
 dataframes -.factors.-> factors["??"]
 %% style factors fill:#f00,color:#fff
 
 dataframes -.apply-functions.-> apply-functions["??"]
 
-vector-functions --functions--> functions["??"]
-nothingness --functions--> functions["??"]
+vector-functions -.functions.-> functions["??"]
+nothingness -.functions.-> functions["??"]
 %% style functions fill:#f00,color:#fff
 
-nothingness --errors--> errors["factory-sensors "]
+nothingness -.errors.-> errors["factory-sensors "]
 
 ```
