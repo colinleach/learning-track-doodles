@@ -26,18 +26,21 @@ booleans --types--> types["???"]
 numbers --conditionals--> conditionals["vehicle-purchase?"]
 %% style conditionals fill:#0f0
 
-conditionals --arrays--> arrays["elyses-enchantments"]
+conditionals --arrays-ranges--> arrays-ranges["elyses-enchantments"]
 %% style arrays stroke:#0f0
 
 conditionals -.loops.-> loops["mixed-juices"]
 %% style loops stroke:#0f0
 
-name-attribute -.lists.-> lists["need-for-speed"]
+loops -.comprehensions.-> comprehensions["???"]
+%% style comprehensions stroke:#0f0
 
-arrays -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
+%% name-attribute -.lists.-> lists["need-for-speed"]
+
+arrays-ranges -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
-vector-filtering -.name-attribute.-> name-attribute["??"]
+%% vector-filtering -.name-attribute.-> name-attribute["??"]
 %% style name-attribute fill:#f00,color:#fff
 
 vector-filtering -.vector-functions.-> vector-functions["??"]
@@ -46,7 +49,7 @@ vector-filtering -.vector-functions.-> vector-functions["??"]
 vector-filtering -.nothingness.-> nothingness["name-badges"]
 %% style vector-filtering stroke:#0f0
 
-arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
+arrays-ranges -.strings.-> strings["log-levels?<br/>tech-palace?"]
 %% style strings stroke:#0f0
 
 strings -.nothingness.-> nothingness["name-badges"]
@@ -62,14 +65,14 @@ vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 
 %% style apply-functions fill:#f00,color:#fff
 
-vector-functions -.dataframes.-> dataframes["??"]
+%% vector-functions -.dataframes.-> dataframes["??"]
 %% style dataframes fill:#f00,color:#fff
 
 matrices-arrays -.dataframes.-> dataframes
-dataframes -.factors.-> factors["??"]
+%% dataframes -.factors.-> factors["??"]
 %% style factors fill:#f00,color:#fff
 
-dataframes -.apply-functions.-> apply-functions["??"]
+%% dataframes -.apply-functions.-> apply-functions["??"]
 
 vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
