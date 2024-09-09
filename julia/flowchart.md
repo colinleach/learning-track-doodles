@@ -12,10 +12,10 @@ Solid green means both are merged.
 graph TD
     
 start(("Start")) --basics--> basics["lasagna"]
-%% style basics fill:#0f0
+style basics stroke:#0f0
 
 basics --booleans--> booleans["annalyns-infiltration"]
-%% style booleans fill:#0f0
+style booleans stroke:#0f0
 
 booleans --numbers--> numbers["cars-assemble?"]
 %% style numbers fill:#0f0
@@ -51,6 +51,9 @@ vector-filtering -.nothingness.-> nothingness["name-badges"]
 
 arrays-ranges -.strings.-> strings["log-levels?<br/>tech-palace?"]
 %% style strings stroke:#0f0
+
+strings -.docstrings.-> docstrings["name-badges"]
+%% style docstrings stroke:#0f0
 
 strings -.nothingness.-> nothingness["name-badges"]
 %% style nothingness stroke:#0f0
