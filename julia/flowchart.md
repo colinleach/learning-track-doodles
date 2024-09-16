@@ -17,11 +17,18 @@ style basics stroke:#0f0
 basics --booleans--> booleans["annalyns-infiltration"]
 style booleans stroke:#0f0
 
-booleans --numbers--> numbers["cars-assemble?"]
+basics --numbers--> numbers["cars-assemble?<br/>currency-exchange?"]
 %% style numbers fill:#0f0
 
-booleans --types--> types["???"]
+booleans -.types.-> types["???"]
 %% style types fill:#0f0
+
+types -.type-unions.-> type-unions["???"]
+%% style type-unions fill:#0f0
+
+booleans
+ --conditionals--> conditionals["vehicle-purchase?"]
+%% style conditionals fill:#0f0
 
 numbers --conditionals--> conditionals["vehicle-purchase?"]
 %% style conditionals fill:#0f0
@@ -35,13 +42,17 @@ conditionals -.loops.-> loops["mixed-juices"]
 loops -.comprehensions.-> comprehensions["???"]
 %% style comprehensions stroke:#0f0
 
-%% name-attribute -.lists.-> lists["need-for-speed"]
-
 arrays-ranges -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
-%% vector-filtering -.name-attribute.-> name-attribute["??"]
-%% style name-attribute fill:#f00,color:#fff
+arrays-ranges -.tuples.-> tuples["??"]
+%% style tuples stroke:#0f0
+
+arrays-ranges -.iterators.-> iterators["??"]
+%% style iterators stroke:#0f0
+
+arrays-ranges -.dicts.-> dicts["??"]
+%% style dicts stroke:#0f0
 
 vector-filtering -.vector-functions.-> vector-functions["??"]
 %% style vector-functions stroke:#f00
@@ -51,6 +62,9 @@ vector-filtering -.nothingness.-> nothingness["name-badges"]
 
 arrays-ranges -.strings.-> strings["log-levels?<br/>tech-palace?"]
 %% style strings stroke:#0f0
+
+arrays-ranges -.chars.-> chars["log-levels?<br/>tech-palace?"]
+%% style chars stroke:#0f0
 
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
@@ -63,19 +77,16 @@ strings -.randomness.-> randomness["captains-log"]
 
 strings -.regular-expressions.-> regular-expressions["regular-chatbot"]
 
+numbers -.rational-numbers.-> rational-numbers["??"]
+%% style rational-numbers fill:#0f0
+
+rational-numbers -.complex-numbers.-> complex-numbers["??"]
+%% style complex-numbers fill:#0f0
+
 vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
 
-%% style apply-functions fill:#f00,color:#fff
-
-%% vector-functions -.dataframes.-> dataframes["??"]
-%% style dataframes fill:#f00,color:#fff
-
 matrices-arrays -.dataframes.-> dataframes
-%% dataframes -.factors.-> factors["??"]
-%% style factors fill:#f00,color:#fff
-
-%% dataframes -.apply-functions.-> apply-functions["??"]
 
 vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
