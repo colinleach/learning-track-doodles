@@ -82,6 +82,9 @@ strings -.regular-expressions.-> regular-expressions["regular-<br/>chatbot"]
 numbers -.rational-numbers.-> rational-numbers["??"]
 %% style rational-numbers fill:#0f0
 
+numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
+%% style bitwise-operations fill:#0f0
+
 rational-numbers -.complex-numbers.-> complex-numbers["??"]
 %% style complex-numbers fill:#0f0
 
