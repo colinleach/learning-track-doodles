@@ -26,11 +26,10 @@ booleans -.types.-> types["???"]
 types -.type-unions.-> type-unions["???"]
 %% style type-unions fill:#0f0
 
-booleans
- --conditionals--> conditionals["vehicle-purchase?"]
+booleans --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
 %% style conditionals fill:#0f0
 
-numbers --conditionals--> conditionals["vehicle-purchase?"]
+numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
 %% style conditionals fill:#0f0
 
 conditionals --arrays-ranges--> arrays-ranges["elyses-enchantments"]
@@ -39,20 +38,23 @@ conditionals --arrays-ranges--> arrays-ranges["elyses-enchantments"]
 conditionals -.loops.-> loops["mixed-juices"]
 %% style loops stroke:#0f0
 
-loops -.comprehensions.-> comprehensions["???"]
+loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
 arrays-ranges -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
-arrays-ranges -.tuples.-> tuples["??"]
+arrays-ranges -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 %% style tuples stroke:#0f0
 
-arrays-ranges -.iterators.-> iterators["??"]
+arrays-ranges -.iterators.-> iterators["plane-<br/>tickets?"]
 %% style iterators stroke:#0f0
 
-arrays-ranges -.dicts.-> dicts["??"]
+arrays-ranges -.dicts.-> dicts["inventory-<br/>management?"]
 %% style dicts stroke:#0f0
+
+arrays-ranges -.sets.-> sets["ozans-<br/>playlist?"]
+%% style sets stroke:#0f0
 
 vector-filtering -.vector-functions.-> vector-functions["??"]
 %% style vector-functions stroke:#f00
@@ -75,7 +77,7 @@ strings -.nothingness.-> nothingness["name-badges"]
 strings -.randomness.-> randomness["captains-log"]
 %% style randomness stroke:#0f0
 
-strings -.regular-expressions.-> regular-expressions["regular-chatbot"]
+strings -.regular-expressions.-> regular-expressions["regular-<br/>chatbot"]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 %% style rational-numbers fill:#0f0
@@ -86,12 +88,12 @@ rational-numbers -.complex-numbers.-> complex-numbers["??"]
 vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
 
-matrices-arrays -.dataframes.-> dataframes
+matrices-arrays -.dataframes.-> dataframes["??"]
 
 vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
 %% style functions fill:#f00,color:#fff
 
-nothingness -.errors.-> errors["factory-sensors "]
+nothingness -.errors.-> errors["factory-<br/>sensors "]
 
 ```
