@@ -32,31 +32,34 @@ booleans --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigati
 numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
 %% style conditionals fill:#0f0
 
-conditionals --arrays-ranges--> arrays-ranges["elyses-enchantments"]
+conditionals --arrays--> arrays["elyses-enchantments"]
 %% style arrays stroke:#0f0
 
 conditionals -.loops.-> loops["mixed-juices"]
 %% style loops stroke:#0f0
 
+arrays -.ranges.-> ranges["chess-game?"]
+%% style ranges stroke:#0f0
+
+ranges -.loops.-> loops["mixed-juices"]
+%% style loops stroke:#0f0
+
 loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
-arrays-ranges -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
-%% style comprehensions stroke:#0f0
-
-arrays-ranges -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
+arrays -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
-arrays-ranges -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
+arrays -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 %% style tuples stroke:#0f0
 
-arrays-ranges -.iterators.-> iterators["plane-<br/>tickets?"]
+ranges -.iterators.-> iterators["plane-<br/>tickets?"]
 %% style iterators stroke:#0f0
 
-arrays-ranges -.dicts.-> dicts["inventory-<br/>management?"]
+arrays -.dicts.-> dicts["inventory-<br/>management?"]
 %% style dicts stroke:#0f0
 
-arrays-ranges -.sets.-> sets["ozans-<br/>playlist?"]
+arrays -.sets.-> sets["ozans-<br/>playlist?"]
 %% style sets stroke:#0f0
 
 vector-filtering -.vector-functions.-> vector-functions["??"]
@@ -65,10 +68,10 @@ vector-filtering -.vector-functions.-> vector-functions["??"]
 vector-filtering -.nothingness.-> nothingness["name-badges"]
 %% style vector-filtering stroke:#0f0
 
-arrays-ranges -.strings.-> strings["log-levels?<br/>tech-palace?"]
+arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
 %% style strings stroke:#0f0
 
-arrays-ranges -.chars.-> chars["log-levels?<br/>tech-palace?"]
+arrays -.chars.-> chars["log-levels?<br/>tech-palace?"]
 %% style chars stroke:#0f0
 
 strings -.docstrings.-> docstrings["name-badges"]
@@ -82,17 +85,13 @@ strings -.randomness.-> randomness["captains-log"]
 
 strings -.regular-expressions.-> regular-expressions["regular-<br/>chatbot"]
 
-numbers -.rational-numbers.-> rational-numbers["??"]
-%% style rational-numbers fill:#0f0
-
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
 
-rational-numbers -.complex-numbers.-> complex-numbers["??"]
-%% style complex-numbers fill:#0f0
-
 vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
+
+nothingness -.errors.-> errors["factory-<br/>sensors "]
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
@@ -100,6 +99,10 @@ vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
 %% style functions fill:#f00,color:#fff
 
-nothingness -.errors.-> errors["factory-<br/>sensors "]
+numbers -.rational-numbers.-> rational-numbers["??"]
+%% style rational-numbers fill:#0f0
+
+rational-numbers -.complex-numbers.-> complex-numbers["??"]
+%% style complex-numbers fill:#0f0
 
 ```
