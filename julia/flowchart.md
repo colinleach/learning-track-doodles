@@ -41,6 +41,9 @@ conditionals -.loops.-> loops["mixed-juices"]
 loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
+arrays-ranges -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
+%% style comprehensions stroke:#0f0
+
 arrays-ranges -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
 
