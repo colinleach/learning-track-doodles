@@ -35,13 +35,13 @@ numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigatio
 conditionals --arrays--> arrays["elyses-enchantments"]
 %% style arrays stroke:#0f0
 
-conditionals -.loops.-> loops["mixed-juices"]
+strings -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
 
-arrays -.ranges.-> ranges["chess-game?"]
-%% style ranges stroke:#0f0
+arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
+%% style strings stroke:#0f0
 
-ranges -.loops.-> loops["mixed-juices"]
+%% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
 
 loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
@@ -49,6 +49,9 @@ loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 
 arrays -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 %% style vector-filtering stroke:#0f0
+
+arrays -.ranges.-> ranges["chessboard?"]
+%% style ranges stroke:#0f0
 
 arrays -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 %% style tuples stroke:#0f0
@@ -59,7 +62,7 @@ ranges -.iterators.-> iterators["plane-<br/>tickets?"]
 arrays -.dicts.-> dicts["inventory-<br/>management?"]
 %% style dicts stroke:#0f0
 
-arrays -.sets.-> sets["ozans-<br/>playlist?"]
+arrays -.sets.-> sets["ozans playlist?<br/>cater-waiter?"]
 %% style sets stroke:#0f0
 
 vector-filtering -.vector-functions.-> vector-functions["??"]
@@ -68,16 +71,13 @@ vector-filtering -.vector-functions.-> vector-functions["??"]
 vector-filtering -.nothingness.-> nothingness["name-badges"]
 %% style vector-filtering stroke:#0f0
 
-arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
-%% style strings stroke:#0f0
-
 arrays -.chars.-> chars["log-levels?<br/>tech-palace?"]
 %% style chars stroke:#0f0
 
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
 
-strings -.nothingness.-> nothingness["name-badges"]
+strings -.nothingness.-> nothingness["name-badges?<br/>restaurant-rozalynn?"]
 %% style nothingness stroke:#0f0
 
 strings -.randomness.-> randomness["captains-log"]
@@ -91,13 +91,13 @@ numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 vector-functions -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
 
-nothingness -.errors.-> errors["factory-<br/>sensors "]
-
 matrices-arrays -.dataframes.-> dataframes["??"]
 
 vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
 %% style functions fill:#f00,color:#fff
+
+nothingness -.errors.-> errors["factory-<br/>sensors "]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 %% style rational-numbers fill:#0f0
