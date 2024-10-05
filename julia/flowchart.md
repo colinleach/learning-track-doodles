@@ -71,7 +71,7 @@ vector-filtering -.vector-functions.-> vector-functions["??"]
 vector-filtering -.nothingness.-> nothingness["name-badges"]
 %% style vector-filtering stroke:#0f0
 
-arrays -.chars.-> chars["log-levels?<br/>tech-palace?"]
+arrays -.chars.-> chars["squeaky-clean?<br/>library-of-luton?"]
 %% style chars stroke:#0f0
 
 strings -.docstrings.-> docstrings["name-badges"]
