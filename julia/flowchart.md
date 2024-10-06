@@ -2,8 +2,8 @@
 
 This is a very fluid plan and will doubtless continue to change frequently!
 
-Boxes in solid red will almost certainly need a new concept exercise created. 
-Others marked `??` with red borders can probably fork something suitable from other tracks (TODO).
+<!-- Boxes in solid red will almost certainly need a new concept exercise created. 
+Others marked `??` with red borders can probably fork something suitable from other tracks (TODO). -->
 
 Boxes with green borders have the exercise + concept PRs submitted.
 Solid green means both are merged.
@@ -17,7 +17,7 @@ style basics stroke:#0f0
 basics --booleans--> booleans["annalyns-infiltration"]
 style booleans stroke:#0f0
 
-basics --numbers--> numbers["cars-assemble?<br/>currency-exchange?"]
+basics --numbers--> numbers["currency-exchange"]
 %% style numbers fill:#0f0
 
 booleans -.types.-> types["???"]
@@ -35,7 +35,10 @@ numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigatio
 conditionals --arrays--> arrays["elyses-enchantments"]
 %% style arrays stroke:#0f0
 
-strings -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
+strings -.loops.-> loops["making-the-grade"]
+%% style loops stroke:#0f0
+
+ranges -.loops.-> loops["making-the-grade"]
 %% style loops stroke:#0f0
 
 arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
@@ -56,11 +59,14 @@ arrays -.ranges.-> ranges["chessboard?"]
 arrays -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 %% style tuples stroke:#0f0
 
-ranges -.iterators.-> iterators["plane-<br/>tickets?"]
+%% ranges -.iterators.-> iterators["plane-<br/>tickets?"]
+%% %% style iterators stroke:#0f0
+
+loops -.iterators.-> iterators["plane-<br/>tickets?"]
 %% style iterators stroke:#0f0
 
-arrays -.dicts.-> dicts["inventory-<br/>management?"]
-%% style dicts stroke:#0f0
+arrays -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
+%% style dicts-and-pairs stroke:#0f0
 
 arrays -.sets.-> sets["ozans playlist?<br/>cater-waiter?"]
 %% style sets stroke:#0f0
@@ -68,11 +74,13 @@ arrays -.sets.-> sets["ozans playlist?<br/>cater-waiter?"]
 vector-filtering -.vector-functions.-> vector-functions["??"]
 %% style vector-functions stroke:#f00
 
-vector-filtering -.nothingness.-> nothingness["name-badges"]
+vector-filtering -.nothingness.-> nothingness["name-badge"]
 %% style vector-filtering stroke:#0f0
 
-arrays -.chars.-> chars["squeaky-clean?<br/>library-of-luton?"]
-%% style chars stroke:#0f0
+strings -.chars.-> chars["squeaky-clean"]
+style chars stroke:#0f0
+
+comprehensions -.chars.-> chars["squeaky-clean"]
 
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
@@ -96,6 +104,14 @@ matrices-arrays -.dataframes.-> dataframes["??"]
 vector-functions -.functions.-> functions["??"]
 nothingness -.functions.-> functions["??"]
 %% style functions fill:#f00,color:#fff
+
+functions -.broadcasting.-> broadcasting["??"]
+%% style broadcasting fill:#f00,color:#fff
+
+functions -.higher-order-functions.-> higher-order-functions["??"]
+%% style higher-order-functions fill:#f00,color:#fff
+
+nothingness -.functions.-> functions["??"]
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 
