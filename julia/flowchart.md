@@ -8,6 +8,8 @@ Others marked `??` with red borders can probably fork something suitable from ot
 Boxes with green borders have the exercise + concept PRs submitted.
 Solid green means both are merged.
 
+Red borders mean we need to decide between an existing Julia draft, or a different exercise from another track.
+
 ```mermaid
 graph TD
     
@@ -27,10 +29,10 @@ types -.type-unions.-> type-unions["???"]
 %% style type-unions fill:#0f0
 
 booleans --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
-%% style conditionals fill:#0f0
+style conditionals stroke:#f00
 
 numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
-%% style conditionals fill:#0f0
+%% style conditionals stroke:#f00
 
 conditionals --arrays--> arrays["elyses-enchantments"]
 %% style arrays stroke:#0f0
@@ -42,7 +44,7 @@ ranges -.loops.-> loops["making-the-grade"]
 %% style loops stroke:#0f0
 
 arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
-%% style strings stroke:#0f0
+style strings stroke:#f00
 
 %% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
@@ -51,7 +53,7 @@ loops -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
 arrays -.vector-filtering.-> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
-%% style vector-filtering stroke:#0f0
+style vector-filtering stroke:#f00
 
 arrays -.ranges.-> ranges["chessboard?"]
 %% style ranges stroke:#0f0
@@ -62,8 +64,8 @@ arrays -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 %% ranges -.iterators.-> iterators["plane-<br/>tickets?"]
 %% %% style iterators stroke:#0f0
 
-loops -.iterators.-> iterators["plane-<br/>tickets?"]
-%% style iterators stroke:#0f0
+loops -.iterators.-> iterators["plane-tickets?<br/>fibonacci-iterator?"]
+style iterators stroke:#f00
 
 arrays -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
 %% style dicts-and-pairs stroke:#0f0
@@ -91,7 +93,8 @@ strings -.nothingness.-> nothingness["name-badges?<br/>restaurant-rozalynn?"]
 strings -.randomness.-> randomness["captains-log"]
 %% style randomness stroke:#0f0
 
-strings -.regular-expressions.-> regular-expressions["regular-<br/>chatbot"]
+strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
+style regular-expressions stroke:#f00
 
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
