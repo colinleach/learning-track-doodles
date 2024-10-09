@@ -22,11 +22,14 @@ style booleans stroke:#0f0
 basics --numbers--> numbers["currency-exchange"]
 style numbers stroke:#0f0
 
-booleans -.types.-> types["???"]
+booleans -.types.-> types["valentines-day                          ?"]
 %% style types fill:#0f0
 
-types -.type-unions.-> type-unions["???"]
+types -.type-unions.-> type-unions["password-lock?"]
 %% style type-unions fill:#0f0
+
+types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
+%% style structs fill:#0f0
 
 booleans --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
 style conditionals stroke:#f00
