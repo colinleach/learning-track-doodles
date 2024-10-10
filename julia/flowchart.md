@@ -90,7 +90,7 @@ style iterators stroke:#f00
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
 
-strings -.nothingness.-> nothingness["name-badges?<br/>restaurant-rozalynn?"]
+strings -.nothingness.-> nothingness["name-badges"]
 %% style nothingness stroke:#0f0
 
 strings -.randomness.-> randomness["captains-log"]
@@ -115,9 +115,8 @@ nothingness -.functions.-> functions["??"]
 functions -.broadcasting.-> broadcasting["??"]
 %% style broadcasting fill:#f00,color:#fff
 
-functions -.higher-order-functions.-> higher-order-functions["??"]
+functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
-
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 
