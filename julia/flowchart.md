@@ -72,7 +72,7 @@ arrays -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
 style dicts-and-pairs stroke:#00f
 
 arrays -.sets.-> sets["cater-waiter"]
-%% style sets stroke:#0f0
+style sets stroke:#0f0
 
 %% array-operations -.vector-functions.-> vector-functions["??"]
 %% %% style vector-functions color:#f00
