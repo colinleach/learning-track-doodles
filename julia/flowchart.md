@@ -48,7 +48,7 @@ ranges -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
 
 arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
-style strings color:ff0
+style strings color:#f00
 
 %% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
