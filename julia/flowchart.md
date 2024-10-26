@@ -119,11 +119,14 @@ style functions stroke:#00f
 %% arrays -.broadcasting.-> broadcasting["??"]
 %% %% style broadcasting fill:#f00,color:#fff
 
-functions -.function-composition.-> function-composition["secret-agent?"]
-%% style function-composition fill:#f00,color:#fff
+functions -.function-composition.-> function-composition["secret-agent?<br/>high-school-sweetheart?"]
+style function-composition stroke:#00f
 
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
+
+functions -.multiple-dispatch.-> multiple-dispatch["encounters?"]
+%% style multiple-dispatch fill:#f00,color:#fff
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 
