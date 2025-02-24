@@ -12,10 +12,10 @@ Solid green means both are merged.
 graph TD
     
 start(("Start")) --basics--> basics["lasagna"]
-style basics stroke:#0f0
+style basics fill:#0f0
 
 basics --booleans--> booleans["annalyns-infiltration"]
-style booleans stroke:#0f0
+style booleans fill:#0f0
 
 basics --numbers--> numbers["cars-assemble?<br/>currency-exchange?"]
 %% style numbers fill:#0f0
