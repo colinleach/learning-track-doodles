@@ -15,7 +15,7 @@ Red text mean we need to decide between an existing Julia draft, or a different 
 graph TD
     
 start(("Start")) --basics--> basics["lasagna"]
-style basics fill:#0f0
+style basics stroke:#0f0
 
 basics --booleans--> booleans["annalyns-infiltration"]
 style booleans fill:#0f0
@@ -32,11 +32,11 @@ types -.type-unions.-> type-unions["password-lock?"]
 types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
 %% style structs fill:#0f0
 
-booleans --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
-style conditionals color:#f00
+booleans --conditionals--> conditionals["vehicle-purchase"]
+style conditionals stroke:#00f
 
-numbers --conditionals--> conditionals["vehicle-purchase?<br/>meltdown-mitigation?"]
-style conditionals color:#f00
+numbers --conditionals--> conditionals["vehicle-purchase"]
+style conditionals stroke:#00f
 
 conditionals --arrays--> arrays["elyses-enchantments"]
 style arrays stroke:#00f
