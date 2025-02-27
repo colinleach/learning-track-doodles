@@ -15,10 +15,10 @@ Red text mean we need to decide between an existing Julia draft, or a different 
 graph TD
     
 start(("Start")) --basics--> basics["lasagna"]
-style basics stroke:#0f0
+style basics fill:#0f0
 
 basics --booleans--> booleans["annalyns-infiltration"]
-style booleans stroke:#0f0
+style booleans fill:#0f0
 
 basics --numbers--> numbers["currency-exchange"]
 style numbers stroke:#0f0
