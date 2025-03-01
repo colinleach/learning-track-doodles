@@ -32,11 +32,11 @@ types -.type-unions.-> type-unions["password-lock?"]
 types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
 %% style structs fill:#0f0
 
-booleans --conditionals--> conditionals["vehicle-purchase"]
-style conditionals stroke:#00f
+booleans --conditionals--> conditionals["cars-assemble"]
+style conditionals stroke:#0f0
 
-numbers --conditionals--> conditionals["vehicle-purchase"]
-style conditionals stroke:#00f
+numbers --conditionals--> conditionals["cars-assemble"]
+style conditionals stroke:#0f0
 
 conditionals --arrays--> arrays["elyses-enchantments"]
 style arrays stroke:#00f
