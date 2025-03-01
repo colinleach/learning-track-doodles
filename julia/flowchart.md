@@ -38,8 +38,8 @@ style conditionals stroke:#0f0
 numbers --conditionals--> conditionals["cars-assemble"]
 style conditionals stroke:#0f0
 
-conditionals --arrays--> arrays["elyses-enchantments"]
-style arrays stroke:#00f
+conditionals --vectors--> vectors["elyses-enchantments"]
+style vectors stroke:#0f0
 
 strings -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
@@ -47,37 +47,37 @@ style loops stroke:#00f
 ranges -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
 
-arrays -.strings.-> strings["log-levels?<br/>tech-palace?"]
+vectors -.strings.-> strings["log-levels?<br/>tech-palace?"]
 style strings color:#f00
 
 %% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
 
-arrays -.array-operations.-> array-operations["elyses-analytic-enchantments?<br/>bird-watcher?"]
-style array-operations color:#f00
+ranges -.vector-operations.-> vector-operations["elyses-analytic-enchantments?<br/>bird-watcher?"]
+style vector-operations color:#f00
 
-arrays -.ranges.-> ranges["chessboard?"]
+vectors -.ranges.-> ranges["chessboard?"]
 style ranges stroke:#00f
 
 strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
-arrays -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
+vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
 %% ranges -.iterators.-> iterators["plane-<br/>tickets?"]
 %% %% style iterators stroke:#0f0
 
-arrays -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
+vectors -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
 style dicts-and-pairs stroke:#00f
 
-arrays -.sets.-> sets["cater-waiter"]
+vectors -.sets.-> sets["cater-waiter"]
 style sets stroke:#0f0
 
-%% array-operations -.vector-functions.-> vector-functions["??"]
+%% vector-operations -.vector-functions.-> vector-functions["??"]
 %% %% style vector-functions color:#f00
 
-array-operations -.nothingness.-> nothingness["name-badge"]
+vector-operations -.nothingness.-> nothingness["name-badge"]
 style nothingness stroke:#00f
 
 strings -.chars.-> chars["squeaky-clean"]
@@ -106,17 +106,17 @@ style regular-expressions color:#f00
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
 
-array-operations -.matrices-arrays.-> matrices-arrays["??"]
+vector-operations -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
 %% vector-functions -.functions.-> functions["??"]
 
-array-operations -.functions.-> functions["??"]
+vector-operations -.functions.-> functions["??"]
 style functions stroke:#00f
 
-%% arrays -.broadcasting.-> broadcasting["??"]
+%% vectors -.broadcasting.-> broadcasting["??"]
 %% %% style broadcasting fill:#f00,color:#fff
 
 functions -.function-composition.-> function-composition["secret-agent?<br/>high-school-sweetheart?"]
