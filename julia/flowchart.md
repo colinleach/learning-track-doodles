@@ -44,14 +44,8 @@ style vectors stroke:#0f0
 strings -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
 
-ranges -.loops.-> loops["making-the-grade"]
-style loops stroke:#00f
-
-vectors -.strings.-> strings["log-levels"]
+ranges -.strings.-> strings["log-levels"]
 %% style strings 
-
-%% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
-%% style loops stroke:#0f0
 
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations stroke:#00f
@@ -79,9 +73,6 @@ style sets stroke:#0f0
 
 vector-operations -.nothingness.-> nothingness["name-badge"]
 style nothingness stroke:#00f
-
-strings -.chars.-> chars["squeaky-clean"]
-style chars stroke:#0f0
 
 comprehensions -.chars.-> chars["squeaky-clean"]
 
