@@ -30,7 +30,7 @@ types -.type-unions.-> type-unions["password-lock?"]
 %% style type-unions fill:#0f0
 
 types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
-%% style structs fill:#0f0
+style structs  color:#f00
 
 booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals stroke:#0f0
@@ -47,17 +47,17 @@ style loops stroke:#00f
 ranges -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
 
-vectors -.strings.-> strings["log-levels?<br/>tech-palace?"]
-style strings color:#f00
+vectors -.strings.-> strings["log-levels"]
+%% style strings 
 
 %% ranges -.loops.-> loops["mixed-juices?<br/>making-the-grade?"]
 %% style loops stroke:#0f0
 
-ranges -.vector-operations.-> vector-operations["elyses-analytic-enchantments?<br/>bird-watcher?"]
-style vector-operations color:#f00
+ranges -.vector-operations.-> vector-operations["bird-watcher"]
+style vector-operations stroke:#00f
 
-vectors -.ranges.-> ranges["chessboard?"]
-style ranges stroke:#00f
+vectors -.ranges.-> ranges["chessboard"]
+style ranges stroke:#0f0
 
 strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
@@ -119,8 +119,8 @@ style functions stroke:#00f
 %% vectors -.broadcasting.-> broadcasting["??"]
 %% %% style broadcasting fill:#f00,color:#fff
 
-functions -.function-composition.-> function-composition["secret-agent?<br/>high-school-sweetheart?"]
-style function-composition stroke:#00f
+functions -.function-composition.-> function-composition["high-school-sweetheart"]
+style function-composition stroke:#0f0
 
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
