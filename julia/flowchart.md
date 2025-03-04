@@ -51,7 +51,7 @@ ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations stroke:#00f
 
 vectors -.ranges.-> ranges["chessboard"]
-style ranges stroke:#0f0
+style ranges fill:#0f0
 
 strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
