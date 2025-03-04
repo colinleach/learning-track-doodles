@@ -15,13 +15,13 @@ Red text mean we need to decide between an existing Julia draft, or a different 
 graph TD
     
 start(("Start")) --basics--> basics["lasagna"]
-style basics stroke:#0f0
+style basics fill:#0f0
 
 basics --booleans--> booleans["annalyns-infiltration"]
 style booleans fill:#0f0
 
 basics --numbers--> numbers["currency-exchange"]
-style numbers stroke:#0f0
+style numbers fill:#0f0
 
 booleans -.types.-> types["valentines-day?"]
 %% style types stroke:#0f0 
@@ -33,13 +33,13 @@ types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
 style structs  color:#f00
 
 booleans --conditionals--> conditionals["cars-assemble"]
-style conditionals stroke:#0f0
+style conditionals fill:#0f0
 
 numbers --conditionals--> conditionals["cars-assemble"]
-style conditionals stroke:#0f0
+style conditionals fill:#0f0
 
 conditionals --vectors--> vectors["elyses-enchantments"]
-style vectors stroke:#0f0
+style vectors fill:#0f0
 
 strings -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
@@ -111,7 +111,7 @@ style functions stroke:#00f
 %% %% style broadcasting fill:#f00,color:#fff
 
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
-style function-composition stroke:#0f0
+style function-composition fill:#0f0
 
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
