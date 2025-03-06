@@ -2,14 +2,11 @@
 
 This is a very fluid plan and will doubtless continue to change frequently!
 
-<!-- Boxes in solid red will almost certainly need a new concept exercise created. 
-Others marked `??` with red borders can probably fork something suitable from other tracks (TODO). -->
-
 Boxes with green borders have the exercise + concept PRs submitted.
 Blue borders mean only the concept PR is submitted.
 Solid green means both are merged.
 
-Red text mean we need to decide between an existing Julia draft, or a different exercise from another track.
+Red text mean we need to decide between plausible exercises from another tracks.
 
 ```mermaid
 graph TD
@@ -48,7 +45,7 @@ ranges -.strings.-> strings["log-levels"]
 %% style strings 
 
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
-style vector-operations stroke:#00f
+style vector-operations stroke:#0f0
 
 vectors -.ranges.-> ranges["chessboard"]
 style ranges fill:#0f0
