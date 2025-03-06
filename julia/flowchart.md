@@ -99,7 +99,10 @@ vector-operations -.matrices-arrays.-> matrices-arrays["??"]
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
-vector-operations -.functions.-> functions["locomotive-engineer?<br/>elysies-destructured-enchantments?"]
+dicts-and-pairs -.functions.-> functions["locomotive-engineer"]
+style functions stroke:#00f,color:#f00
+
+vector-operations -.functions.-> functions["locomotive-engineer"]
 style functions stroke:#00f,color:#f00
 
 %% vectors -.broadcasting.-> broadcasting["??"]
