@@ -102,6 +102,9 @@ style functions stroke:#00f
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
 
+strings -.function-composition.-> function-composition["high-school-sweetheart"]
+style function-composition fill:#0f0
+
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
@@ -117,3 +120,11 @@ rational-numbers -.complex-numbers.-> complex-numbers["??"]
 style complex-numbers stroke:#00f
 
 ```
+
+## Other concepts to add
+
+- Dates
+- macros
+- modules
+- linear-algebra
+- others??
