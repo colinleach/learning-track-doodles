@@ -42,7 +42,7 @@ strings -.loops.-> loops["making-the-grade"]
 style loops stroke:#00f
 
 ranges -.strings.-> strings["log-levels"]
-%% style strings 
+style strings stroke:#0F0
 
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
@@ -65,7 +65,8 @@ style sets stroke:#0f0
 vector-operations -.nothingness.-> nothingness["name-badge"]
 style nothingness stroke:#00f
 
-comprehensions -.chars.-> chars["squeaky-clean"]
+strings -.chars.-> chars["squeaky-clean"]
+style chars stroke:#0f0
 
 loops -.iterators.-> iterators["plane-tickets?<br/>fibonacci-iterator?"]
 style iterators color:#f00
@@ -73,17 +74,17 @@ style iterators color:#f00
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
 
-strings -.nothingness.-> nothingness["name-badges"]
-style nothingness stroke:#00f
-
 strings -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
 
-randomness -.statistics.-> statistics["??"]
-style statistics stroke:#00f
-
 strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
 style regular-expressions color:#f00
+
+strings -.nothingness.-> nothingness["name-badges"]
+style nothingness stroke:#00f
+
+randomness -.statistics.-> statistics["??"]
+style statistics stroke:#00f
 
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
@@ -127,4 +128,4 @@ style complex-numbers stroke:#00f
 - macros
 - modules
 - linear-algebra
-- others??
+- and more??
