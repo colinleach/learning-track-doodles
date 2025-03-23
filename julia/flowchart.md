@@ -38,8 +38,11 @@ style conditionals fill:#0f0
 conditionals --vectors--> vectors["elyses-enchantments"]
 style vectors fill:#0f0
 
-strings -.loops.-> loops["making-the-grade"]
-style loops stroke:#00f
+vectors -.ranges.-> ranges["chessboard"]
+style ranges fill:#0f0
+
+ranges -.loops.-> loops["mixed-juices"]
+style loops stroke:#0f0
 
 ranges -.strings.-> strings["log-levels"]
 style strings stroke:#0F0
@@ -47,19 +50,16 @@ style strings stroke:#0F0
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
 
-vectors -.ranges.-> ranges["chessboard"]
-style ranges fill:#0f0
-
 strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
 vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
-vectors -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
+loops -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
 style dicts-and-pairs stroke:#00f
 
-vectors -.sets.-> sets["cater-waiter"]
+loops -.sets.-> sets["cater-waiter"]
 style sets stroke:#0f0
 
 vector-operations -.nothingness.-> nothingness["name-badge"]
