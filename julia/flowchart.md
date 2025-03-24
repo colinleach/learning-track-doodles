@@ -42,10 +42,10 @@ vectors -.ranges.-> ranges["chessboard"]
 style ranges fill:#0f0
 
 ranges -.loops.-> loops["mixed-juices"]
-style loops stroke:#0f0
+style loops fill:#0f0
 
 ranges -.strings.-> strings["log-levels"]
-style strings stroke:#0F0
+style strings fill:#0F0
 
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
@@ -56,17 +56,17 @@ strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
-loops -.dicts-and-pairs.-> dicts-and-pairs["inventory-<br/>management?"]
-style dicts-and-pairs stroke:#00f
+loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management?"]
+style pairs-and-dicts stroke:#00f
 
 loops -.sets.-> sets["cater-waiter"]
-style sets stroke:#0f0
+style sets fill:#0f0
 
 vector-operations -.nothingness.-> nothingness["name-badge"]
 style nothingness stroke:#00f
 
 strings -.chars.-> chars["squeaky-clean"]
-style chars stroke:#0f0
+style chars fill:#0f0
 
 loops -.iterators.-> iterators["plane-tickets?<br/>fibonacci-iterator?"]
 style iterators color:#f00
@@ -94,7 +94,7 @@ vector-operations -.matrices-arrays.-> matrices-arrays["??"]
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
-dicts-and-pairs -.functions.-> functions["locomotive-engineer"]
+pairs-and-dicts -.functions.-> functions["locomotive-engineer"]
 style functions stroke:#00f
 
 vector-operations -.functions.-> functions["locomotive-engineer"]
