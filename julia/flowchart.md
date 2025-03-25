@@ -50,13 +50,13 @@ style strings fill:#0F0
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
 
-strings -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
+matrices-arrays -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
 vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
-loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management?"]
+loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management"]
 style pairs-and-dicts stroke:#00f
 
 loops -.sets.-> sets["cater-waiter"]
@@ -71,14 +71,14 @@ style chars fill:#0f0
 loops -.iterators.-> iterators["plane-tickets?<br/>fibonacci-iterator?"]
 style iterators color:#f00
 
+strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
+style regular-expressions color:#f00
+
 strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
 
 strings -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
-
-strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
-style regular-expressions color:#f00
 
 strings -.nothingness.-> nothingness["name-badges"]
 style nothingness stroke:#00f
@@ -94,8 +94,13 @@ vector-operations -.matrices-arrays.-> matrices-arrays["??"]
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
+matrices-arrays -.linear-algebra.-> linear-algebra["??"]
+
 pairs-and-dicts -.functions.-> functions["locomotive-engineer"]
 style functions stroke:#00f
+
+pairs-and-dicts -.dict-functions.-> dict-functions["mecha-munch-management"]
+%% style dict-functions stroke:#00f
 
 vector-operations -.functions.-> functions["locomotive-engineer"]
 style functions stroke:#00f
@@ -127,5 +132,4 @@ style complex-numbers stroke:#00f
 - Dates
 - macros
 - modules
-- linear-algebra
 - and more??
