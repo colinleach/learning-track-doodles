@@ -80,6 +80,9 @@ strings -.docstrings.-> docstrings["name-badges"]
 strings -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
 
+strings -.dates-times.-> dates-times["?"]
+style dates-times stroke:#00f
+
 strings -.nothingness.-> nothingness["name-badges"]
 style nothingness stroke:#00f
 
