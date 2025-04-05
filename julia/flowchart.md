@@ -57,7 +57,7 @@ vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
 loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management"]
-style pairs-and-dicts stroke:#00f
+style pairs-and-dicts fill:#0f0
 
 loops -.sets.-> sets["cater-waiter"]
 style sets fill:#0f0
@@ -132,7 +132,6 @@ style complex-numbers stroke:#00f
 
 ## Other concepts to add
 
-- Dates
 - macros
 - modules
 - and more??
