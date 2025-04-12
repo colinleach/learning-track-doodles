@@ -53,7 +53,7 @@ style vector-operations fill:#0f0
 matrices-arrays -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
-vectors -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
+strings -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples stroke:#00f
 
 loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management"]
@@ -108,6 +108,9 @@ pairs-and-dicts -.dict-functions.-> dict-functions["mecha-munch-management"]
 vector-operations -.functions.-> functions["locomotive-engineer"]
 style functions stroke:#00f
 
+strings -.functions.-> functions["locomotive-engineer"]
+style functions stroke:#00f
+
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
 
@@ -125,7 +128,7 @@ nothingness -.errors.-> errors["factory-<br/>sensors "]
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#00f
 
-rational-numbers -.complex-numbers.-> complex-numbers["??"]
+functions -.complex-numbers.-> complex-numbers["??"]
 style complex-numbers stroke:#00f
 
 ```
