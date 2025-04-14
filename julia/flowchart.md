@@ -20,7 +20,7 @@ style booleans fill:#0f0
 basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
-booleans -.types.-> types["valentines-day?"]
+conditionals -.types.-> types["valentines-day?"]
 %% style types stroke:#0f0 
 
 types -.type-unions.-> type-unions["password-lock?"]
@@ -53,8 +53,14 @@ style vector-operations fill:#0f0
 matrices-arrays -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
+tuples -.randomness.-> randomness["captains-log"]
+style randomness stroke:#00f
+
+randomness -.statistics.-> statistics["??"]
+%% style statistics stroke:#00f
+
 strings -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
-style tuples stroke:#00f
+style tuples fill:#0f0
 
 loops -.pairs-and-dicts.-> pairs-and-dicts["inventory-<br/>management"]
 style pairs-and-dicts fill:#0f0
@@ -74,20 +80,14 @@ style iterators color:#f00
 strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
 style regular-expressions color:#f00
 
-strings -.docstrings.-> docstrings["name-badges"]
+%% strings -.docstrings.-> docstrings["name-badges"]
 %% style docstrings stroke:#0f0
-
-strings -.randomness.-> randomness["captains-log"]
-style randomness stroke:#00f
 
 strings -.dates-times.-> dates-times["?"]
 style dates-times stroke:#00f
 
-strings -.nothingness.-> nothingness["name-badges"]
-style nothingness stroke:#00f
-
-randomness -.statistics.-> statistics["??"]
-style statistics stroke:#00f
+%% strings -.nothingness.-> nothingness["name-badges"]
+%% style nothingness stroke:#00f
 
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
@@ -99,23 +99,17 @@ matrices-arrays -.dataframes.-> dataframes["??"]
 
 matrices-arrays -.linear-algebra.-> linear-algebra["??"]
 
-pairs-and-dicts -.functions.-> functions["locomotive-engineer"]
-style functions stroke:#00f
-
 pairs-and-dicts -.dict-functions.-> dict-functions["mecha-munch-management"]
 %% style dict-functions stroke:#00f
 
+pairs-and-dicts -.functions.-> functions["locomotive-engineer"]
+style functions fill:#0f0
+
 vector-operations -.functions.-> functions["locomotive-engineer"]
-style functions stroke:#00f
+style functions fill:#0f0
 
-strings -.functions.-> functions["locomotive-engineer"]
-style functions stroke:#00f
-
-functions -.function-composition.-> function-composition["high-school-sweetheart"]
-style function-composition fill:#0f0
-
-strings -.function-composition.-> function-composition["high-school-sweetheart"]
-style function-composition fill:#0f0
+tuples -.functions.-> functions["locomotive-engineer"]
+style functions fill:#0f0
 
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
@@ -123,13 +117,19 @@ functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 functions -.multiple-dispatch.-> multiple-dispatch["encounters?"]
 %% style multiple-dispatch fill:#f00,color:#fff
 
+functions -.complex-numbers.-> complex-numbers["??"]
+style complex-numbers stroke:#00f
+
+functions -.function-composition.-> function-composition["high-school-sweetheart"]
+style function-composition fill:#0f0
+
+strings -.function-composition.-> function-composition["high-school-sweetheart"]
+style function-composition fill:#0f0
+
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#00f
-
-functions -.complex-numbers.-> complex-numbers["??"]
-style complex-numbers stroke:#00f
 
 ```
 
