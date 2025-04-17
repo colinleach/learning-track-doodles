@@ -53,7 +53,7 @@ style vector-operations fill:#0f0
 matrices-arrays -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
 %% style comprehensions stroke:#0f0
 
-tuples -.randomness.-> randomness["captains-log"]
+functions -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
 
 randomness -.statistics.-> statistics["??"]
