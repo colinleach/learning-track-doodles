@@ -50,8 +50,8 @@ style strings fill:#0F0
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
 
-matrices-arrays -.comprehensions.-> comprehensions["boutique-<br/>suggestions?"]
-%% style comprehensions stroke:#0f0
+matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
+style comprehensions color:#f00
 
 functions -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
@@ -114,10 +114,10 @@ style functions fill:#0f0
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
-functions -.multiple-dispatch.-> multiple-dispatch["encounters?"]
-%% style multiple-dispatch fill:#f00,color:#fff
+functions -.multiple-dispatch.-> multiple-dispatch["encounters?<br/>kitchen-calculator?"]
+style multiple-dispatch color:#f00
 
-functions -.complex-numbers.-> complex-numbers["??"]
+functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
 style complex-numbers stroke:#00f
 
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
