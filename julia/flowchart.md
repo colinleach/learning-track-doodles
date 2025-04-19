@@ -54,7 +54,7 @@ matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>pl
 style comprehensions color:#f00
 
 functions -.randomness.-> randomness["captains-log"]
-style randomness stroke:#00f
+style randomness stroke:#0f0
 
 randomness -.statistics.-> statistics["(none planned)"]
 %% style statistics stroke:#0f0
@@ -68,8 +68,8 @@ style pairs-and-dicts fill:#0f0
 loops -.sets.-> sets["cater-waiter"]
 style sets fill:#0f0
 
-vector-operations -.nothingness.-> nothingness["name-badge"]
-style nothingness stroke:#00f
+functions -.nothingness.-> nothingness["name-badges"]
+style nothingness fill:#0f0
 
 strings -.chars.-> chars["squeaky-clean"]
 style chars fill:#0f0
@@ -80,14 +80,8 @@ style iterators color:#f00
 strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
 style regular-expressions color:#f00
 
-%% strings -.docstrings.-> docstrings["name-badges"]
-%% style docstrings stroke:#0f0
-
 strings -.dates-times.-> dates-times["?"]
 style dates-times stroke:#00f
-
-%% strings -.nothingness.-> nothingness["name-badges"]
-%% style nothingness stroke:#00f
 
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
