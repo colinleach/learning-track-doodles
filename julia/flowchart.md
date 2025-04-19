@@ -56,8 +56,8 @@ style comprehensions color:#f00
 functions -.randomness.-> randomness["captains-log"]
 style randomness stroke:#00f
 
-randomness -.statistics.-> statistics["??"]
-%% style statistics stroke:#00f
+randomness -.statistics.-> statistics["(none planned)"]
+%% style statistics stroke:#0f0
 
 strings -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples fill:#0f0
@@ -118,7 +118,7 @@ functions -.multiple-dispatch.-> multiple-dispatch["encounters?<br/>kitchen-calc
 style multiple-dispatch color:#f00
 
 functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
-style complex-numbers stroke:#00f
+style complex-numbers fill:#0f0
 
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
@@ -129,7 +129,7 @@ style function-composition fill:#0f0
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
-style rational-numbers stroke:#00f
+style rational-numbers stroke:#0f0
 
 ```
 
