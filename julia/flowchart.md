@@ -54,10 +54,10 @@ matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>pl
 style comprehensions color:#f00
 
 functions -.randomness.-> randomness["captains-log"]
-style randomness stroke:#0f0
+style randomness fill:#0f0
 
 randomness -.statistics.-> statistics["(none planned)"]
-%% style statistics stroke:#0f0
+style statistics stroke:#0f0
 
 strings -.tuples.-> tuples["tisbury-<br/>treasure-<br/>hunt?"]
 style tuples fill:#0f0
