@@ -20,14 +20,20 @@ style booleans fill:#0f0
 basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
-conditionals -.types.-> types["valentines-day?"]
+functions -.types.-> types["??"]
 %% style types stroke:#0f0 
 
-types -.type-unions.-> type-unions["password-lock?"]
+types -.composite-types.-> composite-types["land-grab-in-space"]
+%% style composite-types  color:#f00
+
+types -.type-unions.-> type-unions["role-playing-game"]
 %% style type-unions fill:#0f0
 
-types -.structs.-> structs["land-grab-in-space?<br/>need-for-speed?"]
-style structs  color:#f00
+nothingness -.type-unions.-> type-unions["role-playing-game"]
+%% style type-unions fill:#0f0
+
+composite-types -.parametric-types.-> parametric-types["treasure-chest"]
+%% style parametric-types  color:#f00
 
 booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals fill:#0f0
@@ -53,6 +59,9 @@ style vector-operations fill:#0f0
 matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
 style comprehensions color:#f00
 
+functions -.nothingness.-> nothingness["name-badges"]
+style nothingness fill:#0f0
+
 functions -.randomness.-> randomness["captains-log"]
 style randomness fill:#0f0
 
@@ -67,9 +76,6 @@ style pairs-and-dicts fill:#0f0
 
 loops -.sets.-> sets["cater-waiter"]
 style sets fill:#0f0
-
-functions -.nothingness.-> nothingness["name-badges"]
-style nothingness fill:#0f0
 
 strings -.chars.-> chars["squeaky-clean"]
 style chars fill:#0f0
@@ -108,8 +114,11 @@ style functions fill:#0f0
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
-functions -.multiple-dispatch.-> multiple-dispatch["encounters?<br/>kitchen-calculator?"]
-style multiple-dispatch color:#f00
+type-unions -.multiple-dispatch.-> multiple-dispatch["encounters"]
+%% style multiple-dispatch color:#f00
+
+parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
+%% style multiple-dispatch color:#f00
 
 functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
