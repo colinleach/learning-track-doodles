@@ -21,10 +21,10 @@ basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
 functions -.types.-> types["??"]
-%% style types stroke:#0f0 
+style types stroke:#00f 
 
 types -.composite-types.-> composite-types["land-grab-in-space"]
-%% style composite-types  color:#f00
+style composite-types  stroke:#0f0
 
 types -.type-unions.-> type-unions["role-playing-game"]
 %% style type-unions fill:#0f0
@@ -32,7 +32,7 @@ types -.type-unions.-> type-unions["role-playing-game"]
 nothingness -.type-unions.-> type-unions["role-playing-game"]
 %% style type-unions fill:#0f0
 
-composite-types -.parametric-types.-> parametric-types["treasure-chest"]
+composite-types -.parametric-types.-> parametric-types["treasure-chest?"]
 %% style parametric-types  color:#f00
 
 booleans --conditionals--> conditionals["cars-assemble"]
