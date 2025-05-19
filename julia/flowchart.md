@@ -20,20 +20,20 @@ style booleans fill:#0f0
 basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
-functions -.types.-> types["??"]
-style types stroke:#00f 
+functions -.types.-> types["grading-guru"]
+style types stroke:#0f0 
 
 types -.composite-types.-> composite-types["land-grab-in-space"]
-style composite-types  stroke:#0f0
+style composite-types  fill:#0f0
 
-types -.type-unions.-> type-unions["role-playing-game"]
-%% style type-unions fill:#0f0
+composite-types -.parametric-types.-> parametric-types["treasure-chest?"]
+style parametric-types  stroke:#00f
+
+composite-types -.type-unions.-> type-unions["role-playing-game"]
+style type-unions stroke:#00f
 
 nothingness -.type-unions.-> type-unions["role-playing-game"]
 %% style type-unions fill:#0f0
-
-composite-types -.parametric-types.-> parametric-types["treasure-chest?"]
-%% style parametric-types  color:#f00
 
 booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals fill:#0f0
@@ -87,7 +87,7 @@ strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage
 style regular-expressions color:#f00
 
 strings -.dates-times.-> dates-times["?"]
-style dates-times stroke:#00f
+%%style dates-times stroke:#00f
 
 numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
 %% style bitwise-operations fill:#0f0
@@ -115,7 +115,7 @@ functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
 type-unions -.multiple-dispatch.-> multiple-dispatch["encounters"]
-%% style multiple-dispatch color:#f00
+style multiple-dispatch stroke:#0f0
 
 parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
 %% style multiple-dispatch color:#f00
