@@ -26,14 +26,15 @@ style types stroke:#0f0
 types -.composite-types.-> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
-composite-types -.parametric-types.-> parametric-types["treasure-chest?"]
+composite-types -.parametric-types.-> parametric-types["treasure-chest"]
 style parametric-types  stroke:#00f
 
-composite-types -.type-unions.-> type-unions["role-playing-game"]
+nothingness -.parametric-types.-> parametric-types["treasure-chest"]
+style parametric-types  stroke:#00f
+
+parametric-types -.type-unions.-> type-unions["role-playing-game"]
 style type-unions stroke:#00f
 
-nothingness -.type-unions.-> type-unions["role-playing-game"]
-%% style type-unions fill:#0f0
 
 booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals fill:#0f0
@@ -116,9 +117,6 @@ functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 
 type-unions -.multiple-dispatch.-> multiple-dispatch["encounters"]
 style multiple-dispatch stroke:#0f0
-
-parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
-%% style multiple-dispatch color:#f00
 
 functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
