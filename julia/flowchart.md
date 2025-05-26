@@ -21,16 +21,16 @@ basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
 functions -.types.-> types["grading-guru"]
-style types stroke:#0f0 
+style types fill:#0f0 
 
 types -.composite-types.-> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
 composite-types -.parametric-types.-> parametric-types["treasure-chest"]
-style parametric-types  stroke:#00f
+style parametric-types  stroke:#0f0
 
 nothingness -.parametric-types.-> parametric-types["treasure-chest"]
-style parametric-types  stroke:#00f
+style parametric-types  stroke:#0f0
 
 parametric-types -.type-unions.-> type-unions["role-playing-game"]
 style type-unions stroke:#00f
@@ -115,7 +115,7 @@ style functions fill:#0f0
 functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
-type-unions -.multiple-dispatch.-> multiple-dispatch["encounters"]
+parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
 style multiple-dispatch stroke:#0f0
 
 functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
@@ -128,6 +128,8 @@ strings -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
+
+composite-types -.errors.-> errors["factory-<br/>sensors "]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#0f0
