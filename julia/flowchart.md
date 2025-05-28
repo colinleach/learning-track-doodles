@@ -27,10 +27,8 @@ types -.composite-types.-> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
 composite-types -.parametric-types.-> parametric-types["treasure-chest"]
-style parametric-types  stroke:#0f0
-
 nothingness -.parametric-types.-> parametric-types["treasure-chest"]
-style parametric-types  stroke:#0f0
+style parametric-types  fill:#0f0
 
 parametric-types -.type-unions.-> type-unions["role-playing-game"]
 style type-unions stroke:#00f
@@ -116,7 +114,7 @@ functions -.higher-order-functions.-> higher-order-functions["secret-agent?"]
 %% style higher-order-functions fill:#f00,color:#fff
 
 parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
-style multiple-dispatch stroke:#0f0
+style multiple-dispatch fill:#0f0
 
 functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
@@ -128,7 +126,6 @@ strings -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
-
 composite-types -.errors.-> errors["factory-<br/>sensors "]
 
 numbers -.rational-numbers.-> rational-numbers["??"]
