@@ -81,7 +81,7 @@ val n = 42
 n.toDouble() // => 42.0
 ```
 
-See the [manual][conversions] for the full list of methods.
+See the [manual][conversions] for the full list of `toX()` methods.
 
 [IEEE]: https://en.wikipedia.org/wiki/IEEE_754
 [conversions]: https://kotlinlang.org/docs/numbers.html#explicit-number-conversions

@@ -71,7 +71,7 @@ fun add(x: Int, y: Int): Int = x + y
 ```
 
 Functions within Exercism will usually return a value (because of the way the test runner is structured).
-To use Kotlin more widely, it may be useful to know that a function which returns no value can omit the return type and the return type.
+To use Kotlin more widely, it may be useful to know that a function which returns no value can omit the return type and the return keyword.
 
 It is then said to have a `Unit` return type: equivalent to `void` in Java and several other languages.
 
@@ -102,4 +102,4 @@ _Please ignore this if you are a Kotlin-first learner!_
 ~~~~
 
 
-[inference]: 
+[inference]: https://en.wikipedia.org/wiki/Type_inference

@@ -35,7 +35,7 @@ style numbers stroke:#333
     ranges -.for-loops.-> for-loops["bird-watcher?"]
     style for-loops stroke:#333
 
-    conditionals -.when.-> when["bird-watcher?"]
+    conditionals -.when.-> when["??"]
     style when stroke:#333
 
     conditionals -.nullability.-> nullability["tim-from-marketing?"]
@@ -45,10 +45,10 @@ style numbers stroke:#333
     numbers -.lists.-> lists["bird-watcher?"]
     style lists stroke:#333
 
-lists -.sets.-> sets["cars-assemble?"]
+lists -.sets.-> sets["??"]
 style sets stroke:#333
 
-lists -.maps.-> maps["cars-assemble?"]
+lists -.maps.-> maps["??"]
 style maps stroke:#333
 
 
