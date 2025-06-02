@@ -60,7 +60,7 @@ style maps stroke:#333
 The Java syllabus is useful as a starting point for a Kotlin equivalent.
 However, Kotlin is a big, modern, multi-paradigm language with many features still absent from Java.
 
-This is a very preliminary list, which may need correction by someone with more experience of modern Java:
+This is a very preliminary list, which ~~may~~ will certainly need correction by someone with more experience of modern Java:
 
 - Nullable types
   - non-nullable is the default 
