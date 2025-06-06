@@ -31,7 +31,7 @@ nothingness -.parametric-types.-> parametric-types["treasure-chest"]
 style parametric-types  fill:#0f0
 
 parametric-types -.type-unions.-> type-unions["role-playing-game"]
-style type-unions stroke:#00f
+style type-unions fill:#0f0
 
 
 booleans --conditionals--> conditionals["cars-assemble"]
@@ -127,6 +127,7 @@ style function-composition fill:#0f0
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 composite-types -.errors.-> errors["factory-<br/>sensors "]
+style errors stroke:#00f
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#0f0
