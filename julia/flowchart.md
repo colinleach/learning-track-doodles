@@ -55,9 +55,6 @@ style strings fill:#0F0
 ranges -.vector-operations.-> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
 
-matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
-style comprehensions color:#f00
-
 functions -.nothingness.-> nothingness["name-badges"]
 style nothingness fill:#0f0
 
@@ -88,11 +85,8 @@ style regular-expressions color:#f00
 strings -.dates-times.-> dates-times["?"]
 %%style dates-times stroke:#00f
 
-numbers -.bitwise-operations.-> bitwise-operations["secrets?"]
-%% style bitwise-operations fill:#0f0
-
-vector-operations -.matrices-arrays.-> matrices-arrays["??"]
-%% style matrices-arrays fill:#f00,color:#fff
+conditionals --bitwise-operations--> bitwise-operations["secrets?"]
+style bitwise-operations stroke:#00f
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
@@ -131,6 +125,12 @@ style errors stroke:#00f
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#0f0
+
+vector-operations -.matrices-arrays.-> matrices-arrays["??"]
+%% style matrices-arrays fill:#f00,color:#fff
+
+matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
+style comprehensions color:#f00
 
 ```
 
