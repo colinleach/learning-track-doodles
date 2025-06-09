@@ -85,8 +85,8 @@ style regular-expressions color:#f00
 strings -.dates-times.-> dates-times["?"]
 %%style dates-times stroke:#00f
 
-conditionals --bitwise-operations--> bitwise-operations["secrets?"]
-style bitwise-operations stroke:#00f
+conditionals --bitwise-operations--> bitwise-operations["secrets"]
+style bitwise-operations fill:#0f0
 
 matrices-arrays -.dataframes.-> dataframes["??"]
 
@@ -121,7 +121,7 @@ style function-composition fill:#0f0
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 composite-types -.errors.-> errors["factory-<br/>sensors "]
-style errors stroke:#00f
+style errors stroke:#0f0
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#0f0
