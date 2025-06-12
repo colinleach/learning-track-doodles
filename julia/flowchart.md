@@ -121,7 +121,7 @@ style function-composition fill:#0f0
 
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 composite-types -.errors.-> errors["factory-<br/>sensors "]
-style errors stroke:#0f0
+style errors fill:#0f0
 
 numbers -.rational-numbers.-> rational-numbers["??"]
 style rational-numbers stroke:#0f0
