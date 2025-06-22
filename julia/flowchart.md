@@ -82,7 +82,7 @@ style iterators color:#f00
 strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
 style regular-expressions color:#f00
 
-strings -.dates-times.-> dates-times["?"]
+strings -.dates-times.-> dates-times["booking-up-for-beauty"]
 %%style dates-times stroke:#00f
 
 conditionals --bitwise-operations--> bitwise-operations["secrets"]
@@ -114,8 +114,6 @@ functions -.complex-numbers.-> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
 
 functions -.function-composition.-> function-composition["high-school-sweetheart"]
-style function-composition fill:#0f0
-
 strings -.function-composition.-> function-composition["high-school-sweetheart"]
 style function-composition fill:#0f0
 
@@ -123,8 +121,8 @@ nothingness -.errors.-> errors["factory-<br/>sensors "]
 composite-types -.errors.-> errors["factory-<br/>sensors "]
 style errors fill:#0f0
 
-numbers -.rational-numbers.-> rational-numbers["??"]
-style rational-numbers stroke:#0f0
+loops -.rational-numbers.-> rational-numbers["problematic-probabilities"]
+style rational-numbers fill:#0f0
 
 vector-operations -.matrices-arrays.-> matrices-arrays["??"]
 %% style matrices-arrays fill:#f00,color:#fff
