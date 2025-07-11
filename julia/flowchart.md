@@ -20,6 +20,9 @@ style booleans fill:#0f0
 basics --numbers--> numbers["currency-exchange"]
 style numbers fill:#0f0
 
+types -.dates-times.-> dates-times["booking-up-for-beauty"]
+style dates-times fill:#0f0
+
 functions -.types.-> types["grading-guru"]
 style types fill:#0f0 
 
@@ -79,12 +82,6 @@ style chars fill:#0f0
 loops -.iterators.-> iterators["plane-tickets?<br/>fibonacci-iterator?"]
 style iterators color:#f00
 
-strings -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
-style regular-expressions color:#f00
-
-strings -.dates-times.-> dates-times["booking-up-for-beauty"]
-%%style dates-times stroke:#00f
-
 conditionals --bitwise-operations--> bitwise-operations["secrets"]
 style bitwise-operations fill:#0f0
 
@@ -120,6 +117,9 @@ style function-composition fill:#0f0
 nothingness -.errors.-> errors["factory-<br/>sensors "]
 composite-types -.errors.-> errors["factory-<br/>sensors "]
 style errors fill:#0f0
+
+nothingness -.regular-expressions.-> regular-expressions["regular-chatbot?<br/>stage-heralding?"]
+style regular-expressions color:#f00
 
 loops -.rational-numbers.-> rational-numbers["problematic-probabilities"]
 style rational-numbers fill:#0f0
