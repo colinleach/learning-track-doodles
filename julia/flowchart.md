@@ -85,9 +85,12 @@ style iterators color:#f00
 conditionals --bitwise-operations--> bitwise-operations["secrets"]
 style bitwise-operations fill:#0f0
 
-matrices-arrays -.dataframes.-> dataframes["??"]
+function-composition -.multi-dimensional-arrays.-> multi-dimensional-arrays["??"]
 
-matrices-arrays -.linear-algebra.-> linear-algebra["??"]
+multi-dimensional-arrays -.dataframes.-> dataframes["??"]
+style multi-dimensional-arrays stroke:#00f
+
+multi-dimensional-arrays -.linear-algebra.-> linear-algebra["??"]
 
 pairs-and-dicts -.dict-functions.-> dict-functions["mecha-munch-management"]
 %% style dict-functions stroke:#00f
@@ -101,7 +104,7 @@ style functions fill:#0f0
 tuples -.functions.-> functions["locomotive-engineer"]
 style functions fill:#0f0
 
-functions -.higher-order-functions.-> higher-order-functions["??"]
+multi-dimensional-arrays -.higher-order-functions.-> higher-order-functions["??"]
 style higher-order-functions stroke:#00f,color:#f00
 
 parametric-types -.multiple-dispatch.-> multiple-dispatch["encounters"]
@@ -124,10 +127,7 @@ style regular-expressions stroke:#0f0
 loops -.rational-numbers.-> rational-numbers["problematic-probabilities"]
 style rational-numbers fill:#0f0
 
-vector-operations -.matrices-arrays.-> matrices-arrays["??"]
-%% style matrices-arrays fill:#f00,color:#fff
-
-matrices-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
+multi-dimensional-arrays -.comprehensions.-> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
 style comprehensions color:#f00
 
 ```
