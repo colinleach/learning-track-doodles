@@ -126,8 +126,8 @@ style regular-expressions fill:#0f0
 loops --rational-numbers--> rational-numbers["problematic-probabilities"]
 style rational-numbers fill:#0f0
 
-multi-dimensional-arrays --comprehensions--> comprehensions["boutique-suggestions?<br/>plane-tickets?"]
-style comprehensions stroke:#00f
+multi-dimensional-arrays --comprehensions--> comprehensions["boutique-suggestions"]
+style comprehensions stroke:#0f0
 
 ```
 
