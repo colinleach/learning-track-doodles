@@ -29,13 +29,15 @@ style types fill:#0f0
 types --composite-types--> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
+composite-types --iterators--> iterators["plane-tickets?<br/>fibonacci-iterator?"]
+style iterators color:#f00
+
 composite-types --parametric-types--> parametric-types["treasure-chest"]
 nothingness --parametric-types--> parametric-types["treasure-chest"]
 style parametric-types  fill:#0f0
 
 parametric-types --type-unions--> type-unions["role-playing-game"]
 style type-unions fill:#0f0
-
 
 booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals fill:#0f0
@@ -79,9 +81,6 @@ style sets fill:#0f0
 strings --chars--> chars["squeaky-clean"]
 style chars fill:#0f0
 
-loops --iterators--> iterators["plane-tickets?<br/>fibonacci-iterator?"]
-style iterators color:#f00
-
 conditionals --bitwise-operations--> bitwise-operations["secrets"]
 style bitwise-operations fill:#0f0
 
@@ -91,7 +90,7 @@ style multi-dimensional-arrays stroke:#00f
 multi-dimensional-arrays --linear-algebra--> linear-algebra["??"]
 %%style linear-algebra stroke:#00f
 
-pairs-and-dicts --dict-functions--> dict-functions["mecha-munch-management"]
+functions --dict-functions--> dict-functions["mecha-munch-management"]
 %% style dict-functions stroke:#00f
 
 pairs-and-dicts --functions--> functions["locomotive-engineer"]
