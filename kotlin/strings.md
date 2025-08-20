@@ -80,7 +80,32 @@ sb.toString()
 
 ## String functions
 
-Kotlin strings 
+Kotlin provides _many_ [`functions`][string-functions] to manipulate strings.
+
+Mostly, these are [`extensions functions`][extensions] rather than members of the `String` class, though this has little effect on how we use them.
+
+***Note:*** _Kotlin's rather complex [documentation][string-functions] pages hide extension functions in the default view.
+Be sure to click `Members and Extensions` to expand this section._
+
+The following example shows just a small selection of what is available:
+
+```kotlin
+val str = "Hello World!"
+
+str.length              // => 12 (a property, not a function)
+str.elementAt(6)        // => W
+str.elementAtOrNull(20) // => null (index out of range)
+str.substring(6, 11)    // => "World"
+
+str.lowercase()        // => "hello world!"
+str.uppercase()        // => "HELLO WORLD!"
+
+str.startsWith("Hel")  // => true
+str.endsWith("xyz")    // => false
+
+str.toCharArray()      // => [H, e, l, l, o,  , W, o, r, l, d, !]
+"42".toInt() + 1       // => 43
+```
 
 
 [string]: https://kotlinlang.org/docs/strings.html
@@ -89,3 +114,5 @@ Kotlin strings
 [formats]: https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary
 [printf]: https://en.wikipedia.org/wiki/Printf
 [stringbuilder]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/
+[extensions]: https://kotlinlang.org/docs/extensions.html#extensions.md
+[string-functions]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/
