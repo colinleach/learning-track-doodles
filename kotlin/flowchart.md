@@ -23,33 +23,45 @@ style strings stroke:#333
 strings -.chars.-> chars["squeaky-clean"]
 style chars stroke:#333
 
-booleans -.conditionals.-> conditionals["cars-assemble?"]
-style conditionals stroke:#333
+booleans -.conditionals.-> conditionals["vehicle-purchase?"]
+style conditionals stroke:#f00
 
 booleans -.numbers.-> numbers["cars-assemble?"]
-style numbers stroke:#333
+style numbers stroke:#f00
 
-    conditionals -.ranges.-> ranges["??"]
-    style ranges stroke:#333
+conditionals -.ranges.-> ranges["chessboard?"]
+style ranges stroke:#333
 
-    ranges -.for-loops.-> for-loops["bird-watcher?"]
-    style for-loops stroke:#333
+ranges -.loops.-> loops["bird-watcher?"]
+style loops stroke:#333
 
-    conditionals -.when.-> when["??"]
-    style when stroke:#333
+conditionals -.when.-> when["guessing-game??"]
+style when stroke:#333
 
-    conditionals -.nullability.-> nullability["tim-from-marketing?"]
-    numbers -.nullability.-> nullability["tim-from-marketing?"]
-    style nullability stroke:#333
+conditionals -.nullability.-> nullability["tim-from-marketing?"]
+numbers -.nullability.-> nullability["tim-from-marketing?"]
+style nullability stroke:#333
 
-    numbers -.lists.-> lists["bird-watcher?"]
-    style lists stroke:#333
+numbers -.lists.-> lists["bird-watcher?"]
+style lists stroke:#333
 
-lists -.sets.-> sets["??"]
+lists -.sets.-> sets["gotta-snatch-em-all?"]
 style sets stroke:#333
 
-lists -.maps.-> maps["??"]
+lists -.maps.-> maps["international-calling-connoiseur?"]
 style maps stroke:#333
+
+lists -.randomness.-> randomness["captains-log?"]
+style randomness stroke:#333
+
+numbers -.bits.-> bits["secrets"]
+style bits stroke:#333
+
+when -.enums.-> enums["??"]
+style enums stroke:#333
+
+
+
 
 
 ```

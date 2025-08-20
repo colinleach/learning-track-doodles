@@ -8,20 +8,22 @@ A [`string`][string] in Kotlin is an immutable sequence of Unicode characters.
 
 A string is usually surrounded by double-quotes `" "`.
 
-Some characters need escaping: `\'`, `\\`, plus the usual non-printing characters such as `\t` (tab) and \n (newline).
+Some characters need escaping: `\'`, `\\`, plus the usual non-printing characters such as `\t` (tab) and `\n` (newline).
 
 ```kotlin
 val s = "Escape apostrophe \' and backslash \\."
 // Escape apostrophe ' and backslash \.
 ```
 
-Multiline strings use 3 double-quotes, and can contain newlines and arbitrary test (no need for escaping).
+Raw strings use 3 double-quotes, and can contain arbitrary text (no need for escaping).
+Multiline strings are also supported, including flexible handling of indents.
 
 ```kotlin
 val multi = """I'm a
-multi-line
-string with special characters \ \t """
+    |multi-line
+    |string with special characters \ \t """
 
+multi.trimMargin()  // delimiter defaults to | but can be specified
 //I'm a
 //multi-line
 //string with special characters  \ \t 
@@ -46,7 +48,44 @@ The braces `{ }` are needed around expressions when parsing would otherwise be a
 
 ## String formatting
 
+On the JVM platform, `String.format()` allows more precise formatting than string templates, with [syntax][formats] similar to the (_very old!_) [`printf`][printf] functions.
 
+```kotlin
+String.format("%s %.3f", "π ≈", 3.14159)
+//π ≈ 3.142
+```
+
+## StringBuilder
+
+Sometimes a long string needs to be built up in stages, for example within a loop.
+
+Concatenating strings with `+` soon becomes neither elegant nor performant: immutability means that there is a _lot_ of copying required.
+
+Use of [`StringBuilder`][stringbuilder] can be much more efficient.
+
+In essence, a `StringBuilder` is a list-like structure, with convenient methods:
+
+- `append()` to add to the end.
+- `insert()` to add at a specified position.
+- `delete()` to remove from a specified position.
+- `toString()` to convert to a normal string at the end: concatenating everything in a single, performant operation.
+
+```kotlin
+val sb = StringBuilder()
+sb.append("Hello ")
+sb.append("World!")
+sb.toString()
+//Hello World!
+```
+
+## String functions
+
+Kotlin strings 
 
 
 [string]: https://kotlinlang.org/docs/strings.html
+[immutable]: https://en.wikipedia.org/wiki/Immutable_object
+[unicode]: https://en.wikipedia.org/wiki/Unicode
+[formats]: https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary
+[printf]: https://en.wikipedia.org/wiki/Printf
+[stringbuilder]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/
