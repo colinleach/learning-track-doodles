@@ -2,6 +2,8 @@
 
 This is a very fluid plan and will doubtless continue to change frequently!
 
+Boxes with red borders have a draft `about.md` available.
+
 Boxes with green borders have the exercise + concept PRs submitted.
 Blue borders mean only the concept PR is submitted.
 Solid green means both are merged.
@@ -18,7 +20,7 @@ basics -.booleans.-> booleans["annalyns-infiltration"]
 style booleans fill:#0f0
 
 basics -.strings.-> strings["log-levels"]
-style strings stroke:#333
+style strings stroke:#f00
 
 strings -.chars.-> chars["squeaky-clean"]
 style chars stroke:#333

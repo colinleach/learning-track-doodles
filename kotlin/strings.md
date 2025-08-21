@@ -1,4 +1,4 @@
-# About
+# About Strings
 
 A [`string`][string] in Kotlin is an immutable sequence of Unicode characters.
 
@@ -104,7 +104,7 @@ str.startsWith("Hel")  // => true
 str.endsWith("xyz")    // => false
 
 str.toCharArray()      // => [H, e, l, l, o,  , W, o, r, l, d, !]
-"42".toInt() + 1       // => 43
+"42".toInt() + 1       // => 43  (parsing; see also toFloat)
 ```
 
 
