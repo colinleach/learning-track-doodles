@@ -32,17 +32,17 @@ booleans -.numbers.-> numbers["cars-assemble?"]
 style numbers stroke:#f00
 
 conditionals -.ranges.-> ranges["chessboard?"]
-style ranges stroke:#333
+style ranges stroke:#f00
 
 ranges -.loops.-> loops["bird-watcher?"]
 style loops stroke:#333
 
 conditionals -.when.-> when["guessing-game??"]
-style when stroke:#333
+style when stroke:#f00
 
 conditionals -.nullability.-> nullability["tim-from-marketing?"]
 numbers -.nullability.-> nullability["tim-from-marketing?"]
-style nullability stroke:#333
+style nullability stroke:#f00
 
 numbers -.lists.-> lists["bird-watcher?"]
 style lists stroke:#333
