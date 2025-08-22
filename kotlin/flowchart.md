@@ -57,7 +57,7 @@ lists -.randomness.-> randomness["captains-log?"]
 style randomness stroke:#333
 
 numbers -.bits.-> bits["secrets"]
-style bits stroke:#333
+style bits stroke:#f00
 
 when -.enums.-> enums["??"]
 style enums stroke:#333
@@ -72,7 +72,7 @@ style enums stroke:#333
 ## Some special features of Kotlin
 
 The Java syllabus is useful as a starting point for a Kotlin equivalent.
-However, Kotlin is a big, modern, multi-paradigm language with many features still absent from Java.
+However, Kotlin is a big, modern, multi-paradigm language with many features that are still absent from Java.
 
 This is a very preliminary list, which ~~may~~ will certainly need correction by someone with more experience of modern Java:
 

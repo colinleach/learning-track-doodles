@@ -29,8 +29,8 @@ style types fill:#0f0
 types --composite-types--> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
-composite-types --iterators--> iterators["plane-tickets?<br/>fibonacci-iterator?"]
-style iterators color:#f00
+composite-types --iterators--> iterators["fibonacci-iterator"]
+%% style iterators stroke:#f00
 
 composite-types --parametric-types--> parametric-types["treasure-chest"]
 nothingness --parametric-types--> parametric-types["treasure-chest"]
@@ -84,14 +84,14 @@ style chars fill:#0f0
 conditionals --bitwise-operations--> bitwise-operations["secrets"]
 style bitwise-operations fill:#0f0
 
-function-composition --multi-dimensional-arrays--> multi-dimensional-arrays["??"]
-style multi-dimensional-arrays stroke:#00f
+function-composition --multi-dimensional-arrays--> multi-dimensional-arrays["exercism-matrix"]
+style multi-dimensional-arrays fill:#0f0
 
 multi-dimensional-arrays --linear-algebra--> linear-algebra["??"]
 %%style linear-algebra stroke:#00f
 
 functions --dict-functions--> dict-functions["mecha-munch-management"]
-%% style dict-functions stroke:#00f
+style dict-functions stroke:#00f
 
 pairs-and-dicts --functions--> functions["locomotive-engineer"]
 style functions fill:#0f0
@@ -126,7 +126,7 @@ loops --rational-numbers--> rational-numbers["problematic-probabilities"]
 style rational-numbers fill:#0f0
 
 multi-dimensional-arrays --comprehensions--> comprehensions["boutique-suggestions"]
-style comprehensions stroke:#0f0
+style comprehensions fill:#0f0
 
 ```
 
