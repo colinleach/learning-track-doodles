@@ -59,7 +59,7 @@ style randomness stroke:#333
 numbers -.bits.-> bits["secrets"]
 style bits stroke:#f00
 
-when -.enums.-> enums["??"]
+when -.enums.-> enums["logs-logs-logs?"]
 style enums stroke:#333
 
 lists -.arrays.-> arrays["bird-watcher"]
@@ -68,7 +68,7 @@ style arrays stroke:#333
 lists -.pairs-and-triples.-> pairs-and-triples["??"]
 style pairs-and-triples stroke:#333
 
-loops -.recursion.-> recursion["??"]
+loops -.recursion.-> recursion["pizza-pricing?"]
 style recursion stroke:#333
 
 nullability -.functions.-> functions["??"]
