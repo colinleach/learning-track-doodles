@@ -44,13 +44,13 @@ conditionals -.nullability.-> nullability["tim-from-marketing?"]
 numbers -.nullability.-> nullability["tim-from-marketing?"]
 style nullability stroke:#f00
 
-numbers -.lists.-> lists["bird-watcher?"]
+numbers -.lists.-> lists["karls-languages?"]
 style lists stroke:#333
 
 lists -.sets.-> sets["gotta-snatch-em-all?"]
 style sets stroke:#333
 
-lists -.maps.-> maps["international-calling-connoiseur?"]
+lists -.maps.-> maps["international-<br/>calling-connoiseur?"]
 style maps stroke:#333
 
 lists -.randomness.-> randomness["captains-log?"]
@@ -62,8 +62,30 @@ style bits stroke:#f00
 when -.enums.-> enums["??"]
 style enums stroke:#333
 
+lists -.arrays.-> arrays["bird-watcher"]
+style arrays stroke:#333
 
+lists -.pairs-and-triples.-> pairs-and-triples["??"]
+style pairs-and-triples stroke:#333
 
+loops -.recursion.-> recursion["??"]
+style recursion stroke:#333
+
+nullability -.functions.-> functions["??"]
+style functions stroke:#333
+
+functions -.higher-order-functions.-> higher-order-functions["??"]
+style higher-order-functions stroke:#333
+
+functions -.exceptions.-> exceptions["calculator-conundrum?"]
+classes -.exceptions.-> exceptions["calculator-conundrum?"]
+style exceptions stroke:#333
+
+nullability -.classes.-> classes["??"]
+style classes stroke:#333
+
+classes -.types.-> types["??"]
+style types stroke:#333
 
 
 ```
