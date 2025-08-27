@@ -4,3 +4,9 @@ r/concept-exercises/log-levels/.Rhistory
 *.ipynb
 
 kotlin/.idea/
+
+kotlin/exercises/concept/annalyns-infiltration/gradlew
+
+kotlin/exercises/concept/annalyns-infiltration/build.gradle.kts
+
+kotlin/exercises/concept/annalyns-infiltration/gradle/wrapper/

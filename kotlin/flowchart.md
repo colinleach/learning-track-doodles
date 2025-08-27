@@ -45,7 +45,7 @@ numbers -.nullability.-> nullability["tim-from-marketing?"]
 style nullability stroke:#f00
 
 numbers -.lists.-> lists["karls-languages?"]
-style lists stroke:#333
+style lists stroke:#f00
 
 lists -.sets.-> sets["gotta-snatch-em-all?"]
 style sets stroke:#333
