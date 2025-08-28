@@ -1,6 +1,6 @@
 # About chars
 
-This is a _big_ subject!
+This is potentially a _big_ subject!
 It is possible to write a long book about it, and several people have done so (search Amazon for "unicode book" to see some examples).
 
 ## A very brief history
@@ -20,15 +20,13 @@ To prevent _everything_ breaking, the Unicode/UTF-8 design ensures that the firs
 
 Languages designed after about 2005 have the huge advantage that a reasonably stable Unicode standard already existed.
 
-Kotlin (first released 2011) was able to assume that users would use a variety of (human) languages, and would need Unicode to express them.
+Kotlin (first released in 2011) was able to assume that users would use a variety of (human) languages, and would need Unicode to express them.
 
 Note that there is no attempt to implement the full Unicode standard, which uses up to six bytes per character.
 
 Characters in Kotlin are all 16-bit: enough to express most written alphabets, but not a wide range of emojis.
-The 
 
 Character literals are written in single-quotes, and are distinct from strings written in double quotes.
-
 This is probably obvious to people from the C/C++ world, but potentially confusing to Python and JavaScript programmers.
 
 ```kotlin
@@ -55,121 +53,70 @@ Char(97) // => 'a'
 The compiler allows _some_ forms of integer arithmetic on `Char`s:
 
 ```kotlin
-a + 5       // => 'f'
+'a' + 5       // => 'f'
 'c' - 'a'   // => 2
 'c' + 'a'   // => error!
 
 'f' + ('A' - 'a')  // => 'F' (same as 'f'.uppercase()
+
+'f'.dec() // => 'e' (decrement)
+'f'.inc() // => 'g' (increment)
 ```
 
 ## Functions for `Char`
 
-A subset of string-handling functions can also work on `Char` input.
-
 - For appropriate alphabets, change case with [`uppercase()`][uppercase] and [`lowercase()`][lowercase].
-- Test case with [`isuppercase()`][isuppercase] and [`islowercase()`][islowercase].
+- Test case with [`isUpperCase()`][isuppercase] and [`isLowerCase()`][islowercase].
 - Test character type with:
-    - [`isletter()`][isletter], covers many alphabets
-    - [`isdigit()`][isdigit], tests for strictly 0:9
-    - [`isnumeric()`][isnumeric], broader than `isdigit`, so `true` for ¾ and various non-European scripts
-    - [`isxdigit()`][isxdigit], hexadecimal digits
-    - [`isascii()`][isascii], pre-Unicode character
-    - [`ispunct()`][ispunct], punctuation
-    - [`isspace()`][isspace], any whitespace character
-    - [`isprint()`][isprint], printable characters (opposite is `iscntrl()`)
-
-```julia
-islowercase('A')  # false
-uppercase('γ')  # 'Γ': Unicode U+0393 (category Lu: Letter, uppercase)
-ispunct('@')  # true
-isdigit('A')  # false
-isxdigit('A')  # true
-```
-To check if a character is present in a string, we have [`in`][ranges].
-Note that this differs from substrings:
+    - [`isLetter()`][isletter], covers many alphabets
+    - [`isDigit()`][isdigit], in range 0..9
+    - `isLetterOrDigit()`, combines the previous two
+    - [`isWhitespace()`][iswhitespace], any whitespace character
 
 ```kotlin
-# char search
-julia> 'a' ∈ "xabcahliazlnkiw"
-true
-
-# substring search
-julia> "a" ∈ "xabcahliazlnkiw"
-use occursin(needle, haystack) for string containment
+'झ'.isLetter()      // => true
+'A'.isLowerCase()   // => false
+'4'.isDigit()       // => true
+'\t'.isWhitespace() // => true  (tab character)
 ```
-
-Also, regular expressions (the subject of another Concept) allow powerful search and manipulation.
-
-## Char Vector and String interconversions
-
-For String to Char Vector, we can use `collect()`.
-
-For Char Vector to String, there is the `String()` constructor.
+To check if a character is present in a `String`, or a `Char` list or array, we have [`in`][ranges].
 
 ```kotlin
-julia> s = "abcde"
-"abcde"
-
-julia> cv = collect(s)
-5-element Vector{Char}:
- 'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
- 'b': ASCII/Unicode U+0062 (category Ll: Letter, lowercase)
- 'c': ASCII/Unicode U+0063 (category Ll: Letter, lowercase)
- 'd': ASCII/Unicode U+0064 (category Ll: Letter, lowercase)
- 'e': ASCII/Unicode U+0065 (category Ll: Letter, lowercase)
-
-julia> String(cv)
-"abcde"
+val clist = "kotlin".toList()  // => [k, o, t, l, i, n]
+'t' in clist     // => true
+'t' in "kotlin"  // => true
 ```
 
-This works with any characters, not just ASCII.
+Also, regular expressions (the subject of a later Concept) allow powerful search and manipulation.
+
+## Char List and String interconversions
+
+For String to Char List, we can use `toList()`.
+
+For Char List to String, there is the [`joinToString()`][jointostring] function, which takes a separator as argument.
 
 ```kotlin
-julia> collect("❤,😱")
-3-element Vector{Char}:
- '❤': Unicode U+2764 (category So: Symbol, other)
- ',': ASCII/Unicode U+002C (category Po: Punctuation, other)
- '😱': Unicode U+1F631 (category So: Symbol, other)
+val kt = "kotlin".toList()  // => [k, o, t, l, i, n]
+kt.joinToString("")   // => "kotlin"
+kt.joinToString("_")  // => "k_o_t_l_i_n"
 ```
 
-Note that the `String()` constructor operates on a Vector.
-To _cast_ a single `Char` to a 1-character string, the function is `string()`, with lowercase `s`.
+Note that `joinToString()` operates on a List or Array.
+To _cast_ a single `Char` to a 1-character string, use `toString()`.
 
 ```kotlin
-julia> string('a')
-"a"
+'a'.toString() // => "a"
 ```
-
-## Storage
-
-Everything so far in the document seems relatively simple, so is there really not much to worry about?
-
-Unfortunately, this is too optimistic!
-
-One complication comes from the need for "up to" 6 hex digits per code point.
-This means that different characters need different amounts of space in memory when UTF-8 encoded.
-
-A byte can only store (unsigned) numbers up to 255, two hex digits, so UTF-8 uses a variable number of bytes (1 to 4) to store a `Char`.
-These are called "code units", and the `ncodeunits()` function will return the number needed for a given character.
-
-```kotlin
-julia> codepoint(jha)  # jha 'झ' is defined in an earlier example
-0x0000091d
-
-julia> ncodeunits(jha)
-3
-
-julia> ncodeunits('a')  # ASCII character
-1
-
-julia> ncodeunits('😱')  # emoji
-4
-```
-
-Also, not everything that can be displayed on screen has its own unique code point.
-Some visually-distinct characters are considered to be derived from others, so Unicode treats them as a parent character plus a modifier.
 
 
 [ascii]: https://en.wikipedia.org/wiki/ASCII
 [unicode]: https://home.unicode.org/
 [utf-8]: https://en.wikipedia.org/wiki/UTF-8
+[uppercase]: 
+[lowercase: 
+[isuppercase]: 
+[islowercase]: 
+[isletter]: 
+[isdigit]: 
+[iswhitespace]: 
+[jointostring]: 
