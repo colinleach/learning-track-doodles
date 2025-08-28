@@ -63,7 +63,9 @@ The compiler allows _some_ forms of integer arithmetic on `Char`s:
 'f'.inc() // => 'g' (increment)
 ```
 
-## Functions for `Char`
+## Some functions for `Char`
+
+As always, there are far too many fuctions to discuss here, so this is just a selection.
 
 - For appropriate alphabets, change case with [`uppercase()`][uppercase] and [`lowercase()`][lowercase].
 - Test case with [`isUpperCase()`][isuppercase] and [`isLowerCase()`][islowercase].
@@ -79,7 +81,7 @@ The compiler allows _some_ forms of integer arithmetic on `Char`s:
 '4'.isDigit()       // => true
 '\t'.isWhitespace() // => true  (tab character)
 ```
-To check if a character is present in a `String`, or a `Char` list or array, we have [`in`][ranges].
+To check if a character is present in a `String`, or a `Char` list or array, we have `in`, equivalent to the [`contains()[contains] function.
 
 ```kotlin
 val clist = "kotlin".toList()  // => [k, o, t, l, i, n]
@@ -112,11 +114,12 @@ To _cast_ a single `Char` to a 1-character string, use `toString()`.
 [ascii]: https://en.wikipedia.org/wiki/ASCII
 [unicode]: https://home.unicode.org/
 [utf-8]: https://en.wikipedia.org/wiki/UTF-8
-[uppercase]: 
-[lowercase: 
-[isuppercase]: 
-[islowercase]: 
-[isletter]: 
-[isdigit]: 
-[iswhitespace]: 
-[jointostring]: 
+[uppercase]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/uppercase.html
+[lowercase]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lowercase.html
+[isuppercase]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/is-upper-case.html
+[islowercase]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/is-lower-case.html
+[isletter]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/is-letter.html
+[isdigit]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/is-digit.html
+[iswhitespace]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/is-whitespace.html
+[jointostring]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/join-to-string.html
+[contains]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/contains.html
