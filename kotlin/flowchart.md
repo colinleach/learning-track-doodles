@@ -23,7 +23,7 @@ basics -.strings.-> strings["log-levels"]
 style strings stroke:#f00
 
 strings -.chars.-> chars["squeaky-clean"]
-style chars stroke:#333
+style chars stroke:#f00
 
 booleans -.conditionals.-> conditionals["vehicle-purchase?"]
 style conditionals stroke:#f00
