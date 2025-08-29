@@ -55,13 +55,15 @@ A concise form of `if ... else` is preferred:
 return if (isOK) goodValue else badValue
 ```
 
-Note that in Kotlin, `if` is an _expression_ returning a value.
-It is not a _statement_ as in Java.
+Note that in Kotlin, `if` is an [_expression_][expression] returning a value.
+It is not a [_statement_][statement] as in Java.
 
-We will see in a later Concept that Kotlin has a very powerful [`when`][when] construct, intended to replace long chains of `else if` clauses with pattern matching.
+We will see in a later Concept that Kotlin has a powerful [`when`][when] construct, intended to replace long chains of `else if` clauses with pattern matching.
 
 
 [operators]: https://kotlinlang.org/docs/keyword-reference.html#operators-and-special-symbols
 [referential-equality]: https://kotlinlang.org/docs/equality.html#floating-point-numbers-equality
 [if-else]: https://kotlinlang.org/docs/control-flow.html#if-expression
 [when]: https://kotlinlang.org/docs/control-flow.html#when-expressions-and-statements
+[expression]: https://en.wikipedia.org/wiki/Expression_(computer_science)
+[statement]: https://en.wikipedia.org/wiki/Statement_(computer_science)

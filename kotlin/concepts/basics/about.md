@@ -59,15 +59,28 @@ fun add(x: Int, y: Int): Int {
 Some points to note:
 
 - Parentheses `()` are needed after the function name, even if the function takes no arguments.
+- Function arguments need to specify the type: there is no type inference (in contract to variables).
 - The body of the function is enclosed in braces `{ }` (though see below).
-- The `return` keyword is required.
+- The `return` keyword is required, if returning a value.
 - Semicolons `;` at the end of lines are optional, and usually omitted.
 - Arithmetic operators `+`, `-`, `*`, `/` are similar to most mainstream languages.
 
 However, for these very simple, "single-expression" functions, there is an abbreviated syntax:
 
 ```Kotlin
-fun add(x: Int, y: Int): Int = x + y
+// return type is usually omitted for single-expression functions
+fun add(x: Int, y: Int) = x + y  
+```
+Functions can have parameters with default values. 
+These values will be used if they are omitted where the function is invoked:
+
+```kotlin
+fun ping(host: String = "localhost") {
+    println("PING --> $host")
+}
+
+ping("exercism.io")  // PING --> exercism.io
+ping()               // PING --> localhost
 ```
 
 Functions within Exercism will usually return a value (because of the way the test runner is structured).
