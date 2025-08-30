@@ -11,8 +11,6 @@ Each comes in various "sizes", meaning how many bits it needs in memory.
 
 Integer variables relying on type inference default to `Int`, even on 64-bit machines, but floating point variables default to `Double`.
 
-
-
 Other types can, of course, be specified, but there are a few syntactic shortcuts, and big integer literals become `Long` if they would overflow `Int`.
 
 ```Kotlin
@@ -60,6 +58,61 @@ The modulo operator `%` gives the remainder from integer division:
 ```
 
 Kotlin, like other JVM languages, has no exponentiation operator (_this annoys scientists and engineers_).
+We need to use the `pow()` function from the `math` library, and the number being raised to some power must be `Float` or `Double`.
+
+```kotlin
+2.0.pow(3)  // => 8.0
+2.pow(3)  // Unresolved reference (2 is Int, so not allowed)
+```
+
+## Rounding
+
+The [`math`][math] library contains several functions to round floating point numbers to a nearby integer.
+
+_Did the last line sound slightly odd?_
+When we say "a nearby integer", there are two questions:
+
+- Is the return value still Float/Double, or is it converted to Int/Long?
+- How are ties rounded? Does `4.5` round to `4` or `5`?
+
+It is not Kotlin's fault if this seems complicated.
+Mathematicians have been arguing about this for centuries.
+
+### `round()`, `floor()`, `ceil()`, `truncate()`
+
+These four functions all return the same floating-point type as the input, but differ in how they round.
+
+- [`round()`][round] gives the _nearest_ integer if this is unambiguous, or the _nearest even_ integer when tied.
+- [`floor()`][floor] rounds towards negative infinity.
+- [`ceil()`][ceil] rounds towards positive infinity
+- [`truncate()`][truncate] rounds towards zero
+
+```kotlin
+round(4.7)  // => 5.0 (nearest integer)
+round(4.5)  // => 4.0 (nearest even integer)
+
+floor(4.7)  // => 4.0  (towards -Inf)
+floor(-4.7)  // => 5.0
+
+ceil(4.7)   // => 5.0  (towards +Inf)
+ceil(-4.7)  // => -4.0
+
+truncate(4.7)  // => 4.0  (towards zero)
+truncate(-4.7) // => -4.0
+```
+
+### `roundToInt()`, `roundToLong()`
+
+These two functions do a type conversion after rounding, so the return type is `Int` or `Long` respectively.
+
+Ties are always rounded towards positive infinity.
+
+```kotlin
+4.3.roundToInt()  // => 4 (nearest integer)
+4.5.roundToInt()  // => 5  (nearest integer towards +Inf)
+```
+
+Note also the different syntax: `x.roundToInt()` versus `round(x)`.
 
 ## Type conversions
 
@@ -85,3 +138,8 @@ See the [manual][conversions] for the full list of `toX()` methods.
 
 [IEEE]: https://en.wikipedia.org/wiki/IEEE_754
 [conversions]: https://kotlinlang.org/docs/numbers.html#explicit-number-conversions
+[math]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/
+[round]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/round.html
+[floor]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/floor.html
+[ceil]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/ceil.html
+[truncate]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/truncate.html
