@@ -2,7 +2,7 @@
 
 ## Numerical types
 
-Numbers can be integer, unsigned integer, or floating point types.
+[Numbers][numbers] can be integer, unsigned integer, or floating point types.
 Each comes in various "sizes", meaning how many bits it needs in memory.
 
 - Integers can be `Byte`, `Short`, `Int` or `Long`, respectively 8, 16, 32 and 64 bits.
@@ -34,7 +34,7 @@ The basic arithmetic operators are the same as in many languages:
 4 + 3 // => 7
 4 - 3 // => 1
 4 * 3 // => 12
-4 / 3 // => 1  Int / Int always gives an nt
+4 / 3 // => 1  Int / Int always gives an Int
 -8 / 3 // => -2  Truncated towards zero
 -8.0 / 3 // => -2.6666666666666665
 ```
@@ -58,7 +58,7 @@ The modulo operator `%` gives the remainder from integer division:
 ```
 
 Kotlin, like other JVM languages, has no exponentiation operator (_this annoys scientists and engineers_).
-We need to use the `pow()` function from the `math` library, and the number being raised to some power must be `Float` or `Double`.
+We need to use the [`pow()`][pow] function from the [`math`][math] library, and the number being raised to some power must be `Float` or `Double`.
 
 ```kotlin
 2.0.pow(3)  // => 8.0
@@ -136,8 +136,10 @@ n.toDouble() // => 42.0
 
 See the [manual][conversions] for the full list of `toX()` methods.
 
+[numbers]: https://kotlinlang.org/docs/numbers.html
 [IEEE]: https://en.wikipedia.org/wiki/IEEE_754
 [conversions]: https://kotlinlang.org/docs/numbers.html#explicit-number-conversions
+[pow]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/pow.html
 [math]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/
 [round]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/round.html
 [floor]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.math/floor.html
