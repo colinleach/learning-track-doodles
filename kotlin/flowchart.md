@@ -26,7 +26,7 @@ strings -.chars.-> chars["squeaky-clean"]
 style chars stroke:#f00
 
 booleans -.conditionals.-> conditionals["vehicle-purchase?"]
-style conditionals stroke:#f00
+style conditionals stroke:#00f
 
 booleans -.numbers.-> numbers["cars-assemble?"]
 style numbers stroke:#f00
