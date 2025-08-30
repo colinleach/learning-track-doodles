@@ -3,5 +3,5 @@
     "colinleach"
   ],
   "contributors": [],
-  "blurb": ""
+  "blurb": "Strings are an immutable sequence of Unicode characters."
 }

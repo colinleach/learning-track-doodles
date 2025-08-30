@@ -110,6 +110,7 @@ Ties are always rounded towards positive infinity.
 ```kotlin
 4.3.roundToInt()  // => 4 (nearest integer)
 4.5.roundToInt()  // => 5  (nearest integer towards +Inf)
+(-4.5).roundToInt()  // => -4
 ```
 
 Note also the different syntax: `x.roundToInt()` versus `round(x)`.

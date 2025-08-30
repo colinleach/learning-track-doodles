@@ -29,7 +29,7 @@ booleans -.conditionals.-> conditionals["vehicle-purchase?"]
 style conditionals stroke:#00f
 
 booleans -.numbers.-> numbers["cars-assemble?"]
-style numbers stroke:#f00
+style numbers stroke:#00f
 
 conditionals -.ranges.-> ranges["chessboard?"]
 style ranges stroke:#f00

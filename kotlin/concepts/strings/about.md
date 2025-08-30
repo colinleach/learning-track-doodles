@@ -5,8 +5,9 @@ A [`string`][string] in Kotlin is an immutable sequence of Unicode characters.
 [`Immutable`][immutable] means that any operation on a string must return a new string: the original string can never change.
 
 [`Unicode`][unicode] means that most of the world's writing systems can be represented, but (in contrast to older languages such as C) there is no 1:1 mapping between characters and bytes.
+This will be discussed further in the [`Chars`][chars] Concept.
 
-A string is usually surrounded by double-quotes `" "`.
+A string is surrounded by double-quotes `" "`.
 
 Some characters need escaping: `\'`, `\\`, plus the usual non-printing characters such as `\t` (tab) and `\n` (newline).
 
@@ -34,7 +35,7 @@ There are other and often better options.
 
 ## String templates
 
-This refers to what some other languages call "interpolation".
+[`Templates`][templates] refers to what some other languages call "interpolation".
 
 if a dollar sign `$` is followed by an identifier or expression within a string, the _value_ is substituted.
 
@@ -48,34 +49,11 @@ The braces `{ }` are needed around expressions when parsing would otherwise be a
 
 ## String formatting
 
-On the JVM platform, `String.format()` allows more precise formatting than string templates, with [syntax][formats] similar to the (_very old!_) [`printf`][printf] functions.
+On the JVM platform (only), `String.format()` allows more precise formatting than string templates, with [syntax][formats] similar to the (_very old!_) [`printf`][printf] functions.
 
 ```kotlin
 String.format("%s %.3f", "π ≈", 3.14159)
 //π ≈ 3.142
-```
-
-## StringBuilder
-
-Sometimes a long string needs to be built up in stages, for example within a loop.
-
-Concatenating strings with `+` soon becomes neither elegant nor performant: immutability means that there is a _lot_ of copying required.
-
-Use of [`StringBuilder`][stringbuilder] can be much more efficient.
-
-In essence, a `StringBuilder` is a list-like structure, with convenient methods:
-
-- `append()` to add to the end.
-- `insert()` to add at a specified position.
-- `delete()` to remove from a specified position.
-- `toString()` to convert to a normal string at the end: concatenating everything in a single, performant operation.
-
-```kotlin
-val sb = StringBuilder()
-sb.append("Hello ")
-sb.append("World!")
-sb.toString()
-//Hello World!
 ```
 
 ## String functions
@@ -107,6 +85,49 @@ str.toCharArray()      // => [H, e, l, l, o,  , W, o, r, l, d, !]
 "42".toInt() + 1       // => 43  (parsing; see also toFloat)
 ```
 
+## Building a string
+
+Sometimes a long string needs to be built up in stages, for example within a loop.
+
+Concatenating strings with `+` soon becomes neither elegant nor performant: immutability means that there is a _lot_ of copying required.
+
+Kotlin has various more efficient ways to combine multiple string:
+
+- String templates, described above.
+- [`joinToString()][jointostring], which will be covered in the [Lists][lists] Concept.
+- Java's [`StringBuilder`][stringbuilder], which is not regarded as particularly idiomatic Kotlin.
+- Kotlin's [`buildString()`][buildstring], which wraps `StringBuilder` in a more concise and idiomatic syntax.
+This takes string-building logic as a lambda argument, which will be discussed in a later Concept.
+
+In essence, a `StringBuilder` is a list-like structure, with many convenient methods.
+This is a small selection:
+
+- [`append()`][sb-append] to add to the end.
+- [`insert()`][sb-insert] to add at a specified position.
+- [`deleteAt()`][sb-deleteat] and [`deleteRange()`][sb-deleterange] to remove from specified position(s).
+- `toString()` to convert to a normal string at the end: concatenating everything in a single, performant operation.
+
+```kotlin
+// Available, not recommended
+val sb = StringBuilder()
+sb.append("Hello ")
+sb.append("World!")
+sb.toString()
+//Hello World!
+```
+
+A `buildString()` example, using syntax from later Concepts:
+
+```kotlin
+val countDown = buildString {
+    for (i in 5 downTo 1) {
+        append(i)
+        append("_")
+    }
+}
+// countDown is "5_4_3_2_1_"
+```
+
 
 [string]: https://kotlinlang.org/docs/strings.html
 [immutable]: https://en.wikipedia.org/wiki/Immutable_object
@@ -116,3 +137,12 @@ str.toCharArray()      // => [H, e, l, l, o,  , W, o, r, l, d, !]
 [stringbuilder]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/
 [extensions]: https://kotlinlang.org/docs/extensions.html#extensions.md
 [string-functions]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/
+[chars]: https://exercism.org/tracks/kotlin/concepts/chars
+[lists]: https://exercism.org/tracks/kotlin/concepts/lists
+[templates]: https://kotlinlang.org/docs/strings.html#string-templates
+[sb-append]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/#9100522%2FFunctions%2F-705004581
+[sb-insert]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/#-132863384%2FFunctions%2F-705004581
+[sb-deleteat]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/#-386007892%2FFunctions%2F-956074838
+[sb-deleterange]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/#-1622040372%2FFunctions%2F-956074838
+[buildstring]: https://kotlinlang.org/docs/java-to-kotlin-idioms-strings.html#build-a-string
+[jointostring]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/join-to-string.html
