@@ -42,7 +42,7 @@ style when stroke:#f00
 
 conditionals -.nullability.-> nullability["tim-from-marketing?"]
 numbers -.nullability.-> nullability["tim-from-marketing?"]
-style nullability stroke:#f00
+style nullability stroke:#00f
 
 numbers -.lists.-> lists["karls-languages?"]
 style lists stroke:#f00
