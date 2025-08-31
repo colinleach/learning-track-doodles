@@ -23,7 +23,7 @@ basics -.strings.-> strings["log-levels"]
 style strings stroke:#00f
 
 strings -.chars.-> chars["squeaky-clean"]
-style chars stroke:#f00
+style chars stroke:#00f
 
 booleans -.conditionals.-> conditionals["vehicle-purchase?"]
 style conditionals stroke:#00f
@@ -56,8 +56,8 @@ style maps stroke:#333
 lists -.randomness.-> randomness["captains-log?"]
 style randomness stroke:#333
 
-numbers -.bits.-> bits["secrets"]
-style bits stroke:#f00
+numbers -.bitwise-operations.-> bitwise-operations["secrets"]
+style bitwise-operations stroke:#00f
 
 when -.enums.-> enums["logs-logs-logs?"]
 style enums stroke:#333
