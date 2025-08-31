@@ -20,7 +20,7 @@ basics -.booleans.-> booleans["annalyns-infiltration"]
 style booleans fill:#0f0
 
 basics -.strings.-> strings["log-levels"]
-style strings stroke:#f00
+style strings stroke:#00f
 
 strings -.chars.-> chars["squeaky-clean"]
 style chars stroke:#f00
