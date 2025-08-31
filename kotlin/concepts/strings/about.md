@@ -37,11 +37,11 @@ There are other and often better options.
 
 [`Templates`][templates] refers to what some other languages call "interpolation".
 
-if a dollar sign `$` is followed by an identifier or expression within a string, the _value_ is substituted.
+If a string contains a dollar sign `$`, followed by an identifier, or contains braces (`{expression}`) surrounding an expression, those are substituted by respectively the value or the result of the expression.
 
 ```kotlin
 val x = 42
-val st = "x is $x, x squared is ${x * x}"
+val st = "x is $x, x squared is {x * x}"
 // x is 42, x squared is 1764
 ```
 
@@ -62,8 +62,11 @@ Kotlin provides _many_ [`functions`][string-functions] to manipulate strings.
 
 Mostly, these are [`extensions functions`][extensions] rather than members of the `String` class, though this has little effect on how we use them.
 
-***Note:*** _Kotlin's rather complex [documentation][string-functions] pages hide extension functions in the default view.
-Be sure to click `Members and Extensions` to expand this section._
+~~~~exercism/note
+Kotlin's rather complex [documentation][string-functions] pages hide extension functions in the default view.
+Be sure to click `Members and Extensions` to expand this section.
+
+~~~~
 
 The following example shows just a small selection of what is available:
 
