@@ -3,5 +3,5 @@
     "colinleach"
   ],
   "contributors": [],
-  "blurb": ""
+  "blurb": "Ranges represent a sequence of consecutive elements, ascending or descending, and typically integers or characters."
 }

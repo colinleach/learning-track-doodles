@@ -28,11 +28,11 @@ style chars stroke:#00f
 booleans -.conditionals.-> conditionals["vehicle-purchase?"]
 style conditionals stroke:#00f
 
-booleans -.numbers.-> numbers["cars-assemble?"]
-style numbers stroke:#00f
+booleans -.numbers.-> numbers["cars-assemble"]
+style numbers stroke:#0f0
 
 conditionals -.ranges.-> ranges["chessboard?"]
-style ranges stroke:#f00
+style ranges stroke:#00f
 
 ranges -.loops.-> loops["bird-watcher?"]
 style loops stroke:#333
