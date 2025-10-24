@@ -87,11 +87,14 @@ style bitwise-operations fill:#0f0
 function-composition --multi-dimensional-arrays--> multi-dimensional-arrays["exercism-matrix"]
 style multi-dimensional-arrays fill:#0f0
 
-multi-dimensional-arrays --linear-algebra--> linear-algebra["??"]
-%%style linear-algebra stroke:#00f
+multi-dimensional-arrays --linear-algebra-basics--> linear-algebra-basics["??"]
+style linear-algebra-basics stroke:#00f
 
-functions --dict-functions--> dict-functions["mecha-munch-management"]
-style dict-functions stroke:#00f
+linear-algebra-basics --linear-equation-solving--> linear-equation-solving["??"]
+%%style linear-equation-solving stroke:#00f
+
+higher-order-functions --dict-functions--> dict-functions["mecha-munch-management"]
+style dict-functions fill:#0f0
 
 pairs-and-dicts --functions--> functions["locomotive-engineer"]
 style functions fill:#0f0
@@ -102,8 +105,8 @@ style functions fill:#0f0
 tuples --functions--> functions["locomotive-engineer"]
 style functions fill:#0f0
 
-multi-dimensional-arrays --higher-order-functions--> higher-order-functions["??"]
-style higher-order-functions stroke:#00f
+multi-dimensional-arrays --higher-order-functions--> higher-order-functions["cheese-club"]
+style higher-order-functions fill:#0f0
 
 parametric-types --multiple-dispatch--> multiple-dispatch["encounters"]
 style multiple-dispatch fill:#0f0

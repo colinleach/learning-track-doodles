@@ -1,12 +1,12 @@
 # About Lists
 
-Any general-purpose language needs ways to handle collections of data, and the [`kotlin.collections`][collections] standard library covers an appropriate variety of types.
+Any general-purpose language needs ways to handle collections of data, and the [`kotlin.collections`][ref-collections] standard library covers an appropriate variety of types.
 
 In particular, we need a way to store and manipulate _ordered sequences_ of data.
 
-For this, Kotlin's preferred method is (_usually but not always_) to use the [`List`][list] type.
+For this, Kotlin's preferred method is (_usually but not always_) to use the [`List`][ref-list] type.
 
-The [`listOf()`][listof] function creates a read-only (immutable) list.
+The [`listOf()`][ref-listof] function creates a read-only (immutable) list.
 Entries cannot be added, removed or modified.
 
 ```kotlin
@@ -27,7 +27,7 @@ vi.add(11) // => Unresolved reference error
 
 As with many aspects of Kotlin, immutability is the default but a similar mutable type is available.
 
-The [`mutableListOf()`][mutablelistof] function creates a list with elements that can be added, deleted and modified.
+The [`mutableListOf()`][ref-mutablelistof] function creates a list with elements that can be added, deleted and modified.
 
 ```kotlin
 val vm = mutableListOf(1, 3, 5)
@@ -41,14 +41,14 @@ vm.remove(5)  // => vm is [1, 9, 11]
 vm.drop(2)  // => [11]
 ```
 
-Both [`List`][list-api] and [`MutableList`][mutablelist] have dozens of functions available for a wide variety of manipulations: far too many to demonstrate here.
+Both [`List`][ref-list-api] and [`MutableList`][ref-mutablelist] have dozens of functions available for a wide variety of manipulations: far too many to demonstrate here.
 
 It can be important to understand _what_ each function returns.
 For example, when we want a reversed list:
 
 - `asReversed()` returns a reversed _view_ of the original list, with no copying.
 - `reversed()` returns a reversed _copy_ of the original list.
-- for mutable lists, `reverse()` modifies the original list in-place.
+- for mutable lists, `reverse()` modifies the original list in-place (the return value is `Unit`).
 
 ## Appending lists
 
@@ -59,7 +59,7 @@ val v = listOf(1, 2) + listOf(3, 4) + listOf(5, 6) + listOf(7, 8) + listOf(9, 10
 // => v is [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-A MutableList can be extended with `+=`, equivalent to the [`addAll()`][addall] function.
+A MutableList can be extended with `+=`, equivalent to the [`addAll()`][ref-addall] function.
 
 ```kotlin
 val vm = mutableListOf(11, 9, 1)
@@ -77,10 +77,16 @@ vi2 += listOf(5, 4, 3)
 
 Internally, this copies _both_ lists to a new, temporary list, then assigns this to `vi2`, overwriting the original value.
 
-[collections]: https://kotlinlang.org/docs/collections-overview.html
-[list]: https://kotlinlang.org/docs/collections-overview.html#list
-[list-api]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/
-[listof]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of.html
-[mutablelist]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/
-[mutablelistof]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/mutable-list-of.html
-[addall]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/add-all.html
+## Kotlin collections types: an overview
+
+A later concept will discuss the `Array` type, which is also an ordered sequence.
+
+
+
+[ref-collections]: https://kotlinlang.org/docs/collections-overview.html
+[ref-list]: https://kotlinlang.org/docs/collections-overview.html#list
+[ref-list-api]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/
+[ref-listof]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of.html
+[ref-mutablelist]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/
+[ref-mutablelistof]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/mutable-list-of.html
+[ref-addall]: https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/add-all.html
