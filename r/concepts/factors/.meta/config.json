@@ -1,0 +1,5 @@
+{
+  "authors": ["colinleach"],
+  "contributors": [],
+  "blurb": "Factors in R are collections of categorical variables that can only take on one of a set of discrete values."
+}

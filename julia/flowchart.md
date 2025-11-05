@@ -57,7 +57,10 @@ style loops fill:#0f0
 ranges --strings--> strings["log-levels"]
 style strings fill:#0F0
 
-ranges --vector-operations--> vector-operations["bird-watcher"]
+ranges --sorting--> sorting["??"]
+%%style sorting fill:#0F0
+
+sorting --vector-operations--> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
 
 functions --nothingness--> nothingness["name-badges"]
