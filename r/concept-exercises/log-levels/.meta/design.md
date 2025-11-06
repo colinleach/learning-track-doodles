@@ -16,7 +16,7 @@ In an ideal world it would cover `stringr` as the preferred alternative, but Doc
 ## Out of scope
 
 - `grep()`, `regexexpr()` and `gregexpr()` are postponed to the `regular-expressions` concept.
-- Discussion of `lists` in return values, beyond the necessary minimum.
+- Discussion of `lists` as return values, beyond the necessary minimum.
 
 ## Concepts
 

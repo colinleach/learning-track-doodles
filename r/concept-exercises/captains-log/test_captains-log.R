@@ -3,10 +3,6 @@ library(testthat)
 
 # 1) random_planet
 
-# need enough runs to be pretty sure all possible values will be chosen
-# with 1000, the chance of a false fail is 1.7e-46
-# with 500, this is 1.3e-23
-
 repeats <- 1000
 random_planets <- vector(length = repeats)
 for (i in 1:repeats) random_planets[i] <- random_planet()

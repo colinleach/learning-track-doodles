@@ -13,7 +13,7 @@ The goal of this exercise is to teach the student about the various forms of not
 
 ## Out of scope
 
-- `NaN` and `Inf` as flagging invalid numbers, though this is mentioned in the concept's `about.md`.
+- `NaN` and `Inf` as flagging invalid numbers, though this is mentioned in the concept's `about.md`. Omitting these is purely pragmatic, with no obvious way to include them in the exercise.
 - The greater importance of this concept in more complex structures such as `dataframes`. At this stage, the discussion is limited to vectors.
 
 ## Concepts

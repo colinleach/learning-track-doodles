@@ -3,13 +3,13 @@
 R makes no distinction between strings and characters, so `"A"` is just a one-character string.
 
 To find the length of a string, use `nchar()`.
-Using `length()` will return the length of the vector of strings, typically 1 as in this case:
+Using `length()` will return the length of the underlying `vector` of strings, typically 1 as in this case:
 
 ```R
 > x <- "Some string"
-> length(x)
+> length(x) # length of underlying vector
 [1] 1
-> nchar(x)
+> nchar(x) # length of string
 [1] 11
 ````
 
@@ -26,7 +26,8 @@ The default separator is a space, so override this if necessary.
 Numbers will be converted to strings as necessary.
 
 There is also `sprintf()`, taken directly from C with identical syntax.
-This allows precise formatting of the output string, but at its simplest just use `%s` as a placeholder for each string you want to interpolate, then add the value(s) as comma-separated parameters.
+This allows precise formatting of the output string.
+At its simplest just use `%s` as a placeholder for each string you want to interpolate, then add the value(s) as comma-separated parameters.
 
 ```R
 > sprintf("Hello, %s, nice to see you", "Carol")
@@ -54,6 +55,7 @@ To split on some separator, such as space:
 
 One thing to beware of is that this (like several string functions) returns a `list`. 
 If you have not yet unlocked that concept, just add `[[1]]` in double brackets to get the vector in the first element of the list.
+Details will become clearer later in the syllabus.
 
 ## Whitespace
 
@@ -65,4 +67,4 @@ Leading and/or trailing whitespace can be removed with `trimws()`:
 [1] "messy string"
 ```
 
-There is a `which = "left"` (or "right") parameter to avoid trimming both ends.
+There is a `which = "left"` (or "right") parameter to only trim one end.

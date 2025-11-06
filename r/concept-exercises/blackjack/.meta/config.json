@@ -2,8 +2,8 @@
   "authors": ["colinleach"],
   "contributors": [],
   "files": {
-    "solution": ["{slug}.R"],
-    "test": ["test_{slug}.R"],
+    "solution": ["blackjack.R"],
+    "test": ["test_blackjack.R"],
     "exemplar": [".meta/exemplar.R"]
   },
   "forked_from": ["go/blackjack"],
