@@ -29,9 +29,6 @@ style types fill:#0f0
 types --composite-types--> composite-types["land-grab-in-space"]
 style composite-types  fill:#0f0
 
-composite-types --iterators--> iterators["fibonacci-iterator"]
-%% style iterators stroke:#f00
-
 composite-types --parametric-types--> parametric-types["treasure-chest"]
 nothingness --parametric-types--> parametric-types["treasure-chest"]
 style parametric-types  fill:#0f0
@@ -57,8 +54,8 @@ style loops fill:#0f0
 ranges --strings--> strings["log-levels"]
 style strings fill:#0F0
 
-ranges --sorting--> sorting["??"]
-%%style sorting fill:#0F0
+ranges --sorting--> sorting["ordering-ordeal"]
+style sorting fill:#0f0
 
 sorting --vector-operations--> vector-operations["bird-watcher"]
 style vector-operations fill:#0f0
@@ -94,7 +91,7 @@ multi-dimensional-arrays --linear-algebra-basics--> linear-algebra-basics["??"]
 style linear-algebra-basics stroke:#00f
 
 linear-algebra-basics --linear-equation-solving--> linear-equation-solving["??"]
-%%style linear-equation-solving stroke:#00f
+style linear-equation-solving stroke:#00f
 
 higher-order-functions --dict-functions--> dict-functions["mecha-munch-management"]
 style dict-functions fill:#0f0
@@ -113,6 +110,9 @@ style higher-order-functions fill:#0f0
 
 parametric-types --multiple-dispatch--> multiple-dispatch["encounters"]
 style multiple-dispatch fill:#0f0
+
+multiple-dispatch --interfaces--> interfaces["fibonacci-iterator"]
+%%style interfaces fill:#0f0
 
 functions --complex-numbers--> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
