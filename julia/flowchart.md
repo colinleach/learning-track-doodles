@@ -112,7 +112,7 @@ parametric-types --multiple-dispatch--> multiple-dispatch["encounters"]
 style multiple-dispatch fill:#0f0
 
 multiple-dispatch --interfaces--> interfaces["fibonacci-iterator"]
-%%style interfaces fill:#0f0
+style interfaces fill:#0f0
 
 functions --complex-numbers--> complex-numbers["tracking-turntable"]
 style complex-numbers fill:#0f0
