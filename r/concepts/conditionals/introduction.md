@@ -27,7 +27,8 @@ if (x > 10) {
 }
 ```
 
-In this case, parentheses `()` around the boolean and braces `{}` around the statement are both required. 
+In this case, parentheses `()` around the boolean and braces `{}` around the statement are both required.
+
 A simple `if` statement can be shortened:
 
 ```R
