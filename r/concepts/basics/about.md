@@ -2,14 +2,29 @@
 
 ## Variables and assignment
 
-R is a [dynamically typed][wiki-dynamic] language, so in general it is not necessary to specify the type of a variable. The default type is [`numeric`][ref-numeric], usually implemented as a double-precision float. To force use of 32-bit integers use a `L` suffix:
+R is a [dynamically typed][wiki-dynamic] language, so in general it is not necessary to specify the type of a variable. The default type is [`numeric`][ref-numeric], usually implemented as a double-precision float. To force use of 32-bit integers use a `L` suffix (abbreviation for `Long`).
+
+Getting the "type" of an obect is (for historical reasons) potentially confusing.
+The functions [`typeof()`][ref-typeof] and [`class()`][ref-class] are similar, but may return slightly different results:
 
 ```R
+typeof(50)
+#> [1] "double"  # more specific: an implementation detail
+typeof(50L)
+##> [1] "integer"
+
 class(50)
-#> "numeric"
+#> [1] "numeric"  # less specific: ignores implementation details
 class(50L)
-#> "integer"
+#> [1] "integer"
 ```
+
+~~~exercism/advanced
+You may also see references to `mode()`, which is similar to `typeof()`.
+
+Please ignore `mode()` and `storage.mode()`.
+They are only provided for backwards compatibility.
+~~~~
 
 The preferred assignment operator is `<-`.
 If working in RStudio, it can be entered with the keyboard shortcut `Alt-minus`.
@@ -35,7 +50,7 @@ This `%` syntax is a way to call infix operators implemented as macros.
 2 ^ 3   # 8 (exponential)
 ```
 
-Note that `#` starts a single-line comment.
+In R, `#` starts a single-line comment.
 There is no separate syntax for multiline comments.
 
 ## Functions
@@ -96,4 +111,6 @@ This makes it easier to copy-paste code samples into the console and run them.
 
 [wiki-dynamic]: https://en.wikipedia.org/wiki/Dynamic_programming_language
 [ref-numeric]: https://statsandr.com/blog/data-types-in-r/
+[ref-typeof]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/typeof.html
+[ref-class]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/class.html
 [concept-conditionals]: /tracks/R/concepts/conditionals

@@ -19,11 +19,11 @@ style basics fill:#0f0
 basics --booleans--> booleans["annalyns-infiltration"]
 style booleans fill:#0f0
 
-booleans --conditionals--> conditionals["vehicle-purchase<br/>cars-assemble"]
+booleans --conditionals--> conditionals["cars-assemble"]
 style conditionals fill:#0f0
 
 conditionals --vectors--> vectors["elyses-enchantments"]
-style vectors stroke:#0f0
+style vectors fill:#0f0
 
 switch -.loops.-> loops["mixed-juices"]
 style loops stroke:#0f0
@@ -36,7 +36,7 @@ style set-operations stroke:#0f0
 
 name-attribute --lists--> lists["need-for-speed"]
 
-vectors --vector-filtering--> vector-filtering["elyses-analytic-enchantments<br/>bird-watcher"]
+vectors --vector-filtering--> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
 style vector-filtering stroke:#0f0
 
 vector-filtering --name-attribute--> name-attribute["??"]

@@ -90,10 +90,15 @@ Our R track predates addition of the tidyverse by several years, so you may noti
 
 `dplyr` is mostly about manipulating dataframes (to be covered later on the course).
 
+Add it with either `library(dplyr)` at the tope of your code, or `library(tidyverse)` to add the whole collection.
+You may see warning messages about masked names, but this is rarely a problem.
+
 For the present Concept, the [`if-else`][ref-if_else] function is worth mentioning.
 It is mostly similar to [`if_else`][ref-if_else] in base R.
 
 ```R
+library(dplyr) # warnings not shown
+
 x <- 10
 if_else(x > 8, "big", "small")
 #> [1] "big"
