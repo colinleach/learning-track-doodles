@@ -1,13 +1,21 @@
 # About
 
-A `vector` in R is a collection of values of the same `class`: commonly `integer`, `numeric`, `character`, `logical`; rarely `complex` or `raw`.
+A [`vector`][ref-vector] in R is a collection of values of the same [`class`][ref-class]: commonly [`integer`][ref-integer], [`numeric`][ref-numeric], [`character`][ref-character], [`logical`][ref-logical]; rarely [`complex`][ref-complex] or [`raw`][ref-raw].
 They are stored contiguously in memory, similar to a C array.
 
 If given mixed inputs, R will quietly coerce them all to a common type, usually `character`, which can lead to unexpected results.
 
+```R
+v <- c(2, 5.4, "txt")
+v
+#> [1] "2"   "5.4" "txt"
+typeof(v)
+#> [1] "character"
+```
+
 ## Creating vectors
 
-If you already have all the values, use `c()` (short for "concatenate"):
+If you already have all the values, use [`c()`][ref-concatenate] (short for "concatenate"):
 
 ```R
 x <- 10
@@ -20,7 +28,7 @@ If the vector starts small and grows a lot during runtime (for example, adding v
 v <- vector(length = 100) 
 ```
 
-This minimizes the need for copying of the object: a slow and memory-hungy operation for long vectors.
+This minimizes the need for copying of the object: a slow and memory-hungry operation for long vectors.
 
 ## Ranges, sequences, repeats
 
@@ -74,7 +82,7 @@ The loops, list comprehensions and recursions common in other languages are not 
 2 ^ (1:3) # c(2, 4, 8) : exponentiation, operator precedence order here needs ()
 ```
 
-Pairs of vectors also work:
+Pairs of vectors also work, with elements treated pair-wise:
 
 ```R
 v <- 1:3
@@ -124,8 +132,6 @@ v
 #> [1]  1 42  3 11 12 13  7  8  9 10
 ```
 
-In fact, this returns a modified copy of the vector.
-
 ## Negative indices
 
 Programmers familiar with other languages might guess that `v[-1]` is a way to access the last element in a vector.
@@ -145,7 +151,7 @@ Negative indices are actually a way to ***remove*** en element:
 ```R
 v <- c(2, 4, 6)
 v[-2]
-[1] 2 6  # second element gone
+#> [1] 2 6  # second element gone
 ```
 
 This returns a shorter copy of the vector. `v` itself is unchanged.
@@ -179,8 +185,29 @@ For now, just note the format of output in the REPL:
 The lines start with numbers in `[ ]` to indicate the index of the first element (useful for long vectors wrapping across multiple lines).
 But why are single values preceded by `[1]`?
 
-**There are no truly scalar values in R! What appears to be a single number or letter is actually a vector of length 1.**
+~~~~exercism/note
+*There are no truly scalar values in R!* 
+
+What appears to be a single number or letter is actually a vector of length 1.
+~~~~
 
 ## A word on notation
 
-The vectors described above are more formally known as `atomic vectors`. This is because they can only contain simple, indivisible (hence "atomic") values such as `numeric`, `characacter`, `boolean`. More complex structures can form `recursive vectors`, which will be introduced when `lists` are discussed.
+The vectors described above are more formally known as [`atomic vectors`][book-atomic]. This is because they can only contain simple, indivisible (hence "atomic") values such as `numeric`, `characacter`, `boolean`. More complex structures can form `recursive vectors`, which will be introduced when [`lists`][concept-lists] are discussed.
+
+[ref-class]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/class.html
+[ref-integer]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/integer.html
+[ref-numeric]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/numeric.html
+[ref-character]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/character.html
+[ref-logical]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/logical.html
+[ref-complex]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/complex.html
+[ref-raw]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/raw.html
+[ref-concatenate]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html
+[ref-vector]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/vector.html
+[ref-seq]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/seq.html
+[ref-rep]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/rep.html
+[ref-tail]: https://stat.ethz.ch/R-manual/R-devel/library/utils/html/head.html
+[ref-all]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/all.html
+[ref-any]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/any.html
+[book-atomic]: https://r4ds.had.co.nz/vectors.html#vector-basics
+[concept-lists]: https://exercism.org/tracks/r/concepts/lists
