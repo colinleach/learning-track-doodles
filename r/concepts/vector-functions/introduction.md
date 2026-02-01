@@ -10,9 +10,9 @@ We already saw functions that take in a vector and return a single, scalar-like 
 ```R
 > v <- 1:5
 > sum(v)
-[1] 15
+#> [1] 15
 > length(v)
-[1] 5
+#> [1] 5
 ```
 
 Many statistical functions are also in this category, such as `mean()`.
@@ -27,29 +27,29 @@ This includes most of the mathematical functions:
 ```R
 > sq <- c(4, 9, 16, 25)
 > sqrt(sq) # square root
-[1] 2 3 4 5
+#> [1] 2 3 4 5
 ```
 
-This is not just concise and convenient, avoiding the need for loops, list comprehensions or recursion.
-In R, vector functions often run much faster than these more familiar techniques.
+This is not just concise and convenient, avoiding the need for loops, list comprehensions or recursion, which are common in other languages.
+In R, vector functions often run much faster than those techniques.
 
 For sorting a vector, there is `sort()` to return the values and `order()` to return the indices:
 
 ```R
 > v <- c("I", "am", "not", "in", "order")
 > sort(v)
-[1] "am"    "I"     "in"    "not"   "order"
+#> [1] "am"    "I"     "in"    "not"   "order"
 > order(v)
-[1] 2 1 4 3 5
+#> [1] 2 1 4 3 5
 ```
 
 There are also functions to produce cumulative vector outputs, operating on the input vector left-to-right:
 
 ```R
 > cumsum(1:5)
-[1]  1  3  6 10 15  # sums
+#> [1]  1  3  6 10 15  # sums
 > cumprod(1:5)
-[1]   1   2   6  24 120 # factorials, for a range like this
+#> [1]   1   2   6  24 120 # equivalent to factorials
 ```
 
 ## Multiple-vectors-in, vector-out
@@ -59,9 +59,9 @@ For example, consider the pairwise-max function `pmax()`:
 
 ```R
 > v
-[1] 2 7 9
+#> [1] 2 7 9
 > w
-[1] 3 1 5
+#> [1] 3 1 5
 > pmax(v, w)
-[1] 3 7 9 # max of each pairwise comparison
+#> [1] 3 7 9 # max of each pairwise comparison
 ```
