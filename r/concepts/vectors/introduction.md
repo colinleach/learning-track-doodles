@@ -1,6 +1,6 @@
 # Introduction
 
-A `vector` in R is a collection of values of the same `mode`: `numeric`, `character`, etc. If given mixed inputs, R will quietly coerce them all to a common type, usually character, which can lead to unexpected results.
+A `vector` in R is a collection of values of the same `class`: `numeric`, `character`, etc. If given mixed inputs, R will quietly coerce them all to a common type, usually `character`, which can lead to unexpected results.
 
 ## Creating vectors
 
@@ -40,7 +40,7 @@ A few ranges are pre-defined as built-in constants:
 ## Arithmetic
 
 Operations are automatically applied element-wise along the vector. 
-The loops, list comprehensions and recursions common in other languages are not needed and (for performance reasons) should usually be avoided.
+The loops, list comprehensions and recursions common in other languages are not needed and (*for performance reasons*) should usually be avoided.
 
 ```R
 2 + 1:3 # c(3, 4, 5)
@@ -49,7 +49,7 @@ The loops, list comprehensions and recursions common in other languages are not 
 2 ^ (1:3) # c(2, 4, 8) : exponentiation, precedence order here needs ()
 ```
 
-Pairs of vectors also work:
+Pairs of vectors also work element-wise:
 
 ```R
 > v <- 1:3
@@ -100,8 +100,8 @@ w <- c(2, v[2:3], 11) # c(2, 7, 10, 11)
 
 ## Negative indices
 
-Programmers familiar with other languages might guess that `v[-1]` is a way to access the last element in a vectore.
-Wrong!
+Programmers familiar with other languages might guess that `v[-1]` is a way to access the last element in a vector.
+*Wrong!*
 
 Negative indices are actually a way to ***remove*** en element, returning a shorter vector:
 
