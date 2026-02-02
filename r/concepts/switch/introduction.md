@@ -17,8 +17,8 @@ star <- function(type) {
 [1] "red dwarf"
 ```
 
-Note that options will only fall through if the value is left blank, as with `M` in the example above. 
+Note that options will only fall through if the value is left blank, as with `M` in the example above.
 There is no need to include `break` statements as with some other languages.
 
-With character types, the final value can be a default, as here, or a `stop()` to throw an error if the conditions are intended to be exhaustive.
-Switching on an integer is slightly different: for these the default is always `NULL`.
+When switching on `character` types, the final value is a default, as here.
+With integer types, no default can be given.
