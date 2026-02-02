@@ -77,7 +77,7 @@ This will be covered in the [`vector-functions`][concept-vector-functions] conce
 ### Background
 
 The R language maintainers have a policy of avoiding breaking changes as far as possible.
-This avoids breaking the vast number of third-party packages available in [CRAN][web-cran], but limits the ability to update base R with modern programming concepts.
+This helps maintain the vast number of third-party packages available in [CRAN][web-cran], but limits the ability to update base R with modern programming concepts.
 
 In recent years, several packages have been released which extend and sometimes replace R functionality, based on multi-decade experience of the strengths and weaknesses of the original R design.
 
@@ -93,8 +93,8 @@ Our R track predates addition of the tidyverse by several years, so you may noti
 Add it with either `library(dplyr)` at the tope of your code, or `library(tidyverse)` to add the whole collection.
 You may see warning messages about masked names, but this is rarely a problem.
 
-For the present Concept, the [`if-else`][ref-if_else] function is worth mentioning.
-It is mostly similar to [`if_else`][ref-if_else] in base R.
+For the present Concept, the [`if_else`][ref-if_else] function is worth mentioning.
+It is mostly similar to [`ifelse`][ref-ifelse] in base R.
 
 ```R
 library(dplyr) # warnings not shown
@@ -134,4 +134,3 @@ You may also find that `if_else` has better error messages than the older `ifels
 [concept-nothingness]: https://exercism.org/tracks/r/concepts/nothingness
 [web-cran]: https://cran.r-project.org/
 [web-tidyverse]: https://tidyverse.org/
-

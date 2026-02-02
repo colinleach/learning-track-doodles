@@ -43,8 +43,8 @@ There are then two extra functions related to `switch`.
 Matching is still exact, but:
 
 - The options on the left can be vectors, and the input matches if any element matches.
-- Options and results are linked with a tilde `~` instead of `=`.
-- Missing values `NA` can be matched explicitly.
+- Options on the left and results on the right are linked with a tilde `~` instead of `=`.
+- Missing values `NA` can be matched explicitly (this will be discussed in the [Nothingness][concept-nothingness] Concept).
 - A default can be specified in all cases.
 
 ```R
@@ -65,9 +65,9 @@ case_match(
 
 ### The [`case_when`][ref-case-when] function
 
-[`case_when`][ref-case-when] takes `case_match` syntax a stage further, by allowing any logical expression on the left. of the `~`.
+[`case_when`][ref-case-when] takes `case_match` syntax a stage further, by allowing any logical expression on the left of the `~`.
 
-Also, there is no need to supply the input vector as an argument (`x` in the example below), it just needs to be already defined.
+The input vector (`x` in the example below) is not supplied as an argument, it just needs to be already defined.
 
 ```R
 x <- 1:10
