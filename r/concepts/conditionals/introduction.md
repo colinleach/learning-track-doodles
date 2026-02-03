@@ -35,7 +35,7 @@ A simple `if` statement can be shortened:
 if (x == 0) return("success")
 ```
 
-An alternative if-else form may be useful:
+A shorter if-else form may be useful:
 
 ```R
 y <- ifelse(x > 8, "big", "small")
@@ -47,7 +47,7 @@ The two possible return values must be of the same type (string in the example a
 Mixing numeric and string is likely to cause problems: 
 
 ```R
-ifelse(x > 8, 10, "small")  # bad
+ifelse(x > 8, 10, "small") # numeric or string result? Expect problems!
 ```
 
 Another option is using the similar `if_else()` function from the `dplyr` package.
