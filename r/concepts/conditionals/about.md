@@ -69,7 +69,7 @@ z <- ifelse(x > 100, 100, "small") # numeric or string result? Expect problems!
 3. value if `FALSE`.
 
 Vector inputs are acceptable, and then a vector output is produced. 
-In this case, ensure both branches result in the same type (`mode`) of data: numeric, character, boolean, etc.
+In this case, ensure both branches result in the same type of data: numeric, character, logical, etc.
 This will be covered in the [`vector-functions`][concept-vector-functions] concept.
 
 ## The [`if_else`][ref-if_else] function
@@ -88,9 +88,9 @@ Our R track predates addition of the tidyverse by several years, so you may noti
 
 ### The [`dplyr`][ref-dplyr] package
 
-`dplyr` is mostly about manipulating dataframes (to be covered later on the course).
+`dplyr` is mostly about manipulating dataframes (to be covered later in the course).
 
-Add it with either `library(dplyr)` at the tope of your code, or `library(tidyverse)` to add the whole collection.
+Add it with either `library(dplyr)` at the top of your code, or `library(tidyverse)` to add the whole collection.
 You may see warning messages about masked names, but this is rarely a problem.
 
 For the present Concept, the [`if_else`][ref-if_else] function is worth mentioning.
@@ -120,6 +120,12 @@ ifelse(xs > 8, "big", "small")
 
 You may also find that `if_else` has better error messages than the older `ifelse`.
 
+After loading the `dplyr` library, you will also have access to the [`between()`][ref-between] function.
+
+R does not allow chaining of comparisons, so `1 <= x <= 5` will give an error message.
+With `dplyr` loaded, `between(x, 1, 5)` is equivalent to `x >= 1 & x <= 5`, and perhaps more readable.
+Both lower and upper limits are inclusive.
+
 
 [wiki-xor]: https://en.wikipedia.org/wiki/Exclusive_or
 [ref-xor]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/Logic.html
@@ -129,6 +135,7 @@ You may also find that `if_else` has better error messages than the older `ifels
 [ref-if_else]: https://dplyr.tidyverse.org/reference/if_else.html
 [ref-na]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/NA.html
 [ref-dplyr]: https://dplyr.tidyverse.org/
+[ref-between]: https://dplyr.tidyverse.org/reference/between.html
 [concept-vector-filtering]: https://exercism.org/tracks/r/concepts/vector-filtering
 [concept-vector-functions]: https://exercism.org/tracks/r/concepts/vector-functions
 [concept-nothingness]: https://exercism.org/tracks/r/concepts/nothingness
