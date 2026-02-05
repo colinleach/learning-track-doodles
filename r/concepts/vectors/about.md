@@ -39,7 +39,7 @@ v <- 1:5 # equivalent to c(1, 2, 3, 4, 5)
 w <- 10:7 # c(10, 9, 8, 7)
 ```
 
-The `seq()` function offers finer control:
+The [`seq()`][ref-seq] function offers finer control:
 
 ```R
 # specify step size
@@ -49,7 +49,7 @@ seq(2, 11, by = 3) # c(2, 5, 8, 11)
 seq(2.5, 4, length.out = 5) # c(2.500, 2.875, 3.250, 3.625, 4.000) 
 ```
 
-The `rep()` function makes it easy to create repeating patterns:
+The [`rep()`][ref-rep] function makes it easy to create repeating patterns:
 
 ```R
 count <- 3
@@ -68,6 +68,13 @@ A few ranges are pre-defined as built-in constants:
 ```R
 letters  # LETTERS is the UPPERCASE equivalent
 #> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+
+month.name
+#> [1] "January"   "February"  "March"     "April"     "May"       "June"      "July"      "August"   
+#> [9] "September" "October"   "November"  "December" 
+
+month.abb
+#> [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
 ```
 
 ## Arithmetic
@@ -159,7 +166,7 @@ This returns a shorter copy of the vector. `v` itself is unchanged.
 ## Vector conditionals
 
 Applying comparisons to a vector will return an equal-length vector of booleans.
-This can be very convenient within functions such as `all()` and `any()`:
+This can be very convenient within functions such as [`all()`][ref-all] and [`any()`][ref-any]:
 
 ```R
 v <- c(4, 7, 10)
@@ -174,11 +181,11 @@ any(v > 6)
 ## Vectors are *everywhere* in R
 
 This will be a subject to return to in later topics. 
-For now, just note the format of output in the REPL:
+For now, just note the format of output in the console:
 
 ```R
 1:20
-#>  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+#> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
 #> [18] 18 19 20
 ```
 

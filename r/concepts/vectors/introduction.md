@@ -43,6 +43,13 @@ A few ranges are pre-defined as built-in constants:
 ```R
 letters  # LETTERS is the UPPERCASE equivalent
 #> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z"
+
+month.name
+#> [1] "January"   "February"  "March"     "April"     "May"       "June"      "July"      "August"   
+#> [9] "September" "October"   "November"  "December" 
+
+month.abb
+#> [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"
 ```
 
 ## Arithmetic
@@ -103,7 +110,7 @@ v <- 1:10
 v[2] <- 42
 v[4:6] <- c(11, 12, 13)
 v
- [1]  1 42  3 11 12 13  7  8  9 10
+#> [1]  1 42  3 11 12 13  7  8  9 10
 ```
 
 ## Negative indices
