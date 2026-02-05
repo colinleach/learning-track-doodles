@@ -75,7 +75,7 @@ squareit <- function(x = 42) {
 }
 
 squareit()
-#> 1764
+#> [1] 1764
 ```
 
 The braces `{ }` are not strictly required for single-line function bodies, but including them is considered good style.
@@ -94,15 +94,20 @@ Calling a function is the same as in many other languages:
 
 ```R
 squareit(3)
-#> 9
+#> [1] 9
 ```
+
+We will see in future Concepts that the result `9` is actually a length-1 vector rather than a scalar number.
+Hence the inclusion of `[1]` to indicate that this is the beginning of the vector.
+
+_Most things in R are some sort of vector!_
 
 ~~~~exercism/note
 The R console would display the above example as:
 
 ```R
-> squareit()
-[1] 1764
+> squareit(3)
+[1] 9
 ```
 
 Documents in this syllabus mostly follow the convention used in several R textbooks, by removing the prompt and commenting the result.
