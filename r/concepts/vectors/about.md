@@ -1,6 +1,6 @@
 # About
 
-A [`vector`][ref-vector] in R is a collection of values of the same [`class`][ref-class]: commonly [`integer`][ref-integer], [`numeric`][ref-numeric], [`character`][ref-character], [`logical`][ref-logical]; rarely [`complex`][ref-complex] or [`raw`][ref-raw].
+A [`vector`][ref-vector] in R is a collection of values of the same [`type`][ref-type]: commonly [`integer`][ref-integer], [`numeric`][ref-numeric], [`character`][ref-character], [`logical`][ref-logical]; rarely [`complex`][ref-complex] or [`raw`][ref-raw].
 They are stored contiguously in memory, similar to a C array.
 
 If given mixed inputs, R will quietly coerce them all to a common type, usually `character`, which can lead to unexpected results.
@@ -22,6 +22,8 @@ x <- 10
 v <- c(4, 7, x)
 ```
 
+The `c()` function is very flexible, and inputs can include other vectors and ranges.
+
 If the vector starts small and grows a lot during runtime (for example, adding values in a loop), it can be significantly faster to pre-allocate a long vector which can be filled with real data later:
 
 ```R
@@ -38,6 +40,8 @@ For a range of consecutive values (increasing or decreasing) you can use `:` not
 v <- 1:5 # equivalent to c(1, 2, 3, 4, 5)
 w <- 10:7 # c(10, 9, 8, 7)
 ```
+
+In R, ranges are not a separate type: just a shorthand way to construct a vector.
 
 The [`seq()`][ref-seq] function offers finer control:
 
@@ -83,10 +87,10 @@ Operations are automatically applied element-wise along the vector.
 The loops, list comprehensions and recursions common in other languages are not needed and (for performance reasons) should be avoided if possible.
 
 ```R
-2 + 1:3 # c(3, 4, 5)
-2 * 1:3 # c(2, 4, 6)
-12 / 1:3 # c(12  6  4)
-2 ^ (1:3) # c(2, 4, 8) : exponentiation, operator precedence order here needs ()
+2 + 1:3     # c(3, 4, 5)
+2 * 1:3     # c(2, 4, 6)
+12 / 1:3    # c(12  6  4)
+2 ^ (1:3)   # c(2, 4, 8) : exponentiation, operator precedence order here needs ()
 ```
 
 Pairs of vectors also work, with elements treated pair-wise:
@@ -143,7 +147,7 @@ v
 
 Programmers familiar with other languages might guess that `v[-1]` is a way to access the last element in a vector.
 *Wrong!*
-Use [`tail(v)`][ref-tail] for that.
+Use [`tail()`][ref-tail] for that.
 
 ```R
 v <- c(2, 4, 6) # defaults to last 6 entries
@@ -153,7 +157,7 @@ tail(v, n=1) # just the last entry
 #> [1] 6
 ```
 
-Negative indices are actually a way to ***remove*** en element:
+Negative indices are actually a way to ***remove*** an element:
 
 ```R
 v <- c(2, 4, 6)
@@ -178,9 +182,18 @@ any(v > 6)
 #> [1] TRUE     # at least one element matches
 ```
 
+For more complicated logical expressions, it is important to use the `&` and `|` operators, which work on vectors.
+The double-character `&&` and `||` are only intended for comparing single values.
+
+```R
+v <- c(4, 7, 10)
+v %% 2 == 0 & v > 5
+#> [1] FALSE FALSE  TRUE
+```
+
 ## Vectors are *everywhere* in R
 
-This will be a subject to return to in later topics. 
+This will be a subject to return to in later topics.
 For now, just note the format of output in the console:
 
 ```R
@@ -202,7 +215,7 @@ What appears to be a single number or letter is actually a vector of length 1.
 
 The vectors described above are more formally known as [`atomic vectors`][book-atomic]. This is because they can only contain simple, indivisible (hence "atomic") values such as `numeric`, `characacter`, `boolean`. More complex structures can form `recursive vectors`, which will be introduced when [`lists`][concept-lists] are discussed.
 
-[ref-class]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/class.html
+[ref-type]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/typeof.html
 [ref-integer]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/integer.html
 [ref-numeric]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/numeric.html
 [ref-character]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/character.html

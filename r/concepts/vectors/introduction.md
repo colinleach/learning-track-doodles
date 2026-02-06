@@ -1,6 +1,6 @@
 # Introduction
 
-A `vector` in R is a collection of values of the same `class`: `numeric`, `character`, etc. If given mixed inputs, R will quietly coerce them all to a common type, usually `character`, which can lead to unexpected results.
+A `vector` in R is a collection of values of the same `type`: `numeric`, `character`, etc. If given mixed inputs, R will quietly coerce them all to a common type, usually `character`, which can lead to unexpected results.
 
 ```R
 v <- c(2, 5.4, "txt")
@@ -117,9 +117,9 @@ v
 
 Programmers familiar with other languages might guess that `v[-1]` is a way to access the last element in a vector.
 *Wrong!*
-Use `tail(v)` for that.
+Use `tail(v, n=1)` for that.
 
-Negative indices are actually a way to ***remove*** en element, returning a shorter vector:
+Negative indices are actually a way to ***remove*** an element, returning a shorter vector:
 
 ```R
 v <- c(2, 4, 6)
@@ -129,7 +129,7 @@ v[-2]
 
 ## Vector conditionals
 
-Applying comparisons to a vector will return an equal-length vector of booleans. 
+Applying comparisons to a vector will return an equal-length vector of booleans.
 This can be very convenient within functions such as `all()` and `any()`:
 
 ```R
@@ -141,3 +141,31 @@ all(v > 6)
 any(v > 6)
 #> [1] TRUE     # at least one element matches
 ```
+
+For more complicated logical expressions, it is important to use the `&` and `|` operators, which work on vectors.
+The double-character `&&` and `||` are only intended for comparing single values.
+
+```R
+v %% 2 == 0 & v > 5
+#> [1] FALSE FALSE  TRUE
+```
+
+## Vectors are *everywhere* in R
+
+This will be a subject to return to in later topics.
+For now, just note the format of output in the console:
+
+```R
+1:20
+#> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+#> [18] 18 19 20
+```
+
+The lines start with numbers in `[ ]` to indicate the index of the first element (useful for long vectors wrapping across multiple lines).
+But why are single values preceded by `[1]`?
+
+~~~~exercism/note
+*There are no truly scalar values in R!* 
+
+What appears to be a single number or letter is actually a vector of length 1.
+~~~~
