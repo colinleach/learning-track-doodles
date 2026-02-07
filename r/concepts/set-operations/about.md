@@ -35,5 +35,5 @@ Relevant functions include `unique` to remove duplicates, plus `union()`, `inter
 The vector operations described above are part of core R.
 These are useful for small problems but become slow for large sets.
 
-The `hashtable` package provides implementations of `hashmap` and `hashset` which scale better.
+The `hashtable` package provides implementations of `hashmap` and `hashset`, which scale better.
 Like most external packages, this is not available within Exercism, but is worth investigating for real-world problems.

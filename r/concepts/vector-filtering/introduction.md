@@ -1,6 +1,7 @@
 # Introduction
 
-We saw in the `vectors` concept that a vector can be used in a conditional expression, giving a vector of booleans. This in turn can be used in functions such as `all()` and `any()`.
+We saw in the `Vectors` concept that a vector can be used in a conditional expression, giving a logical vector. 
+This in turn can be used in functions such as `all()` and `any()`.
 
 ```R
 > v <- c(4, 7, 10)
@@ -16,7 +17,7 @@ The technique is much more powerful than this.
 
 ## Array subsets
 
-Selected elements of an array can be pulled out with an index number or a vector of indices:
+Selected elements of a vector can be pulled out with an index number or a vector of indices:
 
 ```R
 > v <- 5:10
@@ -28,7 +29,7 @@ Selected elements of an array can be pulled out with an index number or a vector
 [1] 6 8
 ```
 
-Alternatively, use a vector of booleans to filter the original vector, returning a subset of entries matched to a `TRUE` value:
+Alternatively, use a logical vector to filter the original vector, returning a subset of entries matched to a `TRUE` value:
 
 ```R
 > v <- 1:3

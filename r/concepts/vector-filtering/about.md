@@ -1,6 +1,6 @@
 # About
 
-We saw in the [`vectors`][concept-vectors] concept that a [vector][ref-vector] can be used in a conditional expression, giving a vector of booleans.
+We saw in the [`Vectors`][concept-vectors] concept that a [vector][ref-vector] can be used in a conditional expression, giving a logical vector.
 This in turn can be used in functions such as [`all()`][ref-all] and [`any()`][ref-any].
 
 ```R
@@ -17,7 +17,7 @@ The technique is much more powerful than this.
 
 ## Array subsets
 
-Selected elements of an array can be pulled out with an index number or a vector of indices:
+Selected elements of a vector can be pulled out with an index number or a vector of indices:
 
 ```R
 v <- 5:10
@@ -29,7 +29,7 @@ v[c(2, 4)]
 #> [1] 6 8
 ```
 
-Alternatively, use a vector of booleans to filter the original vector, returning a *subset* of entries matched to a `TRUE` value:
+Alternatively, use a logical vector to filter the original vector, returning a *subset* of entries matched to a `TRUE` value:
 
 ```R
 v <- 1:3
@@ -50,6 +50,8 @@ These conditional expressions can be arbitrarily complex, involving multiple vec
 ```R
 v <- 1:10
 w <- 10:1
+
+# pairwise comparison
 v[v > w]
 #> [1]  6  7  8  9 10
 ```
@@ -58,14 +60,14 @@ v[v > w]
 
 We called this Concept "*Vector Filtering*", hoping this will make sense to the widest variety of programmers.
 
-Within the R community, the term "*Subsetting*" is more common.
+Within the R community, the term "*Subsetting*" is probably more common.
 
 ## Recycling
 
 For simplicity, the examples above all compared vectors of the same length.
 What happens if the lengths are mismatched?
 
-The answer is something powerful if used deliberately but confusing if unexexpected.
+The answer is something powerful if used deliberately, but confusing if unexexpected.
 
 An example:
 

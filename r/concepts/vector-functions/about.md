@@ -9,10 +9,10 @@ We already saw functions that take in a vector and return a single, scalar-like 
 
 ```R
 v <- 1:5
-sum(v)
-#> [1] 15
 length(v)
 #> [1] 5
+sum(v)
+#> [1] 15
 ```
 
 Many statistical functions are also in this category, such as [`mean()`][ref-mean].

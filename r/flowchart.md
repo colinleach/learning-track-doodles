@@ -36,7 +36,7 @@ style set-operations stroke:#0f0
 
 name-attribute --lists--> lists["need-for-speed"]
 
-vectors --vector-filtering--> vector-filtering["elyses-analytic-enchantments?<br/>bird-watcher?"]
+vectors --vector-filtering--> vector-filtering["elyses-analytic-enchantments"]
 style vector-filtering stroke:#0f0
 
 vector-filtering --name-attribute--> name-attribute["??"]
