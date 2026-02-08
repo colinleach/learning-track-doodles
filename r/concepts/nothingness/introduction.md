@@ -61,7 +61,7 @@ Dividing by zero will return `Inf` or `-Inf` for a non-zero numerator, without r
 
 ## Empty vectors
 
-Perhaps surprisingly, R has no standard way to check for emptiness, though some third-party packages implement their own functions such as `is.empty()`.
+Perhaps surprisingly, R has no standard way to check for emptiness.
 
 Even generating an empty vector is not entirely obvious.
 We saw in an earlier section that `c()` with no arguments returns `NULL`, not a vector.
