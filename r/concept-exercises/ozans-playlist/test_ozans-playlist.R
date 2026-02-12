@@ -3,7 +3,7 @@ library(testthat)
 
 # 1) remove_duplicates
 
-test_that("works for a non-empty playlist", {
+test_that("1. works for a non-empty playlist", {
   track_1 <- "Two Paintings and a Drum - Carl Cox"
   track_2 <- "Leash Called Love - The Sugarcubes"
   playlist <- c(track_1, track_2, track_1)
@@ -11,7 +11,7 @@ test_that("works for a non-empty playlist", {
   expect_equal(remove_duplicates(playlist), expected)
 })
 
-test_that("works for an empty playlist", {
+test_that("1. works for an empty playlist", {
   playlist <- c()
   expected <- c()
   expect_equal(remove_duplicates(playlist), expected)
@@ -19,14 +19,14 @@ test_that("works for an empty playlist", {
 
 # 2) has_track
 
-test_that("returns true when the track is in the playlist", {
+test_that("2. returns true when the track is in the playlist", {
   track_1 <- "Big Science - Laurie Anderson"
   track_2 <- "Tightrope - Laurie Anderson"
   playlist <- c(track_1, track_2)
   expect_equal(has_track(playlist, track_1), TRUE)
 })
 
-test_that("returns false when the track is not in the playlist", {
+test_that("2. returns false when the track is not in the playlist", {
   track_1 <- "Big Science - Laurie Anderson"
   track_2 <- "Tightrope - Laurie Anderson"
   playlist <- c(track_2)
@@ -35,7 +35,7 @@ test_that("returns false when the track is not in the playlist", {
 
 # 3) add_tracks
 
-test_that("adds tracks that are not already in the playlist", {
+test_that("3. adds tracks that are not already in the playlist", {
   track_1 <- "Jigsaw Feeling - Siouxsie and the Banshees"
   track_2 <- "Feeling Good - Nina Simone"
   playlist <- c()
@@ -43,7 +43,7 @@ test_that("adds tracks that are not already in the playlist", {
   expect_equal(add_tracks(playlist, track_1), expected)
 })
 
-test_that("does not add a track that is already in the playlist", {
+test_that("3. does not add a track that is already in the playlist", {
   track_1 <- "Jigsaw Feeling - Siouxsie and the Banshees"
   track_2 <- "Feeling Good - Nina Simone"
   playlist <- c(track_1, track_2)
@@ -51,7 +51,7 @@ test_that("does not add a track that is already in the playlist", {
   expect_equal(add_tracks(playlist, track_1), expected)
 })
 
-test_that("add multiple tracks, some already in the playlist", {
+test_that("3. add multiple tracks, some already in the playlist", {
   track_1 <- "Jigsaw Feeling - Siouxsie and the Banshees"
   track_2 <- "Feeling Good - Nina Simone"
   track_3 <- "I Was an Eagle - Laura Marling"
@@ -62,7 +62,7 @@ test_that("add multiple tracks, some already in the playlist", {
 
 # 4) delete_tracks
 
-test_that("works if the track is present in the playlist", {
+test_that("4. works if the track is present in the playlist", {
   track_1 <- "Ancestors - Tanya Tagaq"
   track_2 <- "Take This Hammer - Lead Belly"
   playlist <- c(track_1, track_2)
@@ -70,7 +70,7 @@ test_that("works if the track is present in the playlist", {
   expect_equal(delete_tracks(playlist, track_1), expected)
 })
 
-test_that("works if the track is not present in the playlist", {
+test_that("4. works if the track is not present in the playlist", {
   track_1 <- "Ancestors - Tanya Tagaq"
   track_2 <- "Take This Hammer - Lead Belly"
   playlist <- c(track_2)
@@ -78,7 +78,7 @@ test_that("works if the track is not present in the playlist", {
   expect_equal(delete_tracks(playlist, track_1), expected)
 })
 
-test_that("works for multiple tracks if some present in the playlist", {
+test_that("4. works for multiple tracks if some present in the playlist", {
   track_1 <- "Ancestors - Tanya Tagaq"
   track_2 <- "Take This Hammer - Lead Belly"
   track_3 <- "With Or Without You - U2"
@@ -89,7 +89,7 @@ test_that("works for multiple tracks if some present in the playlist", {
 
 # 5) find_common_tracks
 
-test_that("works when there is partial overlap", {
+test_that("5. works when there is partial overlap", {
   track_1 <- "Ancestors - Tanya Tagaq"
   track_2 <- "Take This Hammer - Lead Belly"
   track_3 <- "With Or Without You - U2"
@@ -99,7 +99,7 @@ test_that("works when there is partial overlap", {
   expect_equal(find_common_tracks(playlist_1, playlist_2), expected)
 })
 
-test_that("works when there nothing in common", {
+test_that("5. works when there nothing in common", {
   track_1 <- "Paranoid - Black Sabbath"
   track_2 <- "Overkill - Motörhead"
   track_3 <- "Gurre-Lieder - Schönberg"

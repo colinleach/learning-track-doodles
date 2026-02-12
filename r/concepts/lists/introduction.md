@@ -14,29 +14,29 @@ It is somewhat similar to a C `struct`, except that the `list` can easily be ext
 Giving names (often called "tags") to the elements is more common with lists than with vectors:
 
 ```R
-> list(x = 5.3, y = 4.2, color = "blue")
+list(x = 5.3, y = 4.2, color = "blue")
 $x
-[1] 5.3
+#> [1] 5.3
 
 $y
-[1] 4.2
+#> [1] 4.2
 
 $color
-[1] "blue"
+#> [1] "blue"
 ```
 
 However, tags are optional and R will then just use index numbers:
 
 ```R
-> list(5.3, 4.2, "blue")
-[[1]]
-[1] 5.3
+list(5.3, 4.2, "blue")
+#> [[1]]
+#> [1] 5.3
 
-[[2]]
-[1] 4.2
+#> [[2]]
+#> [1] 4.2
 
-[[3]]
-[1] "blue"
+#> [[3]]
+#> [1] "blue"
 ```
 
 ## Accessing list elements
@@ -48,64 +48,56 @@ There are three ways to do this, each useful in different contexts.
 Very common if the tag names are known in advance.
 
 ```R
-> point <- list(x = 5.3, y = 4.2, color = "blue")
-> point$x
-[1] 5.3
-> point$color
-[1] "blue"
+point <- list(x = 5.3, y = 4.2, color = "blue")
+point$x
+#> [1] 5.3
+point$color
+#> [1] "blue"
 ```
 
 ### 2. With `[[tag]]` notation
 
-This has the advantage that the tag name can be chosen at runtime. Note the double brackets.
+This has the advantage that the tag name can be chosen at runtime.
+Note the double brackets.
 
 ```R
-> want <- "y"
-> point[[want]] # same as point$y
-[1] 4.2
+want <- "y"
+point[[want]] # same as point$y
+#> [1] 4.2
 ```
 
 ### 3. With position index
 
-This works whether or not the list has tags. Again, brackets are doubled.
+This works whether or not the list has tags.
+Again, brackets are doubled.
 
 ```R
-> point[[3]] # same as point$color
-[1] "blue"
+point[[3]] # same as point$color
+#> [1] "blue"
 ```
 
 ## Adding and deleting elements
 
-Simple: assigning to an element will modify if it exists or add if it is new.
+Simple: assigning to an element will modify if it exists or insert if it is new.
 
 ```R
-> point$color <- "red"
-> point$trust <- TRUE
-> point
-$x
-[1] 5.3
-
-$y
-[1] 4.2
-
-$color
-[1] "red"
-
-$trust
-[1] TRUE
+point$color <- "red"
+point$trust <- TRUE
+str(point)
+#> List of 4
+#>  $ x    : num 5.3
+#>  $ y    : num 4.2
+#>  $ color: chr "red"
+#>  $ trust: logi TRUE
 ```
 
 To delete, assign `NULL` to the unwanted element.
 
 ```R
-> point$trust <- NULL
-> point
-$x
-[1] 5.3
-
-$y
-[1] 4.2
-
-$color
-[1] "red"
+point$trust <- NULL
+str(point)
+#> List of 3
+#>  $ x    : num 5.3
+#>  $ y    : num 4.2
+#>  $ color: chr "red"
 ```

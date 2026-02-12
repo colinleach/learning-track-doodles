@@ -67,7 +67,8 @@ Jul Aug
  31  31 
 ```
 
-For this reason it is best to ensure that names are unique and non-missing, though R does not enforce this.
+For such indexing to work correctly, it is best to ensure that names are unique and non-missing.
+However, R does not enforce uniqueness.
 
 The usual vector operations still work, and names usually will be preserved if that makes sense.
 
