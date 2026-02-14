@@ -76,7 +76,8 @@ Locales are a complex topic, so please search for documentation on your own situ
 
 ## String functions
 
-Most things are possible in base R, but many programmers support for string manipulation rather limited and confusing.
+Most things are possible in base R, but many programmers find support for string manipulation rather limited and confusing.
+
 Fortunately, there are `tidyverse` packages that are much more intuitive and flexible.
 
 ### Base R

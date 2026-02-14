@@ -11,10 +11,12 @@ In a trivial example:
  [1]  3  6  9 12 15 18 21 24 27 30
  ```
 
-However, more complex function bodies may not be fully vectorized, for example if they contain loops or if-else blocks. 
-Then we need a way to apply them to vectors (similar to `map()` in some other languages).
+However, more complex functions may not accept vector input, for example if they contain loops or if-else blocks.
 
-Because R has a rich variety of data structures in the core language, it also has a whole family of `*apply()` functions to operate on them.
+We need a more general way to apply functions to vectors (similar to `map()` in some other languages).
+
+Because R has a rich variety of data structures in the base language, it also has a whole family of `*apply()` functions to operate on them.
+
 For now, consider `lapply()` and `sapply()`.
 
 ## `lapply()`
@@ -66,7 +68,8 @@ Depending on context, use of `unname()` may be necessary:
 [1]  6 10  8
 ```
 
-## Advanced Topics: Alternative Approaches
+~~~~exercism/advanced
+## Alternative Approaches
 
 Base R also has a `vapply()` function. 
 This is similar to `sapply()` but also has a required parameter to specify the output format.
@@ -76,3 +79,5 @@ Using it interactively or in simple functions is probably less useful.
 
 Outside Exercism, there is also the `purrr` package, which provides several additional options such as `map()`. 
 Less constrained by backwards compatibility than base R, this package is currently closer to modern functional programming in other languages.
+~~~~
+

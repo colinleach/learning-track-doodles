@@ -26,13 +26,13 @@ conditionals --vectors--> vectors["elyses-enchantments"]
 style vectors fill:#0f0
 
 switch -.loops.-> loops["mixed-juices"]
-style loops stroke:#0f0
+style loops fill:#0f0
 
 conditionals --switch--> switch["blackjack"]
 style switch stroke:#0f0
 
 vectors --set-operations--> set-operations["ozans-playlist"]
-style set-operations stroke:#0f0
+style set-operations fill:#0f0
 
 name-attribute --lists--> lists["need-for-speed"]
 
@@ -42,8 +42,8 @@ style vector-filtering fill:#0f0
 vector-filtering --name-attribute--> name-attribute["??"]
 style name-attribute fill:#f00,color:#fff
 
-vector-filtering --vector-functions--> vector-functions["??"]
-style vector-functions stroke:#f00
+vector-filtering --vector-functions--> vector-functions["bird-watcher?"]
+style vector-functions stroke:#0f0
 
 vector-filtering --nothingness--> nothingness["name-badges"]
 style vector-filtering stroke:#0f0
