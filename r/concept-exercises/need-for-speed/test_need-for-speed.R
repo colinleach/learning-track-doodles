@@ -3,247 +3,98 @@ library(testthat)
 
 # 1) new_car
 
-test_that("Create a new car, factory-fresh", {
+test_that("1. Create a new car, factory-fresh.", {
   speed <- 10
   battery_drain <- 2
-  expect_equal(
-    new_car(speed, battery_drain),
-    list(
-      speed = speed, battery_drain = battery_drain,
-      battery = 100, distance = 0
-    )
-  )
+  car <- new_car(speed, battery_drain)
+  expect_length(car, 4)
+  expect_equal(car$speed, speed)
+  expect_equal(car$battery_drain, battery_drain)
+  expect_equal(car$battery, 100)
+  expect_equal(car$distance, 0)
+})
+
+test_that("1. Create a new car, used.", {
+  speed <- 5
+  battery_drain <- 10
+  battery <- 30
+  distance <- 35
+  car <- new_car(speed, battery_drain, battery, distance)
+  expect_length(car, 4)
+  expect_equal(car$speed, speed)
+  expect_equal(car$battery_drain, battery_drain)
+  expect_equal(car$battery, battery)
+  expect_equal(car$distance, distance)
 })
 
 # 2) new_track
 
-test_that("Create a new car, factory-fresh", {
+test_that("2. Create a new track.", {
   distance <- 800
-  expect_equal(
-    new_track(distance),
-    list(distance = distance)
-  )
+  track <- new_track(distance)
+  expect_length(track, 1)
+  expect_equal(track$distance, distance)
 })
 
-# 3) drive
+# 3) battery_drained
+# This follows the logic of the Go track exercise, differs from C#
+# The car will not start a turn if it is unable to complete it.
 
-test_that("Create a new car, factory-fresh", {
-  distance <- 800
-  expect_equal(
-    new_track(distance),
-    list(distance = distance)
-  )
+test_that("3. Battery not drained.", {
+  car <- new_car(5, 10)
+  expect_false(battery_drained(car))
 })
 
+test_that("3. Battery drained if zero.", {
+  car <- new_car(5, 10)
+  car$battery <- 0
+  expect_true(battery_drained(car))
+})
 
+test_that("3. Battery drained if non-zero but less than drain.", {
+  car <- new_car(5, 10)
+  car$battery <- 8
+  expect_true(battery_drained(car))
+})
 
-# [Fact]
-# [Task(3)]
-# public void New_remote_control_car_has_not_driven_any_distance()
-# {
-#     int speed = 10;
-#     int batteryDrain = 2;
-#     var car = new RemoteControlCar(speed, batteryDrain);
+# 4) drive
 
-#     Assert.Equal(0, car.DistanceDriven());
-# }
+test_that("4. Drive increases distance driven with speed.", {
+  car <- new_car(5, 1)
+  car <- drive(car)
+  expect_equal(car$distance, 5)
+})
 
-# [Fact]
-# [Task(3)]
-# public void Drive_increases_distance_driven_with_speed()
-# {
-#     int speed = 5;
-#     int batteryDrain = 1;
-#     var car = new RemoteControlCar(speed, batteryDrain);
+test_that("4. Drive does not increase distance driven when battery drained.", {
+  car <- new_car(9, 50)
+  car <- drive(car)
+  car <- drive(car)
+  car <- drive(car)
+  expect_equal(car$distance, 18)
+})
 
-#     car.Drive();
+# 5) can_finish
 
-#     Assert.Equal(5, car.DistanceDriven());
-# }
+test_that("5. Can finish with plenty of battery.", {
+  car <- new_car(10, 2)
+  track <- new_track(100)
+  expect_true(can_finish(car, track))
+})
 
-# [Fact]
-# [Task(4)]
-# public void Drive_does_not_increase_distance_driven_when_battery_drained()
-# {
-#     int speed = 9;
-#     int batteryDrain = 50;
-#     var car = new RemoteControlCar(speed, batteryDrain);
+test_that("5. Can finish with just enough battery.", {
+  car <- new_car(2, 10)
+  track <- new_track(20)
+  expect_true(can_finish(car, track))
+})
 
-#     // Drain the battery
-#     car.Drive();
-#     car.Drive();
+test_that("5. Can just finish with battery less than 100%.", {
+  car <- new_car(2, 3, 25, 0)
+  track <- new_track(16)
+  expect_true(can_finish(car, track))
+})
 
-#     // One extra drive attempt (should not succeed)
-#     car.Drive();
-
-#     Assert.Equal(18, car.DistanceDriven());
-# }
-
-# [Fact]
-# [Task(4)]
-# public void New_remote_control_car_battery_is_not_drained()
-# {
-#     int speed = 15;
-#     int batteryDrain = 3;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     Assert.False(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(4)]
-# public void Drive_to_almost_drain_battery()
-# {
-#     int speed = 2;
-#     int batteryDrain = 1;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     // Almost drain the battery
-#     for (var i = 0; i < 99; i++)
-#     {
-#         car.Drive();
-#     }
-
-#     Assert.False(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(4)]
-# public void Drive_until_battery_is_drained()
-# {
-#     int speed = 2;
-#     int batteryDrain = 1;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     // Drain the battery
-#     for (var i = 0; i < 100; i++)
-#     {
-#         car.Drive();
-#     }
-
-#     Assert.True(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(4)]
-# public void Super_hungry_car_after_one_drive_is_drained()
-# {
-#     int speed = 100;
-#     int batteryDrain = 60;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-#     car.Drive();
-#     Assert.True(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(4)]
-# public void Super_hungry_car_can_try_driving_but_is_drained()
-# {
-#     int speed = 100;
-#     int batteryDrain = 60;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-#     car.Drive();
-#     car.Drive();
-#     Assert.True(car.BatteryDrained());
-#     Assert.Equal(100, car.DistanceDriven());
-# }
-
-# [Fact]
-# [Task(5)]
-# public void Nitro_car_has_not_driven_any_distance()
-# {
-#     var car = RemoteControlCar.Nitro();
-#     Assert.Equal(0, car.DistanceDriven());
-# }
-
-# [Fact]
-# [Task(5)]
-# public void Nitro_car_has_battery_not_drained()
-# {
-#     var car = RemoteControlCar.Nitro();
-#     Assert.False(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(5)]
-# public void Nitro_car_has_correct_speed()
-# {
-#     var car = RemoteControlCar.Nitro();
-#     car.Drive();
-#     Assert.Equal(50, car.DistanceDriven());
-# }
-
-# [Fact]
-# [Task(5)]
-# public void Nitro_car_has_correct_battery_drain()
-# {
-#     var car = RemoteControlCar.Nitro();
-
-#     // The battery is almost drained
-#     for (var i = 0; i < 24; i++)
-#     {
-#         car.Drive();
-#     }
-
-#     Assert.False(car.BatteryDrained());
-
-#     // Drain the battery
-#     car.Drive();
-
-#     Assert.True(car.BatteryDrained());
-# }
-
-# [Fact]
-# [Task(6)]
-# public void Car_can_finish_with_car_that_can_easily_finish()
-# {
-#     int speed = 10;
-#     int batteryDrain = 2;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     int distance = 100;
-#     var race = new RaceTrack(distance);
-
-#     Assert.True(race.TryFinishTrack(car));
-# }
-
-# [Fact]
-# [Task(6)]
-# public void Car_can_finish_with_car_that_can_just_finish()
-# {
-#     int speed = 2;
-#     int batteryDrain = 10;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     int distance = 20;
-#     var race = new RaceTrack(distance);
-
-#     Assert.True(race.TryFinishTrack(car));
-# }
-
-# [Fact]
-# [Task(6)]
-# public void Car_can_finish_with_car_that_just_cannot_finish()
-# {
-#     int speed = 3;
-#     int batteryDrain = 20;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     int distance = 16;
-#     var race = new RaceTrack(distance);
-
-#     Assert.False(race.TryFinishTrack(car));
-# }
-
-# [Fact]
-# [Task(6)]
-# public void Car_can_finish_with_car_that_cannot_finish()
-# {
-#     int speed = 1;
-#     int batteryDrain = 20;
-#     var car = new RemoteControlCar(speed, batteryDrain);
-
-#     int distance = 678;
-#     var race = new RaceTrack(distance);
-
-#     Assert.False(race.TryFinishTrack(car));
+test_that("5. Can almost finish with battery less than 100%.", {
+  car <- new_car(2, 3, 25, 0)
+  track <- new_track(17)
+  expect_false(can_finish(car, track))
+})

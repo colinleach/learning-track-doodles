@@ -61,7 +61,8 @@ strings --regular-expressions--> regular-expressions["regular-chatbot"]
 
 lists --lapply-sapply--> lapply-sapply["??"]
 vector-functions --lapply-sapply--> lapply-sapply["??"]
-style lapply-sapply fill:#f00,color:#fff
+
+lapply-sapply --functional-programming--> functional-programming["??"]
 
 vector-functions --matrices-arrays--> matrices-arrays["??"]
 style matrices-arrays fill:#f00,color:#fff
@@ -93,7 +94,7 @@ This isn't quite as tangled as it may appear.
 graph TD
     
 todo(("TODO")) --> classes
-todo --> pipes
+todo --> dates-times
 todo --> macros
 todo --> raw-type
 todo --> environments
