@@ -10,19 +10,17 @@ The goal of this exercise is to teach the student about lists in R.
 - Know how to create a list.
 - Know that R lists are both ordered and dynamic
 - Know three ways to access list elements.
-- Know how to list tag names.
 
 ## Out of scope
 
-- Details of atomic versus recursive vectors
+- Techncal details of atomic versus recursive vectors (though the distinction is mentioned).
 
 ## Concepts
 
 The Concepts this exercise unlocks are:
 
-- ??
+- `lapply-sapply`
 
 ## Prerequisites
 
-- `vectors`
-
+- `name-attribute`

@@ -3,7 +3,7 @@ library(testthat)
 
 # 1) new_car
 
-test_that("1. Create a new car, factory-fresh.", {
+test_that("1. Create a new car.", {
   speed <- 10
   battery_drain <- 2
   car <- new_car(speed, battery_drain)
@@ -14,26 +14,13 @@ test_that("1. Create a new car, factory-fresh.", {
   expect_equal(car$distance, 0)
 })
 
-test_that("1. Create a new car, used.", {
-  speed <- 5
-  battery_drain <- 10
-  battery <- 30
-  distance <- 35
-  car <- new_car(speed, battery_drain, battery, distance)
-  expect_length(car, 4)
-  expect_equal(car$speed, speed)
-  expect_equal(car$battery_drain, battery_drain)
-  expect_equal(car$battery, battery)
-  expect_equal(car$distance, distance)
-})
-
 # 2) new_track
 
 test_that("2. Create a new track.", {
-  distance <- 800
-  track <- new_track(distance)
+  length <- 800
+  track <- new_track(length)
   expect_length(track, 1)
-  expect_equal(track$distance, distance)
+  expect_equal(track$length, length)
 })
 
 # 3) battery_drained
@@ -88,13 +75,47 @@ test_that("5. Can finish with just enough battery.", {
 })
 
 test_that("5. Can just finish with battery less than 100%.", {
-  car <- new_car(2, 3, 25, 0)
+  car <- new_car(2, 3)
+  car$battery <- 25
   track <- new_track(16)
   expect_true(can_finish(car, track))
 })
 
 test_that("5. Can almost finish with battery less than 100%.", {
-  car <- new_car(2, 3, 25, 0)
+  car <- new_car(2, 3)
+  car$battery <- 25
   track <- new_track(17)
   expect_false(can_finish(car, track))
+})
+
+test_that("5. Would need a partial turn at the end to finish.", {
+  car <- new_car(5, 7)
+  track <- new_track(71)
+  expect_false(can_finish(car, track))
+})
+
+# 6) store_track
+
+test_that("6. Store the track and whether the car can complete it.", {
+  car <- new_car(2, 3)
+  car$battery <- 25
+  track <- new_track(15)
+  car <- store_track(car, track, "Spa")
+  expect_length(car, 5)
+  expect_equal(car$Spa$length, 15)
+  expect_true(car$Spa$complete)
+})
+
+test_that("6. Store the multiple tracks.", {
+  car <- new_car(2, 3)
+  car$battery <- 25
+  track1 <- new_track(15)
+  track2 <- new_track(200)
+  car <- store_track(car, track1, "Spa")
+  car <- store_track(car, track2, "Nürburgring")
+  expect_length(car, 6)
+  expect_equal(car$Spa$length, 15)
+  expect_true(car$Spa$complete)
+  expect_equal(car$Nürburgring$length, 200)
+  expect_false(car$Nürburgring$complete)
 })

@@ -18,7 +18,7 @@ The goal of this exercise is to teach the student about the various forms of not
 
 ## Concepts
 
-- `errors`
+- `nothingness`
 
 ## Prerequisites
 

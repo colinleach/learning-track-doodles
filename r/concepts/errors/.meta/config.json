@@ -1,5 +1,7 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
-  "blurb": "R has a rich but relatively unfamiliar condition handling system."
+  "blurb": "R has a rich but relatively unusual condition handling system."
 }

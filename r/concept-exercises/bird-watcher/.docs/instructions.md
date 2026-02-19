@@ -54,3 +54,26 @@ birds_per_day <- c(2, 5, 0, 7, 4, 1)
 busy_days(birds_per_day)
 # => 2
 ```
+
+## 6. Calculate the running total of bird visits over the last week
+
+You are curious how many birds in total have visited so far this week.
+Calculate cumulative totals for each day.
+
+```R
+running_total(c(7, 6, 5, 4, 3, 2, 1))
+#> [1]  7 13 18 22 25 27 28
+```
+
+## 7. Sort day names by how busy they are
+
+You suspect that bird visits are affected by patterns of nearby road traffic, so different on weekends versus weekdays.
+
+Sort the day abbreviations in _descending_ order of how many birds visited.
+
+```R
+day_names <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+birds_per_day <- c(5, 2, 4, 6, 0, 9, 8)
+busy_days_of_week(birds_per_day, day_names)
+#> [1] "Sat" "Sun" "Thu" "Mon" "Wed" "Tue" "Fri"
+```

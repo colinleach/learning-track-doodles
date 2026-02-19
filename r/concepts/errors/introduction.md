@@ -1,11 +1,12 @@
 # Introduction
 
-As explored in the `nothingness` concept, R has various ways to represent data which is absent (`NULL`), unknown (`NA`) or mathematically invalid (`NaN`, `Inf`).
-In general, it will try to use these to flag problems in-place, and continue without raising an exception.
+As explored in the [`Nothingness`][concept-nothingness] concept, R has various ways to represent data which is absent (`NULL`), unknown (`NA`) or mathematically invalid (`NaN`, `Inf`).
+In general, R will try to use these to flag problems in-place, and continue without raising an exception.
 
 ## `stop()`
 
-Some problems are too fundamental to let the program continue. In this case, use `stop(msg)` to immediately halt the program with an `Error` and print `msg`.
+Some problems are too fundamental to let the program continue. 
+In this case, use `stop(msg)` to immediately halt the program with an `Error` and print `msg`.
 
 ```R
 > f <- function() {
@@ -28,8 +29,10 @@ Error: 1 == 2 is not TRUE
 
 ## `try()`
 
-R has a sophisticated variety of ways to handle errors.
-The simplest is to wrap potentially problematic code in `try()`
+R has a variety of ways to handle errors.
+These are based on Common Lisp and differ significantly from many popular languages.
+
+The simplest is to wrap potentially problematic code in `try()`.
 
 ```R
 g <- function(val) {
@@ -59,7 +62,10 @@ Error in log10(val) : non-numeric argument to mathematical function
 
 ## `warning()` and `message()`
 
-These are non-fatal conditions, to warn of a problem that the program could at least partly recover from, or inform the user of progress in a long-running program.
+These are reponses to non-fatal conditions, for example:
+
+- To warn of a problem that the program could at least partly recover from.
+- To inform the user of progress in a long-running program.
 
 ```R
 w <- function() {
@@ -77,4 +83,6 @@ In w() : something strange happened
 [1] -1
 ```
 
-The `suppressWarnings()` function can occasionally be useful within Exercism, to avoid confusing the test runner.
+The `suppressWarnings()` function can occasionally be useful within Exercism, to avoid confusing the test runner with unwanted output.
+
+[concept-nothingness]: https://exercism.org/tracks/r/concepts/nothingness
