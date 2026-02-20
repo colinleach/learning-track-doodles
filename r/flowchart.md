@@ -40,8 +40,8 @@ style vector-filtering fill:#0f0
 vector-filtering --name-attribute--> name-attribute["named-resistor-color"]
 style name-attribute fill:#0f0
 
-vector-filtering --vector-functions--> vector-functions["bird-watcher?"]
-style vector-functions stroke:#0f0
+vector-filtering --vector-functions--> vector-functions["bird-watcher"]
+style vector-functions fill:#0f0
 
 vectors --strings--> strings["log-levels"]
 style strings stroke:#0f0
@@ -55,15 +55,13 @@ style randomness stroke:#0f0
 
 strings --regular-expressions--> regular-expressions["regular-chatbot"]
 
-lists --lapply-sapply--> lapply-sapply["??"]
+lists --functional-programming--> functional-programming["??"]
 
-vector-functions --lapply-sapply--> lapply-sapply["??"]
-
-lapply-sapply --functional-programming--> functional-programming["??"]
+functions --functional-programming--> functional-programming["??"]
 
 vector-functions --matrices-arrays--> matrices-arrays["??"]
 
-lapply-sapply --dataframes--> dataframes["??"]
+functional-programming --dataframes--> dataframes["??"]
 
 matrices-arrays --dataframes--> dataframes
 
