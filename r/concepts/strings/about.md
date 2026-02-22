@@ -223,7 +223,7 @@ Being charitable, we could say that the old-style string functions are not the b
 
 To improve the situation, the [`stringr`][ref-stringr] library has been in development since 2009, and is now a key part of the [Tidyverse][ref-tidyverse] collection.
 
-Import it into your namespace with `library(stringr)`.
+Import it into your namespace with `library(stringr)` or `library(tidyverse)`.
 
 Some key features include:
 
@@ -237,17 +237,18 @@ Like all the Tidyverse packages, `stringr` has good documentation, typically wri
 - A [cheatsheet][cheat-stringr]
 - A [chapter][book-strings] in "R for Data Science".
 
-There are dozens of functions available in `stringr`, and they often have a variety of optional arguments, so the documentation is your friend.
+There are dozens of functions available in `stringr`, and they often have a variety of optional arguments.
+This can be a bit overwhelming at first, so the documentation is your friend.
 
 #### Diversion: A quick primer on pipes
 
-The use of pipes `|>` to connect function will be discussed in more detail in other parts of the syllabus.
+The use of pipes `|>` to connect functions will be discussed in more detail in other parts of the syllabus.
 
 For now, it is useful to know that:
 
 - A result from the left of the pipe becomes the first argument in the function to the right (where "right" ignores optional line breaks).
 - Any remaining arguments can be included in the function call.
-- In R, we must pipe to a function _call_, not just a _name_, so parentheses are always required (this differes from some other languages).
+- In R, we must pipe to a function _call_, not just a _name_, so parentheses are always required (this differs from some other languages).
 
 The example below illustrates the syntax.
 Individual functions will be discussed later.
@@ -268,14 +269,74 @@ library(stringr)
 
 [`str_length`][ref-str_length] counts code points (similar to `nchars`).
 
-Various other functions manipulate whitespace: often a vital cleaning task at the start of any data science project.
+Various other functions manipulate whitespace.
+This is often a vital cleaning task at the start of any data science project.
 
 ```R
 str_length(c("R", "Python", "Julia"))           #> [1] 1 6 5
-str_pad(c("R", "Python", "Julia"), 8, "right")  #> [1] "R       " "Python  " "Julia   "
-> str_trim("R       Python  Julia   ")          #> [1] "R       Python  Julia"
-> str_squish("R       Python  Julia   ")        #> [1] "R Python Julia"
+
+str_pad(c("R", "Python", "Julia"), 8, "right")  # add spaces if necessary
+#> [1] "R       " "Python  " "Julia   "
+> str_trim("R       Python  Julia   ")   # remove leading & trailing whitespace
+#> [1] "R       Python  Julia" 
+> str_squish("R       Python  Julia   ")  # trim, collapse multiple spaces    
+#> [1] "R Python Julia"
 ```
+
+#### Subset strings
+
+The function [`str_sub(string, start, end)`][ref-str_sub] will return the substring from `start` to `end` (includive), while []`str_sub_all()`][ref-str_sub] can operate on multiple strings.
+
+There is a lot of flexibility.
+`start` and `end` default to the first and last character, respectively.
+They  can be vectors of indices.
+In welcome contrast to vector indexing, negative values count back from the string end, Python-style.
+
+```R
+> s <- "abcdefgh"
+> str_sub(s, 2, 4)
+[1] "bcd"
+> str_sub(s, 5)
+[1] "efgh"
+> str_sub(s, -3, -2)
+[1] "fg"
+> str_sub(s, c(1, 4), c(2, 5))
+[1] "ab" "de"
+> str_sub(s, c(1, 4, 6), c(2, 5, -1))
+[1] "ab"  "de"  "fgh"
+
+> s |> str_sub(2, 4) # these functions are designed for pipes
+[1] "bcd"
+
+# str_sub_all takes vector input, gives list output
+> str_sub_all(c(s, "ijklmnop"), c(1, 4, 6), c(2, 5, -1))
+[[1]]
+[1] "ab"  "de"  "fgh"
+
+[[2]]
+[1] "ij"  "lm"  "nop"
+```
+
+#### Join and split strings
+
+[`str_flatten`][ref-str_flatten] converts a character vector to a single string.
+The `collapse` argument is inserted between each element and defaults to `""`.
+
+```R
+c("R", "Julia", "Python") |> str_flatten()
+[1] "RJuliaPython"
+c("R", "Julia", "Python") |> str_flatten(collapse = " - ")
+[1] "R - Julia - Python"
+```
+
+[`str_c`][ref-str_c] converts multiple character vectors to a single character vector, with recyling as necessary.
+
+```R
+str_c(LETTERS[1:8], 1:8, sep = ":")
+[1] "A:1" "B:2" "C:3" "D:4" "E:5" "F:6" "G:7" "H:8"
+```
+
+[`str_dup`][ref-str_dup] creates duplicates and [`str_unique`][str_unique] removes duplicates.
 
 
 [printf-ports]: https://en.wikipedia.org/wiki/Printf
