@@ -317,7 +317,7 @@ In welcome contrast to vector indexing, negative values count back from the stri
 [1] "ij"  "lm"  "nop"
 ```
 
-#### Join and split strings
+#### Join strings
 
 [`str_flatten`][ref-str_flatten] converts a character vector to a single string.
 The `collapse` argument is inserted between each element and defaults to `""`.
@@ -336,7 +336,84 @@ str_c(LETTERS[1:8], 1:8, sep = ":")
 [1] "A:1" "B:2" "C:3" "D:4" "E:5" "F:6" "G:7" "H:8"
 ```
 
+[`str_glue`][ref-str_glue] brings simple string interpolation to R.
+Expressions inside braces `{ }` are interpreted and the text repesentation substituted.
+
+If multiple expressions strings are supplied, they will also be joined as in `str_flatten`.
+Strings can also be optionally trimmed of leading/trailing whitespace.
+
+```R
+> r <- 5.3
+> pi <- 3.14159
+> str_glue("A circle of radius {r} has area {pi * r^2}")
+A circle of radius 5.3 has area 88.2472631
+```
+
+Though `str_glue` is flexible (and quite complicated), an even wider range of possbilities is available in the underlying [`glue`][ref-glue] library.
+
+#### Split strings
+
+A very common use of R is to massage messy data into a consistent format for analysis.
+To help this, there are several ways to split text into substrings.
+
+[`str_split_1`][ref_string_split] is the simplest, converting a single string into a vector of pieces, split at some pattern (there is no default pattern).
+
+```R
+> s <- "R Julia Python"
+> str_split_1(s, " ")
+[1] "R"      "Julia"  "Python"
+```
+
+[`str_split_i`][ref_string_split] takes a character vector and an index `n`, returning a vector of the `n`th substring of each input string.
+
+```R
+> s2 <- c(s, "C Kotlin, F#")  #> [1] "R Julia Python" "C Kotlin, F#"
+> str_split_i(s2, " ", 2)  # 2nd element of each
+[1] "Julia"   "Kotlin,"
+```
+
+[`str_split`][ref_string_split] takes a character vector, returning a list of vectors.
+There is a [Lists Concept][concept-lists] in the syllabus, which explains the output.
+
+```R
+> str_split(s2, " ")
+[[1]]
+[1] "R"      "Julia"  "Python"
+
+[[2]]
+[1] "C"       "Kotlin," "F#"     
+```
+
+There is also [`str_split_fixed`][ref_string_split], which returns a matrix.
+Matrices will be covered in a later Concept.
+
+#### Mutate strings
+
+
+
+#### Misc
+
 [`str_dup`][ref-str_dup] creates duplicates and [`str_unique`][str_unique] removes duplicates.
+
+By default `str_dup` has no separator, but one can be specified.
+
+```R
+str_dup("xyz", 4, sep = ", ")
+[1] "xyz, xyz, xyz, xyz"
+```
+
+`str_unique` is an extension of [`unique()`][ref-unique].
+Both remove duplicate entries from a vector, but the `stringr` function can also handle case sensitivity and various locale-specific matches.
+
+```R
+inp <- c("some", "strings", "Some", "Strings")
+> str_unique(inp)
+[1] "some"    "strings" "Some"    "Strings"
+> str_unique(inp, ignore_case = TRUE)
+[1] "some"    "strings"
+```
+
+
 
 
 [printf-ports]: https://en.wikipedia.org/wiki/Printf
