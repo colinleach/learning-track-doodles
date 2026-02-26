@@ -86,7 +86,7 @@ There is still a lot of legacy code using old-style string functions.
 This includes most community solutions on Exercism.
 
 Additionally, for small tasks it can be useful to use built-in functions instead of importing a large library.
-The R track maintainers tend to take this approach when writing exemplar solutions to validate the exercises on our [GitHub repo][web-exercism-r].
+The R track maintainers tend to take this approach when writing exemplar solutions to validate the exercises on our [GitHub repo][gh-exercism-r].
 
 Therefore, knowledge of the old approaches is still worth learning.
 
@@ -140,7 +140,7 @@ paste0("bits", "of", "a", "string")
 
 #### [`sprintf`][ref-sprintf]
 
-For finer control over string assembly, R copies the `sprintf` function from C (and several later languages: Wikipedia [lists][printf-ports] about 30).
+For finer control over string assembly, R copies the `sprintf` function from C (and several later languages: Wikipedia [lists][wiki-printf-ports] about 30).
 
 ```R
 r <- 5.3
@@ -181,7 +181,7 @@ unlist(strsplit("Exercism", ""))
 [1] "E" "x" "e" "r" "c" "i" "s" "m"
 ```
 
-#### [`regexpr`][ref-regexpr] and [`regexpr`][ref-regexpr]
+#### [`regexpr`][ref-grep] and [`regexpr`][ref-grep]
 
 Short for "regular expression", these functions search for occurrences of a pattern in a string, returning a list of (potentially) useful data.
 This is mentioned only for completeness: _there are better options!_
@@ -215,6 +215,13 @@ attr(,"useBytes")
 ~~~~exercism/advanced
 Why do these old string functions look like Unix shell commands?
 
+Though R was created in 1993, it was designed to be largely backwards-compatible with the S language.
+
+S was designed at Bell Labs, first appearing in 1976.
+Bell Labs were also responsible for Unix (from 1969) and the C language (1972).
+
+Quite a team from that much earlier era!
+We can only assume that they talked to one another.
 ~~~~
 
 ### Tidyverse
@@ -269,7 +276,7 @@ library(stringr)
 
 [`str_length`][ref-str_length] counts code points (similar to `nchars`).
 
-Various other functions manipulate whitespace.
+Various other functions manipulate whitespace, including [`str_trim()`][ref-str_trim] and [`str_squish()`][ref-str_trim].
 This is often a vital cleaning task at the start of any data science project.
 
 ```R
@@ -285,7 +292,7 @@ str_pad(c("R", "Python", "Julia"), 8, "right")  # add spaces if necessary
 
 #### Subset strings
 
-The function [`str_sub(string, start, end)`][ref-str_sub] will return the substring from `start` to `end` (includive), while []`str_sub_all()`][ref-str_sub] can operate on multiple strings.
+The function [`str_sub(string, start, end)`][ref-str_sub] will return the substring from `start` to `end` (includive), while [`str_sub_all()`][ref-str_sub] can operate on multiple strings.
 
 There is a lot of flexibility.
 `start` and `end` default to the first and last character, respectively.
@@ -349,14 +356,14 @@ Strings can also be optionally trimmed of leading/trailing whitespace.
 A circle of radius 5.3 has area 88.2472631
 ```
 
-Though `str_glue` is flexible (and quite complicated), an even wider range of possbilities is available in the underlying [`glue`][ref-glue] library.
+Though `str_glue` is flexible (and quite complicated), an even wider range of possibilities is available in the underlying [`glue`][ref-glue] library.
 
 #### Split strings
 
 A very common use of R is to massage messy data into a consistent format for analysis.
 To help this, there are several ways to split text into substrings.
 
-[`str_split_1`][ref_string_split] is the simplest, converting a single string into a vector of pieces, split at some pattern (there is no default pattern).
+[`str_split_1`][ref-str_split] is the simplest, converting a single string into a vector of pieces, split at some specified pattern (there is no default pattern).
 
 ```R
 > s <- "R Julia Python"
@@ -364,7 +371,7 @@ To help this, there are several ways to split text into substrings.
 [1] "R"      "Julia"  "Python"
 ```
 
-[`str_split_i`][ref_string_split] takes a character vector and an index `n`, returning a vector of the `n`th substring of each input string.
+[`str_split_i`][ref-str_split] takes a character vector and an index `n`, returning a vector of the `n`th substring of each input string.
 
 ```R
 > s2 <- c(s, "C Kotlin, F#")  #> [1] "R Julia Python" "C Kotlin, F#"
@@ -372,7 +379,7 @@ To help this, there are several ways to split text into substrings.
 [1] "Julia"   "Kotlin,"
 ```
 
-[`str_split`][ref_string_split] takes a character vector, returning a list of vectors.
+[`str_split`][ref-str_split] takes a character vector, returning a list of vectors.
 There is a [Lists Concept][concept-lists] in the syllabus, which explains the output.
 
 ```R
@@ -384,16 +391,60 @@ There is a [Lists Concept][concept-lists] in the syllabus, which explains the ou
 [1] "C"       "Kotlin," "F#"     
 ```
 
-There is also [`str_split_fixed`][ref_string_split], which returns a matrix.
+There is also [`str_split_fixed`][ref-str_split], which returns a matrix.
 Matrices will be covered in a later Concept.
+
+#### Match strings
+
+To match the whole string, [`str_equal()`][ref-str_equal] can use various definitions of "equality".
+Most simply, the default is case sensitive but can be changed.
+Locales and [Unicode][wiki-unicode] create many more possibilities.
+
+```R
+str_equal("Odin", "odin")
+[1] FALSE
+> str_equal("Odin", "odin", ignore_case = TRUE)
+[1] TRUE
+```
+
+There are many [other functions][ref-string-matching], which will be discussed in more detail in the [Regular Expressions Concept][concept-regex].
 
 #### Mutate strings
 
+Some languages (mainly European) distinguish between UPPERCASE and lowercase letters.
+There are a set of `stringr` [functions][ref-str-case] to interconvert these, in locale-appropriate ways:
 
+- `str_to_lower()`
+- `str_to_upper()`
+- `str_to_title()` : first letter of each word to upper
+- `str_to_sentence()` : first letter of sentence to upper
 
-#### Misc
+```R
+str_to_upper("elixir")    # defaults to locale = "en"
+[1] "ELIXIR"
+str_to_upper("ελληνικά")  # infers Greek
+[1] "ΕΛΛΗΝΙΚΆ"
 
-[`str_dup`][ref-str_dup] creates duplicates and [`str_unique`][str_unique] removes duplicates.
+str_to_title("the cat sat on the mat")
+[1] "The Cat Sat On The Mat"
+> str_to_sentence("the cat sat on the mat")
+[1] "The cat sat on the mat"
+```
+
+For substring replacement based on pattern matching, [`str_replace()`][ref-str_replace] changes the first occurrence of the pattern, [`str_replace_all()`][ref-str_replace] changes all occurrences.
+
+For substring replacement based on character indexing, there is an assignment form of [str_sub()][ref-str_sub].
+
+```R
+ s <- "abcde"
+> str_sub(s, 3, 4) <- "yz"
+> s
+[1] "abyze"
+```
+
+#### Miscellaneous
+
+[`str_dup`][ref-str_dup] creates duplicates and [`str_unique`][ref-str_unique] removes duplicates.
 
 By default `str_dup` has no separator, but one can be specified.
 
@@ -413,9 +464,48 @@ inp <- c("some", "strings", "Some", "Strings")
 [1] "some"    "strings"
 ```
 
+~~~~exercism/advanced
+The `stringr` library is based on the [`stringi`][ref-stringi] library of lower-level functions.
 
+If you have specific needs not already discussed above, then:
 
+1. Check the [`stringr`][ref-stringr] documentation, which covers more options than we can mention in even this long Concept document.
+2. Check the [`stringi`][ref-stringi] documentation, which describes lots more functionality.
 
-[printf-ports]: https://en.wikipedia.org/wiki/Printf
+[ref-stringr]: https://stringr.tidyverse.org/reference/index.html
+[ref-stringi]: https://stringi.gagolewski.com/
+~~~~
 
-
+[ref-nchar]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/nchar
+[ref-grep]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/grep
+[ref-paste]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/paste
+[ref-sprintf]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sprintf
+[ref-substr]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/substr
+[ref-strsplit]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/strsplit
+[ref-unlist]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/unlist
+[ref-stringr]: https://stringr.tidyverse.org/index.html
+[ref-tidyverse]: https://tidyverse.org/
+[ref-str_length]: https://stringr.tidyverse.org/reference/str_length.html
+[ref-str_sub]: https://stringr.tidyverse.org/reference/str_sub.html
+[ref-str_flatten]: https://stringr.tidyverse.org/reference/str_flatten.html
+[ref-str_c]: https://stringr.tidyverse.org/reference/str_c.html
+[ref-str_glue]: https://stringr.tidyverse.org/reference/str_glue.html
+[ref-glue]: https://glue.tidyverse.org/reference/glue.html
+[ref-str_split]: https://stringr.tidyverse.org/reference/str_split.html
+[ref-str_equal]: https://stringr.tidyverse.org/reference/str_equal.html
+[ref-string-matching]: https://stringr.tidyverse.org/reference/index.html#string
+[ref-str-case]: https://stringr.tidyverse.org/reference/case.html
+[ref-str_replace]: https://stringr.tidyverse.org/reference/str_replace.html
+[ref-str_dup]: https://stringr.tidyverse.org/reference/str_dup.html
+[ref-str_unique]: https://stringr.tidyverse.org/reference/str_unique.html
+[ref-unique]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/unique
+[ref-str_trim]: https://stringr.tidyverse.org/reference/str_trim.html
+[cheat-stringr]: https://github.com/rstudio/cheatsheets/blob/main/strings.pdf
+[book-strings]: https://r4ds.hadley.nz/strings.html
+[wiki-printf-ports]: https://en.wikipedia.org/wiki/Printf
+[wiki-locale]: https://en.wikipedia.org/wiki/Locale_(computer_software)
+[wiki-regex]: https://en.wikipedia.org/wiki/Regular_expression
+[wiki-unicode]: https://en.wikipedia.org/wiki/Unicode
+[gh-exercism-r]: https://github.com/exercism/r
+[concept-lists]: https://exercism.org/tracks/r/concepts/lists
+[concept-regex]: https://exercism.org/tracks/r/concepts/regular-expressions
