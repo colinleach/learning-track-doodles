@@ -1,5 +1,7 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
-  "blurb": "Core R contains a fairly small group of functions for string handling."
+  "blurb": "Base R contains a fairly small group of functions for string handling, but the stringr library is much newer and more user-friendly."
 }
