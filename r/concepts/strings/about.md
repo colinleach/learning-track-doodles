@@ -149,6 +149,18 @@ sprintf("A circle of radius %.1f has area %.2f", r, pi * r^2)
 #> [1] "A circle of radius 5.3 has area 88.25"
 ```
 
+#### [`trimws][ref-trimws]
+
+Leading and/or trailing whitespace can be removed with `trimws()`:
+
+```R
+> s <- "    messy string   "
+> trimws(s)
+[1] "messy string"
+```
+
+There is a `which = "left"` (or "right") parameter to avoid trimming both ends.
+
 #### [`substr`][ref-substr]
 
 Operates on a single string and returns a substring between two (inclusive) limits.
@@ -484,6 +496,7 @@ If you have specific needs not already discussed above, then:
 [ref-grep]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/grep
 [ref-paste]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/paste
 [ref-sprintf]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sprintf
+[ref-trimws]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/trimws
 [ref-substr]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/substr
 [ref-strsplit]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/strsplit
 [ref-unlist]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/unlist
