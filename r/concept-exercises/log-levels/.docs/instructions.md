@@ -18,14 +18,14 @@ Implement the `message` function to return a log line's message:
 
 ```R
 message("[ERROR]: Invalid operation")
-# => "Invalid operation"
+#> "Invalid operation"
 ```
 
 Any leading or trailing white space should be removed:
 
 ```R
 message("[WARNING]:  Disk almost full\r\n")
-# => "Disk almost full"
+#> "Disk almost full"
 ```
 
 ## 2. Get log level from a log line
@@ -34,7 +34,7 @@ Implement the `log_level` function to return a log line's log level, which shoul
 
 ```R
 log_level("[ERROR]: Invalid operation")
-# => "error"
+#> "error"
 ```
 
 ## 3. Reformat a log line
@@ -43,9 +43,9 @@ Implement the `reformat` function that reformats the log line, putting the messa
 
 ```R
 reformat("[INFO]: Operation completed")
-# => "Operation completed (info)"
+#> "Operation completed (info)"
 ```
 
 ## Note
 
-Please complete this exercise using ony R core functions. You may find internet references to the `stringr` package and functions with a `str_` prefix. Like most third-party packages, this is not available within Exercism.
+Students are free to use either legacy functions from base R or the `stringr` library, and both can give short, viable solutions.

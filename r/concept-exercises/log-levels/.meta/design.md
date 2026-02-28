@@ -2,20 +2,20 @@
 
 ## Goal
 
-The current goal of this exercise is to introduce the student to string-handling finctions in core R.
+The goal of this exercise is to introduce the student to string-handling functions in R.
 
-In an ideal world it would cover `stringr` as the preferred alternative, but Docker seems to be blocking that package in the test runner for now.
+Both legacy functions in base R, and the newer/better options in `stringr` are covered.
+Students can use either to solve the exercise, and the exemplar has working code for both approaches.
 
 ## Learning objectives
 
-- Understand `nchar()` versus `length()`
-- Understand `paste()` and `sprintf()` to construct strings.
-- Understand `substr()` and `strsplit()` to get parts of a string.
-- Understand `trimws()` to remove whitespace.
+- Understand `nchar()` (or `str_length()`) versus `length()`
+- Understand legacy string functions, and why they are still somewhat relevant.
+- Understand the `stringr` library, and why this is preferred for non-trivial new code.
 
 ## Out of scope
 
-- `grep()`, `regexexpr()` and `gregexpr()` are postponed to the `regular-expressions` concept.
+- A full discussion of pattern searching is postponed to the `regular-expressions` concept.
 - Discussion of `lists` as return values, beyond the necessary minimum.
 
 ## Concepts

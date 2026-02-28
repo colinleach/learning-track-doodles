@@ -39,17 +39,17 @@ Knowing that you will later need to react differently depending on the error, yo
 
 ```R
 report_overheating(NULL)
-# Error in report_overheating(NULL) : Argument Error
+#> Error in report_overheating(NULL) : Argument Error
 ```
 
 ```R
 report_overheating(800)
-# Halts with an error message that includes "800"
+#> Halts with an error message that includes "800"
 ```
 
 ## TODO : need to test `try()`, `warning()` and perhaps `message()`
 
-<!-- ## 3. Monitor the machine
+## 3. Monitor the machine
 
 Now that your machine can detect errors, you will implement a function that reacts to those errors in different ways :
 
@@ -83,4 +83,4 @@ monitorTheMachine({
   alertOverheating,
   shutdown,
 })
-``` -->
+```

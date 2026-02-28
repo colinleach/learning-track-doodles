@@ -25,9 +25,6 @@ style vectors fill:#0f0
 switch -.loops.-> loops["mixed-juices"]
 style loops fill:#0f0
 
-conditionals --switch--> switch["blackjack"]
-style switch stroke:#0f0
-
 vectors --set-operations--> set-operations["ozans-playlist"]
 style set-operations fill:#0f0
 
@@ -44,7 +41,7 @@ vector-filtering --vector-functions--> vector-functions["bird-watcher"]
 style vector-functions fill:#0f0
 
 vectors --strings--> strings["log-levels"]
-style strings stroke:#0f0
+style strings fill:#0f0
 
 vector-filtering --nothingness--> nothingness["name-badges"]
 strings --nothingness--> nothingness["name-badges"]
@@ -54,6 +51,9 @@ strings --randomness--> randomness["captains-log"]
 style randomness stroke:#0f0
 
 strings --regular-expressions--> regular-expressions["regular-chatbot"]
+
+strings --switch--> switch["blackjack"]
+style switch stroke:#0f0
 
 lists --functional-programming--> functional-programming["??"]
 
@@ -66,6 +66,8 @@ functional-programming --dataframes--> dataframes["??"]
 matrices-arrays --dataframes--> dataframes
 
 dataframes -.factors.-> factors["??"]
+
+dataframes -.dates-times.-> dates-times["booking-up-for-beauty"]
 
 dataframes -.apply-functions.-> apply-functions["??"]
 

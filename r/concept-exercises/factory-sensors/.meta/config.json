@@ -1,11 +1,21 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
   "files": {
-    "solution": ["{slug}.R"],
-    "test": ["test_{slug}.R"],
-    "exemplar": [".meta/exemplar.R"]
+    "solution": [
+      "{slug}.R"
+    ],
+    "test": [
+      "test_{slug}.R"
+    ],
+    "exemplar": [
+      ".meta/exemplar.R"
+    ]
   },
-  "forked_from": [""],
+  "forked_from": [
+    "javascript/factory-sensors"
+  ],
   "blurb": ""
 }
