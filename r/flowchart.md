@@ -53,7 +53,7 @@ style randomness stroke:#0f0
 strings --regular-expressions--> regular-expressions["regular-chatbot"]
 
 strings --switch--> switch["blackjack"]
-style switch stroke:#0f0
+style switch fill:#0f0
 
 lists --functional-programming--> functional-programming["??"]
 
@@ -86,7 +86,6 @@ This isn't quite as tangled as it may appear.
 graph TD
     
 todo(("TODO")) --> classes
-todo --> dates-times
 todo --> macros
 todo --> raw-type
 todo --> environments

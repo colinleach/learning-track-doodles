@@ -1,5 +1,6 @@
 check_humidity_level <- function(pct_humidity) {
   stopifnot(pct_humidity <= 70)
+  message(sprintf("hum check passed: t °C", )
   TRUE
 }
 
