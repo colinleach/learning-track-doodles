@@ -34,7 +34,34 @@ The tidyverse packages also have excellent, modern documentation, so following t
 
 The [`dplyr`][ref-dplyr] package can be brought into scope by adding either `library(dplyr)` (for the single package) or `library(tidyverse)` (for the whole collection) to the top of your code.
 
-There are then two extra functions related to `switch`.
+There are then several extra functions related to `switch`.
+
+### The [`recode_values`][ref-recode_values] and [`replace_values`][ref-recode_values] functions
+
+These two related functions allow a vectorized switch-like mapping of old values to new values.
+
+The main difference between them is that `recode_values()` creates an entirely new vector, while `replace_values() allows partial updates of an existing vector.
+
+Matching is still exact, but:
+
+- The options on the left can be vectors, and the input matches if any element matches.
+- Options on the left and results on the right are linked with a tilde `~` instead of `=`.
+- Missing values `NA` can be matched explicitly (this will be discussed in the [Nothingness][concept-nothingness] Concept).
+- A default can be specified in all cases.
+
+```R
+library(dplyr)
+
+x <- c("a", "b", "a", "d", "b", NA, "c", "e")
+
+```
+
+~~~~exercism/note
+You may see advice online about using the `case_match()` function as a vectorized `switch`.
+
+This function was deprecated in `dplyr` version 1.2.0 (February 2026).
+Attempts to use it will now produce a warning message, advising use of `recode_values()` instead.
+~~~~
 
 ### The [`case_match`][ref-case-match] function
 
@@ -87,6 +114,7 @@ The [`between()`][ref-between] function is also part of `dplyr`.
 [ref-stop]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html
 [ref-dplyr]: https://dplyr.tidyverse.org/
 [ref-case-match]: https://dplyr.tidyverse.org/reference/case_match.html
+[ref-recode_values]: https://dplyr.tidyverse.org/reference/recode-and-replace-values.html
 [ref-case-when]: https://dplyr.tidyverse.org/reference/case_when.html
 [ref-between]: https://dplyr.tidyverse.org/reference/between.html
 [concept-nothingness]: https://exercism.org/tracks/r/concepts/nothingness
