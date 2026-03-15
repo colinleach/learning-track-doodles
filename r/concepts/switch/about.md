@@ -40,7 +40,7 @@ There are then several extra functions related to `switch`.
 
 These two related functions allow a vectorized switch-like mapping of old values to new values.
 
-The main difference between them is that `recode_values()` creates an entirely new vector, while `replace_values() allows partial updates of an existing vector.
+The main difference between them is that `recode_values()` creates an entirely new vector, while `replace_values()` allows partial updates of an existing vector.
 
 Matching is still exact, but:
 
@@ -53,7 +53,16 @@ Matching is still exact, but:
 library(dplyr)
 
 x <- c("a", "b", "a", "d", "b", NA, "c", "e")
-
+recode_values(
+  x,
+  "a" ~ 1,
+  "b" ~ 2,
+  "c" ~ 3,
+  c("d", "e") ~ 4, # either "d' or "e" will match
+  NA ~ 0,          # matches missing values
+  default = 100   # note the different syntax for the default
+)
+#> [1]   1   2   1   4   2   0   3   4 100
 ```
 
 ~~~~exercism/note
@@ -62,33 +71,6 @@ You may see advice online about using the `case_match()` function as a vectorize
 This function was deprecated in `dplyr` version 1.2.0 (February 2026).
 Attempts to use it will now produce a warning message, advising use of `recode_values()` instead.
 ~~~~
-
-### The [`case_match`][ref-case-match] function
-
-[`case_match`][ref-case-match] is essentially a vectorized version of `switch`, with some extra options.
-
-Matching is still exact, but:
-
-- The options on the left can be vectors, and the input matches if any element matches.
-- Options on the left and results on the right are linked with a tilde `~` instead of `=`.
-- Missing values `NA` can be matched explicitly (this will be discussed in the [Nothingness][concept-nothingness] Concept).
-- A default can be specified in all cases.
-
-```R
-library(dplyr)
-
-x <- c("a", "b", "a", "d", "b", NA, "c", "e")
-case_match(
-  x,
-  "a" ~ 1,
-  "b" ~ 2,
-  "c" ~ 3,
-  c("d", "e") ~ 4, # either "d' or "e" will match
-  NA ~ 0,          # matches missing values
-  .default = 100   # note the different syntax for the default
-)
-#> [1] 1 2 1 4 2 0 3 4
-```
 
 ### The [`case_when`][ref-case-when] function
 
@@ -113,7 +95,6 @@ The [`between()`][ref-between] function is also part of `dplyr`.
 [ref-switch]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/switch.html
 [ref-stop]: https://stat.ethz.ch/R-manual/R-devel/library/base/html/stop.html
 [ref-dplyr]: https://dplyr.tidyverse.org/
-[ref-case-match]: https://dplyr.tidyverse.org/reference/case_match.html
 [ref-recode_values]: https://dplyr.tidyverse.org/reference/recode-and-replace-values.html
 [ref-case-when]: https://dplyr.tidyverse.org/reference/case_when.html
 [ref-between]: https://dplyr.tidyverse.org/reference/between.html

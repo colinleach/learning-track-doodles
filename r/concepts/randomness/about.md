@@ -4,13 +4,13 @@ Many programs need (apparently) random values to simulate real-world events.
 
 Common and familiar examples include:
 
-- A coin flip: a random value from `('H', 'T')`.
+- A coin flip: a random value from `c("H", "T")`.
 - The roll of a die: a random integer from 1 to 6.
 - Shuffling a deck of cards: a random ordering of a card list.
 
-Generating truly random values with a computer is a [surprisingly difficult technical challenge][truly-random], so you may see these results referred to as "pseudorandom".
+Generating truly random values with a computer is a [surprisingly difficult technical challenge][web-truly-random], so you may see these results referred to as "pseudorandom".
 
-***Important***: This Concept does _not_ cover cryptographically secure random numbers, which are a much more difficult challenge.
+***Important***: This Concept does *not* cover cryptographically secure random numbers, which are a much more difficult challenge.
 
 However, R was derived from a statistics package and is often used for simulations, so it offers a rich variety of ways to generate random values.
 The results are amply good enough for most applications in modelling, simulation and games.
@@ -29,7 +29,7 @@ Scenario 1 is with replacement, scenario 2 is without, and *they give different 
 
 ## Discrete values with `sample`
 
-To pick from a limited number of discrete values, `sample()` can be used with or without replacement.
+To pick from a limited number of discrete values, [`sample()`][ref-sample] can be used with or without replacement.
 This is useful for integers, strings, etc.
 
 ```R
@@ -69,9 +69,9 @@ We will see in other concepts that [lists][concept-lists], matrices and datafram
 Several other languages have a special function to shuffle a sequence: `random.shuffle()` in Python, `shuffle()` in Julia, `randperm()` in Matlab, among others.
 
 R has no shuffle function.
-_Why?_
+*Why?*
 
-To understand this, look again at the `sample` function.
+To understand this, look again at the [`sample`][ref-sample] function.
 
 The full form is `sample(x, size, replace = FALSE, prob = NULL)`, where `x` is (usually) the sequence to sample from and `size` is the number of items to choose.
 
@@ -92,7 +92,7 @@ In typical R style, the pattern is vector-in, vector-out, and `size` defaults to
 
 R is largely written by and for statisticians, who understand that "sample all elements of `x` without replacement" is just a more technical way to say "shuffle `x`".
 
-_Thus_, there is no `shuffle` function, because `sample` already does exactly what we need!
+*Thus*, there is no `shuffle` function, because `sample` already does exactly what we need!
 
 ## Working with Distributions
 
@@ -132,10 +132,10 @@ You want to set up the factory robot to handle them, so you weigh a sample of 10
 This is extremely unlikely to mean that they all weigh exactly 4.731g.
 Perhaps you find that values range from 4.627 to 4.794g but cluster around 4.731g.
 
-This is the [`normal distribution`][normal-distribution] (or "Gaussian", after the mathematician Card Friedrich Gauss), for which probabilities peak at the mean and tails off symmetrically on both sides (hence "bell-shaped").
-To simulate this in software, we need some way to specify the width of the curve (_typically, expensive bolts will cluster more tightly around the mean than cheap bolts!_).
+This is the [`normal distribution`][wiki-normal-distribution] (or "Gaussian", after the mathematician Card Friedrich Gauss), for which probabilities peak at the mean and tails off symmetrically on both sides (hence "bell-shaped").
+To simulate this in software, we need some way to specify the width of the curve (*typically, expensive bolts will cluster more tightly around the mean than cheap bolts!*).
 
-By convention, this is done with the [`standard deviation`][standard-deviation]: small values for a sharp, narrow curve, large for a low, broad curve.
+By convention, this is done with the [`standard deviation`][wiki-standard-deviation]: small values for a sharp, narrow curve, large for a low, broad curve.
 Mathematicians love Greek letters, so you will often see `μ` ('mu') to represent the mean and `σ` ('sigma') to represent the standard deviation.
 Thus, if you read that "95% of values are within 2σ of μ" or "the Higgs boson has been detected with 5-sigma confidence", such comments relate to the standard deviation.
 
@@ -156,7 +156,7 @@ Short for "random normal", this defaults to mean 0 and standard deviation 1.
 
 It is hard to tell from looking at the numbers that the raw output clusters closer to the mean than for a uniform distribution.
 If you doubt it, generate 1000 or more and plot them to make it more obvious.
-Students without Rstudio (or similar) installed locally can use an online R runner such as [rdrr.io][rdrr].
+Students without RStudio (or similar) installed locally can use an online R runner such as [rdrr.io][web-rdrr].
 
 The code `hist(rnorm(10000), breaks = 40)` will show the basic pattern, though not in the most elegant presentation.
 The random numbers are binned, and the vertical axis is a count of results in each bin.
@@ -247,7 +247,7 @@ Now the histogram is highly asymmetric, with a peak at 2 impacts and a long tail
 ## Seeds
 
 All the random functions described above aim to give different results each time they are run.
-They are, after all, _random_!
+They are, after all, *random*!
 
 For debugging purposes, it may be helpful to use the [`set.seed(n)`][ref-set-seed] function, where `n` is your chosen integer.
 Your code will then return the same set of random values on each run.
@@ -283,30 +283,19 @@ Many computer scientists think (with some justification) that R is a weird langu
 
 Many statisticians and data scientists over the last few decades think that R fits them like a glove: *they are the target users*.
 
-[normal-distribution]: https://simple.wikipedia.org/wiki/Normal_distribution
-[probability-distribution]: https://simple.wikipedia.org/wiki/Probability_distribution
-[Random]: https://docs.julialang.org/en/v1/stdlib/Random/
-[sampling-with-replacement]: https://www.youtube.com/watch?v=LnGFL_A6A6A
-[standard-deviation]: https://simple.wikipedia.org/wiki/Standard_deviation
-[truly-random]: https://www.malwarebytes.com/blog/news/2013/09/in-computers-are-random-numbers-really-random
-[uniform]: https://www.investopedia.com/terms/u/uniform-distribution.asp#:~:text=In%20statistics%2C%20uniform%20distribution%20refers,a%20spade%20is%20equally%20likely.
-[reproducibility]: https://docs.julialang.org/en/v1/stdlib/Random/#Reproducibility
-[statsbase]: https://juliastats.org/StatsBase.jl/stable/
-[sbsample]: https://juliastats.org/StatsBase.jl/stable/sampling/#StatsBase.sample
-[broadcasting]: https://docs.julialang.org/en/v1/manual/arrays/#Broadcasting
-[bitrand]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.bitrand
-[bitarray]: https://docs.julialang.org/en/v1/base/arrays/#Base.BitArray-Tuple{Any}
-[randperm]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.randperm
-[shuffle]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.shuffle
-[randommod]: https://docs.julialang.org/en/v1/stdlib/Random/#Random-numbers-module
-[randstring]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.randstring
-[randsubseq]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.randsubseq
-[randcycle]: https://docs.julialang.org/en/v1/stdlib/Random/#Random.randcycle
-[seed]: https://en.wikipedia.org/wiki/Random_seed
-[expdist]: https://en.wikipedia.org/wiki/Exponential_distribution
-[poisson]: https://en.wikipedia.org/wiki/Poisson_distribution
-[distributions]: https://juliastats.org/Distributions.jl/latest/
-[statistics]: https://exercism.org/tracks/julia/concepts/statistics
-[vector-ops]: https://exercism.org/tracks/julia/concepts/vector-operations
-[rdrr]: https://rdrr.io/snippets/
+[wiki-normal-distribution]: https://simple.wikipedia.org/wiki/Normal_distribution
+[wiki-probability-distribution]: https://simple.wikipedia.org/wiki/Probability_distribution
+[yt-sampling-with-replacement]: https://www.youtube.com/watch?v=LnGFL_A6A6A
+[wiki-standard-deviation]: https://simple.wikipedia.org/wiki/Standard_deviation
+[web-truly-random]: https://www.malwarebytes.com/blog/news/2013/09/in-computers-are-random-numbers-really-random
+[web-uniform]: https://www.investopedia.com/terms/u/uniform-distribution.asp#:~:text=In%20statistics%2C%20uniform%20distribution%20refers,a%20spade%20is%20equally%20likely.
+[wiki-seed]: https://en.wikipedia.org/wiki/Random_seed
+[wiki-expdist]: https://en.wikipedia.org/wiki/Exponential_distribution
+[wiki-poisson]: https://en.wikipedia.org/wiki/Poisson_distribution
+[web-rdrr]: https://rdrr.io/snippets/
 [web-cran]: https://cran.r-project.org/
+[ref-mean]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/mean
+[ref-sample]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sample
+[ref-set-seed]: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Random
+[concept-lists]: https://exercism.org/tracks/r/concepts/lists
+[practice-pascal]: https://exercism.org/tracks/r/exercises/pascals-triangle
