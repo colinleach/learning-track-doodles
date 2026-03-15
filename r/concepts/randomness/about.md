@@ -4,7 +4,7 @@ Many programs need (apparently) random values to simulate real-world events.
 
 Common and familiar examples include:
 
-- A coin flip: a random value from `c("H", "T")`.
+- A coin flip: a random value that is `"H"` or `"T"`.
 - The roll of a die: a random integer from 1 to 6.
 - Shuffling a deck of cards: a random ordering of a card list.
 
@@ -15,7 +15,7 @@ Generating truly random values with a computer is a [surprisingly difficult tech
 However, R was derived from a statistics package and is often used for simulations, so it offers a rich variety of ways to generate random values.
 The results are amply good enough for most applications in modelling, simulation and games.
 
-## Sampling with or without replacement
+## [Sampling with or without replacement][yt-sampling-with-replacement]
 
 Imagine that we have a bag containing 3 red balls and 4 green balls, and we randomly pull a ball from the bag.
 To get a second ball, there are two possibilities:
@@ -99,7 +99,7 @@ R is largely written by and for statisticians, who understand that "sample all e
 The examples above described cases where all outcomes are equally likely.
 For example, `sample(1:100)` is equally likely to give any integer from 1 to 100.
 
-This is called a [`uniform`][wiki-uniform] distribution.
+This is called a [`uniform`][web-uniform] distribution.
 
 Many real-world situations are far less simple than this.
 As a result, statisticians have created a wide variety of [`distributions`][wiki-probability-distribution] to describe "real world" results mathematically.
@@ -112,7 +112,7 @@ The rest of this document describes only a few of the most common distributions.
 
 ### Uniform distribution
 
-For an equally-weighted distribution of floating-point numbers use [`runif()`][ref-runif] (concentrate on "**r**andom-**unif**orm", and fight against the natural but *wrong* tendency to read it as "run if").
+For an [equally-weighted distribution][wiki-uniform] of floating-point numbers use [`runif()`][ref-runif] (concentrate on "**r**andom-**unif**orm", and fight against the natural but *wrong* tendency to read it as "run if").
 Both `min` and `max` can be specified but default to 0 and 1.
 
 ```R
@@ -174,10 +174,10 @@ The ratio of probabilities for 0 or 1 heads for a single flip is `1:1`.
 
 For two flips, 0,1 or 2 heads have ratios `1:2:1`, for 3 flips `1:3:3:1`.
 
-These ratios are called "binomial coefficients".
+These ratios are called ["binomial coefficients"][wiki-binom-coeff].
 They build up [Pascal's Triangle][wiki-pascal-triangle], and many Exercism tracks have a [practice exercise][practice-pascal] based on it.
 
-If instead we want the probability of a particular result, R provides the `dbinom()` function.
+If instead we want the probability of a particular result, R provides the [`dbinom()`][ref-rbinom] function.
 There is almost 18% chance if getting 10 heads from 20 flips.
 
 ```R
@@ -195,7 +195,7 @@ dbinom(10, size = 20, prob = 0.6)
 ```
 
 It is now more likely that there will be more than 10 heads from 20 flips.
-Clearly, we need to be interested in all the possible outcomes: the *binomial distribution*.
+Clearly, we need to be interested in all the possible outcomes: the [*binomial distribution*][wiki-binomial].
 
 R provides the [`rbinom()`][ref-rbinom] function to generate random values with a binomial distribution.
 Tell it how many values to return `n`, how many trials `size` (such as coin flips), and the probability of a single event `prob` (such as getting a head from one flip).
@@ -236,7 +236,7 @@ The key parameter to a Poisson distribution is the [mean][ref-mean] (average) nu
 
 The rate of earth-impacting meteorites at least 1 meter diameter is described in the literature as "every few months".
 
-As an example, take `lambda = 4` and see what the distribution looks like:
+As an example, take `lambda = 4` and see what the distribution looks like with [`rpois()`][ref-rpois]:
 
 ```R
 hist(rpois(n = 10000, lambda = 4))
@@ -249,8 +249,10 @@ Now the histogram is highly asymmetric, with a peak at 2 impacts and a long tail
 All the random functions described above aim to give different results each time they are run.
 They are, after all, *random*!
 
+This behavior relies on generating a different [random seed][wiki-seed] each time.
+
 For debugging purposes, it may be helpful to use the [`set.seed(n)`][ref-set-seed] function, where `n` is your chosen integer.
-Your code will then return the same set of random values on each run.
+By setting the same seed each time, our code will then return the same set of random values on each run.
 
 ```R
 sample(1:5) #> [1] 5 1 2 4 3
@@ -273,13 +275,13 @@ Outside Exercism, there are many installable packages relating to randomness, pr
 
 Using them obviously requires some technical knowledge of statistics.
 
-In many cases, packages also require domain-specific expertise, typically in some branch of the medical or social sciences (epidemiology, psychology, anthropology... *the list is long*).
+In many cases, packages also assume domain-specific expertise, typically in some branch of the medical or social sciences (epidemiology, psychology, anthropology... *the list is long*).
 
 At the time of writing, the [CRAN][web-cran] package repository features 23,431 available packages.
 
 It is only a slight exaggeration to say that many, perhaps most, of these packages are somebody's PhD thesis in executable form.
 
-Many computer scientists think (with some justification) that R is a weird language.
+Many computer scientists think (*with some justification*) that R is a weird language.
 
 Many statisticians and data scientists over the last few decades think that R fits them like a glove: *they are the target users*.
 
@@ -292,13 +294,18 @@ Many statisticians and data scientists over the last few decades think that R fi
 [wiki-seed]: https://en.wikipedia.org/wiki/Random_seed
 [wiki-uniform]: https://en.wikipedia.org/wiki/Continuous_uniform_distribution
 [wiki-binomial]: https://en.wikipedia.org/wiki/Binomial_distribution
+[wiki-binom-coeff]: https://en.wikipedia.org/wiki/Binomial_coefficient
 [wiki-poisson]: https://en.wikipedia.org/wiki/Poisson_distribution
+[wiki-pascal-triangle]: https://en.wikipedia.org/wiki/Pascal%27s_triangle
+[wiki-geiger]: https://en.wikipedia.org/wiki/Geiger_counter
 [web-rdrr]: https://rdrr.io/snippets/
 [web-cran]: https://cran.r-project.org/
 [ref-mean]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/mean
 [ref-sample]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sample
 [ref-runif]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Uniform
 [ref-rnorm]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Normal
+[ref-rbinom]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Binomial
+[ref-rpois]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Poisson
 [ref-set-seed]: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Random
 [concept-lists]: https://exercism.org/tracks/r/concepts/lists
 [practice-pascal]: https://exercism.org/tracks/r/exercises/pascals-triangle
