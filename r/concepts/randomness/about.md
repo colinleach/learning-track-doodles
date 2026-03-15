@@ -99,7 +99,7 @@ R is largely written by and for statisticians, who understand that "sample all e
 The examples above described cases where all outcomes are equally likely.
 For example, `sample(1:100)` is equally likely to give any integer from 1 to 100.
 
-This is called a [`uniform`][uniform-distribution] distribution.
+This is called a [`uniform`][wiki-uniform-distribution] distribution.
 
 Many real-world situations are far less simple than this.
 As a result, statisticians have created a wide variety of [`distributions`][probability-distribution] to describe "real world" results mathematically.
@@ -291,6 +291,8 @@ Many statisticians and data scientists over the last few decades think that R fi
 [web-uniform]: https://www.investopedia.com/terms/u/uniform-distribution.asp#:~:text=In%20statistics%2C%20uniform%20distribution%20refers,a%20spade%20is%20equally%20likely.
 [wiki-seed]: https://en.wikipedia.org/wiki/Random_seed
 [wiki-expdist]: https://en.wikipedia.org/wiki/Exponential_distribution
+[wiki-uniform]: 
+[wiki-binomial]: 
 [wiki-poisson]: https://en.wikipedia.org/wiki/Poisson_distribution
 [web-rdrr]: https://rdrr.io/snippets/
 [web-cran]: https://cran.r-project.org/
