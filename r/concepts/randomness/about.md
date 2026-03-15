@@ -99,10 +99,10 @@ R is largely written by and for statisticians, who understand that "sample all e
 The examples above described cases where all outcomes are equally likely.
 For example, `sample(1:100)` is equally likely to give any integer from 1 to 100.
 
-This is called a [`uniform`][wiki-uniform-distribution] distribution.
+This is called a [`uniform`][wiki-uniform] distribution.
 
 Many real-world situations are far less simple than this.
-As a result, statisticians have created a wide variety of [`distributions`][probability-distribution] to describe "real world" results mathematically.
+As a result, statisticians have created a wide variety of [`distributions`][wiki-probability-distribution] to describe "real world" results mathematically.
 
 Base R supports more distributions than you are likely to have heard of, and others are available in open-source packages.
 
@@ -112,7 +112,7 @@ The rest of this document describes only a few of the most common distributions.
 
 ### Uniform distribution
 
-For an equally-weighted distribution of floating-point numbers use `runif()` (concentrate on "**r**andom-**unif**orm", and fight against the natural but *wrong* tendency to read it as "run if").
+For an equally-weighted distribution of floating-point numbers use [`runif()`][ref-runif] (concentrate on "**r**andom-**unif**orm", and fight against the natural but *wrong* tendency to read it as "run if").
 Both `min` and `max` can be specified but default to 0 and 1.
 
 ```R
@@ -128,7 +128,7 @@ Both `min` and `max` can be specified but default to 0 and 1.
 Also called the "bell-shaped" curve, this is a very common way to describe imprecision in measured values.
 
 For example, suppose the factory where you work has just bought 10,000 bolts which should be identical.
-You want to set up the factory robot to handle them, so you weigh a sample of 100 and find that they have an average (or `mean`) weight of 4.731g.
+You want to set up the factory robot to handle them, so you weigh a sample of 100 and find that they have an average (or [`mean`][ref-mean]) weight of 4.731g.
 This is extremely unlikely to mean that they all weigh exactly 4.731g.
 Perhaps you find that values range from 4.627 to 4.794g but cluster around 4.731g.
 
@@ -141,7 +141,7 @@ Thus, if you read that "95% of values are within 2σ of μ" or "the Higgs boson 
 
 <!-- There will be more to say about this in the [`Statistics`][statistics] Concept. -->
 
-To generate random values with this distribution, R has the `rnorm()` function (plus several more technical variants outside our scope).
+To generate random values with this distribution, R has the [`rnorm()`][ref-rnorm] function (plus several more technical variants outside our scope).
 
 Short for "random normal", this defaults to mean 0 and standard deviation 1.
 
@@ -290,14 +290,15 @@ Many statisticians and data scientists over the last few decades think that R fi
 [web-truly-random]: https://www.malwarebytes.com/blog/news/2013/09/in-computers-are-random-numbers-really-random
 [web-uniform]: https://www.investopedia.com/terms/u/uniform-distribution.asp#:~:text=In%20statistics%2C%20uniform%20distribution%20refers,a%20spade%20is%20equally%20likely.
 [wiki-seed]: https://en.wikipedia.org/wiki/Random_seed
-[wiki-expdist]: https://en.wikipedia.org/wiki/Exponential_distribution
-[wiki-uniform]: 
-[wiki-binomial]: 
+[wiki-uniform]: https://en.wikipedia.org/wiki/Continuous_uniform_distribution
+[wiki-binomial]: https://en.wikipedia.org/wiki/Binomial_distribution
 [wiki-poisson]: https://en.wikipedia.org/wiki/Poisson_distribution
 [web-rdrr]: https://rdrr.io/snippets/
 [web-cran]: https://cran.r-project.org/
 [ref-mean]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/mean
 [ref-sample]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sample
+[ref-runif]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Uniform
+[ref-rnorm]: https://www.rdocumentation.org/packages/stats/versions/3.5.2/topics/Normal
 [ref-set-seed]: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Random
 [concept-lists]: https://exercism.org/tracks/r/concepts/lists
 [practice-pascal]: https://exercism.org/tracks/r/exercises/pascals-triangle
