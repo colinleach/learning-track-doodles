@@ -119,7 +119,8 @@ Both `min` and `max` can be specified but default to 0 and 1.
 > runif(5)  # generate 5 values
 [1] 0.3038506 0.3527959 0.3319309 0.4846354 0.4386279
 
-> runif(5, max = 100)  # generate 5 values <= 100.0
+# generate 5 non-negative values <= 100.0
+> runif(5, max = 100)
 [1] 79.70762 51.62232 52.85281 71.08571 63.94380
 ```
 
@@ -132,18 +133,18 @@ You want to set up the factory robot to handle them, so you weigh a sample of 10
 This is extremely unlikely to mean that they all weigh exactly 4.731g.
 Perhaps you find that values range from 4.627 to 4.794g but cluster around 4.731g.
 
-This is the [`normal distribution`][wiki-normal-distribution] (or "Gaussian", after the mathematician Card Friedrich Gauss), for which probabilities peak at the mean and tails off symmetrically on both sides (hence "bell-shaped").
+This is the [`normal distribution`][wiki-normal-distribution] (or "Gaussian", after the mathematician Card Friedrich Gauss), for which probabilities peak at the mean and tail off symmetrically on both sides (hence "bell-shaped").
 To simulate this in software, we need some way to specify the width of the curve (*typically, expensive bolts will cluster more tightly around the mean than cheap bolts!*).
 
 By convention, this is done with the [`standard deviation`][wiki-standard-deviation]: small values for a sharp, narrow curve, large for a low, broad curve.
-Mathematicians love Greek letters, so you will often see `μ` ('mu') to represent the mean and `σ` ('sigma') to represent the standard deviation.
+Mathematicians love Greek letters, so you will often see `μ` ('mu') to represent the mean and `σ` ('sigma') to represent the standard deviation (or `sd`).
 Thus, if you read that "95% of values are within 2σ of μ" or "the Higgs boson has been detected with 5-sigma confidence", such comments relate to the standard deviation.
 
 <!-- There will be more to say about this in the [`Statistics`][statistics] Concept. -->
 
 To generate random values with this distribution, R has the [`rnorm()`][ref-rnorm] function (plus several more technical variants outside our scope).
 
-Short for "random normal", this defaults to mean 0 and standard deviation 1.
+Short for "random normal", this defaults to `mean` 0 and `sd` 1.
 
 ```R
 > rnorm(5)
@@ -156,7 +157,7 @@ Short for "random normal", this defaults to mean 0 and standard deviation 1.
 
 It is hard to tell from looking at the numbers that the raw output clusters closer to the mean than for a uniform distribution.
 If you doubt it, generate 1000 or more and plot them to make it more obvious.
-Students without RStudio (or similar) installed locally can use an online R runner such as [rdrr.io][web-rdrr].
+Students without RStudio (or similar) installed locally can use an online R runner such as [rdrr.io][web-rdrr] or [WebR ggplot2 Playground][web-ggplot].
 
 The code `hist(rnorm(10000), breaks = 40)` will show the basic pattern, though not in the most elegant presentation.
 The random numbers are binned, and the vertical axis is a count of results in each bin.
@@ -195,7 +196,7 @@ dbinom(10, size = 20, prob = 0.6)
 ```
 
 It is now more likely that there will be more than 10 heads from 20 flips.
-Clearly, we need to be interested in all the possible outcomes: the [*binomial distribution*][wiki-binomial].
+Clearly, we need to be interested in all the possible outcomes: the [*binomial distribution*][wiki-binomial].https://quesmaorg.github.io/webr-ggplot-playground/
 
 R provides the [`rbinom()`][ref-rbinom] function to generate random values with a binomial distribution.
 Tell it how many values to return `n`, how many trials `size` (such as coin flips), and the probability of a single event `prob` (such as getting a head from one flip).
@@ -251,7 +252,7 @@ They are, after all, *random*!
 
 This behavior relies on generating a different [random seed][wiki-seed] each time.
 
-For debugging purposes, it may be helpful to use the [`set.seed(n)`][ref-set-seed] function, where `n` is your chosen integer.
+For debugging puhttps://quesmaorg.github.io/webr-ggplot-playground/rposes, it may be helpful to use the [`set.seed(n)`][ref-set-seed] function, where `n` is your chosen integer.
 By setting the same seed each time, our code will then return the same set of random values on each run.
 
 ```R
@@ -299,6 +300,7 @@ Many statisticians and data scientists over the last few decades think that R fi
 [wiki-pascal-triangle]: https://en.wikipedia.org/wiki/Pascal%27s_triangle
 [wiki-geiger]: https://en.wikipedia.org/wiki/Geiger_counter
 [web-rdrr]: https://rdrr.io/snippets/
+[web-ggplot]: https://quesmaorg.github.io/webr-ggplot-playground/
 [web-cran]: https://cran.r-project.org/
 [ref-mean]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/mean
 [ref-sample]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sample

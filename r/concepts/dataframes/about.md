@@ -1,6 +1,6 @@
 # About
 
-In R, a dataframe is a `list` of equal-length `vectors`. 
+In R, a dataframe is a `list` of equal-length `vectors`.
 This can be thought of as a rectangular table of data, in which each column is homogeneous but each row can and usually does contain different types of data.
 
 An example to illustrate this:
@@ -22,7 +22,7 @@ An example to illustrate this:
 
 # look at the structure
 > str(df)
-'data.frame':	4 obs. of  3 variables:
+'data.frame': 4 obs. of  3 variables:
  $ languages   : chr  "Fortran" "R" "Python" "Julia"
  $ created     : num  1957 1993 1991 2012
  $ has.syllabus: logi  FALSE FALSE TRUE FALSE

@@ -69,8 +69,6 @@ dataframes -.factors.-> factors["??"]
 
 dataframes -.dates-times.-> dates-times["booking-up-for-beauty"]
 
-dataframes -.apply-functions.-> apply-functions["??"]
-
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
 
