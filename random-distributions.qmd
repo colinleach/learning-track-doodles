@@ -1,0 +1,14 @@
+---
+title: "Random Distributions in Multiple Languages"
+format: html
+---
+
+library(ggplot2)
+
+```{r}
+#| title: rnorm
+
+rnorm(10000) |>
+    
+
+```

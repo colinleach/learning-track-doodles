@@ -24,7 +24,7 @@ A function is a first class object in R, much like numbers and strings.
 Thus, `squareit <- function...` is an assignment syntactically just like `x <- 42`.
 
 ~~~~exercism/advanced
-Accessing the components of a function is unusual in normal use, but quite easy.
+Accessing the components of a function is rare in normal use, but quite easy.
 
 ```R
 class(squareit)
@@ -39,9 +39,9 @@ body(squareit)
 ```
 
 The arguments obtained with [`formals()`][ref-formals] look like a [list][concept-lists], with the `$x` syntax.
-In fact, the type is [`pairlist`][ref-pairlist], a particular type of list.
+In fact, the type is [`pairlist`][ref-pairlist], a particular type of list containing key-value pairs.
 
-The body is executable code, with the type `language` (*not something you probably need to care about*).
+The `body` is executable code, with the type `language` (*not something you probably need to care about*).
 
 [ref-formals]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/formals
 [ref-pairlist]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/list
@@ -50,7 +50,7 @@ The body is executable code, with the type `language` (*not something you probab
 
 ## Arguments
 
-R makes no distinction between positional arguments and keyword arguments, in contrast to other scripting languages such as Python and Julia.
+R makes no clear distinction between positional arguments and keyword arguments, in contrast to other scripting languages such as Python and Julia.
 
 Function calls can pass values either positionally or by name.
 The latter is useful for complex functions with many arguments, where it is hard to remember their order.
@@ -67,13 +67,25 @@ The latter is useful for complex functions with many arguments, where it is hard
 [1] 2
 ```
 
+### Optional arguments
+
 Default argument values can be specified in the function definition, after all the arguments without defaults.
+
+We can then choose whether to accept the default or override it.
 
 ```R
 g <- function(x, y = 2) x / y
+
+# default y value
 > g(6)
 [1] 3
+
+# explicit y value
+g(6, 3)
+[1] 2
 ```
+
+### Extra arguments
 
 To accept an arbitrary number of additional arguments, use a `...` (ellipsis) in the definition.
 It is possible to convert any extra values in the function call to a list, but read on for an alternative way to use these "dot args" (called "varargs" in several other languages).
@@ -142,19 +154,55 @@ This technique is used extensively by Tidyverse libraries such as `stringr`.
 Many of the `stringr` functions are a user-friendly wrapper around low-level functions from `stringi` and base R.
 Extra arguments supplied to the `str_*()` functions are simply passed through to those low-level functions.
 
+## Anonymous Functions
+
+When we define a function, we usually bind the resulting function object to a variable:
+
+```R
+squareit_short <- function(x) x ^ 2
+```
+
+This makes it easy to use the function later in the script, but is not necessary.
+A short, use-once function can be useful in the immediate context.
+Without name-binding, it it called an *anonymous function*.
+
+Use of anonymous functions is so common that since R v4.1.0, there is a shorthand syntax to define them: replace the word `function` with a backslash `\`.
+
+This section will make more sense once we reach the [Functional Programming][concept-funcprog] Concept.
+This is a preview, using [`sapply()`][ref-sapply] to square each number in a range:
+
+```R
+sapply(1:5, \(x) x ^ 2)
+[1]  1  4  9 16 25
+```
+
+Not a very useful example, because `(1:5) ^ 2` returns the same result, but it illustrates defining a function without bothering to think of a name.
+
 ## Copy on Modify
 
-xx
+R allows assignment to individual elements of a vector.
+If we pass in a vector as a function argument, and modify it in the function body before returning it, we get a modified vector.
 
-## TODO
+But what happened to the original vector?
 
-- default arguments
-- named arguments
-- scope of variables
-- copy-on-modify
-- recursion
-- pipes
+```R
+vals <- c(1, 3, 4)
 
+# f() returns a modified vector
+> f(vals)
+[1] 42  3  4  
 
+# the original vector is unchanged.
+> vals
+[1] 1 3 4
+```
+
+R is a language designed for data science.
+Collecting that data can cost a lot in time, effort, and potentially a lot of money: *it is important not to corrupt it!*
+
+The general policy (with a few exceptions) is *copy on modify*.
+If an object (such as a vector) is modified in a way that could cause later problems, R returns a *modified copy* and leaves the original untouched.
+
+Copying large data structures can be computationally expensive, but this is generally the lesser evil when the alternative is data corruption.
 
 [concept-basics]: https://exercism.org/tracks/r/concepts/basics
