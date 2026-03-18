@@ -56,8 +56,8 @@ strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
 lists --functional-programming--> functional-programming["??"]
-
 functions --functional-programming--> functional-programming["??"]
+loops --functional-programming--> functional-programming["??"]
 
 vector-functions --matrices-arrays--> matrices-arrays["??"]
 

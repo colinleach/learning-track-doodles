@@ -83,6 +83,24 @@ Error in switch(size, small = 6, medium = 8, large = 10) :
 [1]  6 10  8
 ```
 
+Students familiar with the [Switch Concept][concept-switch] may notice that we could alternatively replace scalar `switch` with vectorized [`recode_values()`][ref-recode_values] from the [`dplyr`][ref-dplyr] library.
+
+```R
+library(dplyr)
+
+h <- function(size) {
+  recode_values(size,
+         "small" ~ 6,
+         "medium" ~ 8,
+         "large" ~ 10
+  )
+}
+
+v <- c("small", "large", "medium")
+h(v)
+#> [1]  6 10  8
+```
+
 ### `sapply()`
 
 "Simplified-apply" will do something similar, but in this case returns a named vector.
@@ -97,21 +115,9 @@ Depending on context, use of `unname()` may be necessary:
 [1]  6 10  8
 ```
 
-~~~~exercism/advanced
-## Alternative Approaches
-
-Base R also has a `vapply()` function. 
-This 
-
-Some developers prefer this extra level of predictability when writing library code.
-Using it interactively or in simple functions is probably less useful.
-
-Outside Exercism, 
-~~~~
-
 ## The `purrr` library
 
-`lapply` and `sapply` are simple, familiar to most R users, and still popular.
+`lapply` and `sapply` are simple, familiar to most R users, and still quite popular for vectors and simple lists.
 
 Base R also has several other apply functions:
 
@@ -119,13 +125,17 @@ Base R also has several other apply functions:
 - `apply()` for matrices and higher-dimensional arrays.
 - `mapply()` for multiple list or vector arguments in parallel.
 - `tapply()` is harder to explain, but works with grouping operations and ragged arrays.
+- `vectorize()` is a rather mysterious function, which appears to be a wrapper for `mapply()`.
 
 _Enough, already!_
+
 Providing a simpler and more consistent replacement for this sort of confusion is a key goal of the Tidyverse.
 
-There is now the `purrr` package, which provides several additional options such as `map()`, while improving consistency in design and clarity in error messages.
+There is now the `purrr` package, which provides several additional options such as `map()`, while improving consistency in design, and clarity in error messages.
 
 Less constrained by backwards compatibility than base R, this package is currently closer to modern functional programming in other languages.
+
+***TODO*** : purrr examples
 
 ## Recursion
 
