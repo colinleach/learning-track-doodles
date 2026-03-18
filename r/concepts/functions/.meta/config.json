@@ -1,5 +1,7 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
-  "blurb": "R is used (mostly) as a functional languages, though in a rather unique way."
+  "blurb": "Functions in R are first-class objects, which can be passed as arguments and included in return values."
 }
