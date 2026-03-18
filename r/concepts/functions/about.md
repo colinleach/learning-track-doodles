@@ -8,7 +8,7 @@ squareit <- function(x) {
 }
 
 squareit(3)
-[1] 9
+#> [1] 9
 
 # shorter form
 squareit_short <- function(x) x ^ 2
@@ -21,7 +21,7 @@ Looking more closely at the definition of `squareit`, we can identify various pa
 - Once the function object is created, it is assigned to a variable `squareit`.
 
 A function is a first class object in R, much like numbers and strings.
-Thus, `squareit <- function...` is an assignment syntactically just like `x <- 42`.
+Thus, `squareit <- function...` is an assignment which is syntactically just like `x <- 42`.
 
 ~~~~exercism/advanced
 Accessing the components of a function is rare in normal use, but quite easy.
@@ -29,7 +29,7 @@ Accessing the components of a function is rare in normal use, but quite easy.
 ```R
 class(squareit)
 #> [1] "function"
-> formals(squareit)
+formals(squareit)
 #> $x
 
 body(squareit)
@@ -56,20 +56,20 @@ Function calls can pass values either positionally or by name.
 The latter is useful for complex functions with many arguments, where it is hard to remember their order.
 
 ```R
-> f <- function(x, y) x / y
+f <- function(x, y) x / y
 
 # call positionally
-> f(4, 2)
-[1] 2
+f(4, 2)
+#> [1] 2
 
 # call by name
-> f(y = 2, x = 4)
-[1] 2
+f(y = 2, x = 4)
+#> [1] 2
 ```
 
 ### Optional arguments
 
-Default argument values can be specified in the function definition, after all the arguments without defaults.
+Default argument values can be specified in the function definition, but must come after all the arguments without defaults.
 
 We can then choose whether to accept the default or override it.
 
@@ -77,18 +77,18 @@ We can then choose whether to accept the default or override it.
 g <- function(x, y = 2) x / y
 
 # default y value
-> g(6)
-[1] 3
+g(6)
+#> [1] 3
 
 # explicit y value
 g(6, 3)
-[1] 2
+#> [1] 2
 ```
 
 ### Extra arguments
 
 To accept an arbitrary number of additional arguments, use a `...` (ellipsis) in the definition.
-It is possible to convert any extra values in the function call to a list, but read on for an alternative way to use these "dot args" (called "varargs" in several other languages).
+It is possible to convert any extra values in the function call to a list, but please read on for an alternative way to use these "dot args" (*called "varargs" in several other languages*).
 
 ```R
 var_f <- function(x, y, ...) {
@@ -97,10 +97,10 @@ var_f <- function(x, y, ...) {
 
 var_f(2, 3, "opt1", "opt2")
 [[1]]
-[1] "opt1"
+#> [1] "opt1"
 
 [[2]]
-[1] "opt2"
+#> [1] "opt2"
 ```
 
 ## Function Environment
@@ -121,17 +121,17 @@ outer_func <- function(x) {
 }
 
 outer_func(5)
-[1] 15
+#> [1] 15
 ```
 
 The function call passes `x = 5` to the outer function, and this value is available within that function body.
 
 The inner function is *part* of the outer function body, and has access to the value of `x`.
-Worded differently, `x = 5` is part of the *environment* of the inner function.
+Worded differently, `x = 5` is in the *environment* of the inner function.
 
 Technically, this is known as a [closure][wiki-closure].
 
-The environment is particularly important with dot args, as any values supplied this way can be passed through to function calls within the outer function body.
+The environment is particularly important with dot args, as any values supplied this way can be passed through to function calls in the function body.
 The outer function need not know or care what the dot args mean.
 
 ```R
@@ -141,13 +141,13 @@ f_var <- function(x, ...) {
 
 x <- c(1, 2, NA, 6)
 
-# na.rm defaults to FALSE
+# for sum(), na.rm defaults to FALSE
 f_var(x)
-[1] NA
+#> [1] NA
 
 # pass through the na.rm value
-> f_var(x, na.rm = TRUE)
-[1] 9
+f_var(x, na.rm = TRUE)
+#> [1] 9
 ```
 
 This technique is used extensively by Tidyverse libraries such as `stringr`.
@@ -162,21 +162,21 @@ When we define a function, we usually bind the resulting function object to a va
 squareit_short <- function(x) x ^ 2
 ```
 
-This makes it easy to use the function later in the script, but is not necessary.
+This makes it easy to use the function later in the script, but such binding is not necessary.
 A short, use-once function can be useful in the immediate context.
 Without name-binding, it it called an *anonymous function*.
 
-Use of anonymous functions is so common that since R v4.1.0, there is a shorthand syntax to define them: replace the word `function` with a backslash `\`.
+Use of anonymous functions is so common that (*since R v4.1.0*) there is a shorthand syntax to define them: replace the word `function` with a backslash `\`.
 
 This section will make more sense once we reach the [Functional Programming][concept-funcprog] Concept.
 This is a preview, using [`sapply()`][ref-sapply] to square each number in a range:
 
 ```R
 sapply(1:5, \(x) x ^ 2)
-[1]  1  4  9 16 25
+#> [1]  1  4  9 16 25
 ```
 
-Not a very useful example, because `(1:5) ^ 2` returns the same result, but it illustrates defining a function without bothering to think of a name.
+That is not a very useful example, because `(1:5) ^ 2` returns the same result more simply, but it illustrates how we define a function without bothering to think of a name for it.
 
 ## Copy on Modify
 
@@ -186,23 +186,31 @@ If we pass in a vector as a function argument, and modify it in the function bod
 But what happened to the original vector?
 
 ```R
+f <- function(vec) {
+  vec[1] <- 42
+  vec
+}
+
 vals <- c(1, 3, 4)
 
 # f() returns a modified vector
-> f(vals)
-[1] 42  3  4  
+f(vals)
+#> [1] 42  3  4  
 
 # the original vector is unchanged.
-> vals
-[1] 1 3 4
+vals
+#> [1] 1 3 4
 ```
 
 R is a language designed for data science.
-Collecting that data can cost a lot in time, effort, and potentially a lot of money: *it is important not to corrupt it!*
+Collecting that data can cost a lot in time, effort, and potentially an eye-watering amount of money: *it is important not to corrupt it!*
 
 The general policy (with a few exceptions) is *copy on modify*.
-If an object (such as a vector) is modified in a way that could cause later problems, R returns a *modified copy* and leaves the original untouched.
+If an object (such as a vector) is changed in a way that could cause later problems, R returns a *modified copy* and leaves the original untouched.
 
 Copying large data structures can be computationally expensive, but this is generally the lesser evil when the alternative is data corruption.
 
 [concept-basics]: https://exercism.org/tracks/r/concepts/basics
+[concept-funcprog]: https://exercism.org/tracks/r/concepts/functional-programming
+[wiki-closure]: https://en.wikipedia.org/wiki/Closure_(computer_programming)
+[ref-sapply]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/lapply
