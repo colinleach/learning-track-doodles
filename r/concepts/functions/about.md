@@ -169,7 +169,7 @@ Without name-binding, it it called an *anonymous function*.
 Use of anonymous functions is so common that (*since R v4.1.0*) there is a shorthand syntax to define them: replace the word `function` with a backslash `\`.
 
 This section will make more sense once we reach the [Functional Programming][concept-funcprog] Concept.
-This is a preview, using [`sapply()`][ref-sapply] to square each number in a range:
+Below is a preview, using [`sapply()`][ref-sapply] to square each number in a range:
 
 ```R
 sapply(1:5, \(x) x ^ 2)
