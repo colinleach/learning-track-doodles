@@ -3,6 +3,8 @@ title: "Statistical Distributions in Multiple Languages"
 format: 
   html:
     code-fold: true
+    toc: true
+    toc-expand: 2
   pdf:
     toc: true
     number-sections: true
