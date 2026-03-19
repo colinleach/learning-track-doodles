@@ -1,67 +1,6 @@
----
-title: "Random Distributions in Multiple Languages"
-format: 
-  html:
-    code-fold: true
----
-
-We will need the Tidyverse libraries:
-
-```{r}
-#| title: imports
-#| warning: false
-
 library(tidyverse)
-```
 
-## Normal/Gaussian Distribution
-
-### The Normal Probability Density Function
-
-```{r}
-#| title: normal PDF
-
-tibble(
-  "x" = seq(-4, 4, length.out = 1000),
-  "SD = 0.5" = dnorm(x, sd = 0.5),
-  "SD = 1" = dnorm(x, sd = 1),
-  "SD = 2" = dnorm(x, sd = 2)
-)  |>
-  pivot_longer(
-    cols = starts_with("SD = "),
-    names_to = "SD",
-    values_to = "value"
-  ) |>
-  ggplot(aes(x = x, y = value, color = SD)) +
-    geom_line() +
-    facet_wrap(~SD, ncol = 1)
-```
-
-### The Normal Cumulative Distribution Function
-
-```{r}
-#| title: normal CDF
-
-tibble(
-  "x" = seq(-4, 4, length.out = 1000),
-  "SD = 0.5" = pnorm(x, sd = 0.5),
-  "SD = 1" = pnorm(x, sd = 1),
-  "SD = 2" = pnorm(x, sd = 2)
-)  |>
-  pivot_longer(
-    cols = starts_with("SD = "),
-    names_to = "SD",
-    values_to = "value"
-  ) |>
-  ggplot(aes(x = x, y = value, color = SD)) +
-  geom_line() +
-  facet_wrap(~SD, ncol = 1)
-```
-
-### Generating random values with `rnorm()`
-
-```{r}
-#| title: random normal
+sds <- c(0.5, 1, 2)
 
 n <- 10000
 tibble(
@@ -77,17 +16,42 @@ tibble(
   ggplot(aes(value, color = SD)) + 
     geom_freqpoly(binwidth = 0.05) +
     facet_wrap(~SD, ncol = 1)
-```
 
-## Poisson Distribution
 
-### The Poisson Probability Density Function
-
-```{r}
-#| title: Poisson PDF
 
 tibble(
-  "x" = 0:15,
+  "x" = seq(-4, 4, length.out = 1000),
+  "SD = 0.5" = dnorm(x, sd = 0.5),
+  "SD = 1" = dnorm(x, sd = 1),
+  "SD = 2" = dnorm(x, sd = 2)
+)  |>
+  pivot_longer(
+    cols = starts_with("SD = "),
+    names_to = "SD",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = x, y = value, color = SD)) +
+    geom_line() +
+    facet_wrap(~SD, ncol = 1)
+
+
+tibble(
+  "x" = seq(-4, 4, length.out = 1000),
+  "SD = 0.5" = pnorm(x, sd = 0.5),
+  "SD = 1" = pnorm(x, sd = 1),
+  "SD = 2" = pnorm(x, sd = 2)
+)  |>
+  pivot_longer(
+    cols = starts_with("SD = "),
+    names_to = "SD",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = x, y = value, color = SD)) +
+  geom_line() +
+  facet_wrap(~SD, ncol = 1)
+
+tibble(
+  "x" = 0:20,
   "lambda = 1" = dpois(x, lambda = 1),
   "lambda = 4" = dpois(x, lambda = 4),
   "lambda = 8" = dpois(x, lambda = 8)
@@ -98,14 +62,8 @@ tibble(
     values_to = "value"
   ) |>
   ggplot(aes(x = x, y = value, color = lambda)) +
-    geom_col() +
-    facet_wrap(~lambda, ncol = 1)
-```
-
-### The Poisson Cumulative Distribution Function
-
-```{r}
-#| title: Poisson CDF
+  geom_col() +
+  facet_wrap(~lambda, ncol = 1)
 
 tibble(
   "x" = 0:15,
@@ -121,12 +79,6 @@ tibble(
   ggplot(aes(x = x, y = value, color = lambda)) +
   geom_col() +
   facet_wrap(~lambda, ncol = 1)
-```
-
-### Generating random values with `rpois()`
-
-```{r}
-#| title: random normal
 
 n <- 10000
 tibble(
@@ -140,7 +92,6 @@ tibble(
     values_to = "value"
   ) |>
   ggplot(aes(value, color = lambda)) + 
-    geom_bar() +
+    geom_freqpoly(binwidth = 0.05) +
     facet_wrap(~lambda, ncol = 1)
-```
 

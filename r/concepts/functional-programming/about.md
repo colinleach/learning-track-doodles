@@ -84,6 +84,7 @@ Error in switch(size, small = 6, medium = 8, large = 10) :
 ```
 
 Students familiar with the [Switch Concept][concept-switch] may notice that we could alternatively replace scalar `switch` with vectorized [`recode_values()`][ref-recode_values] from the [`dplyr`][ref-dplyr] library.
+Vectorization is good, and there are multiple ways to achieve it.
 
 ```R
 library(dplyr)
@@ -103,7 +104,7 @@ h(v)
 
 ### `sapply()`
 
-"Simplified-apply" will do something similar, but in this case returns a named vector.
+"Simplified-apply" will do something similar to `lapply`, but in this case returns a named vector instead of a list.
 Depending on context, use of `unname()` may be necessary:
 
 ```R
