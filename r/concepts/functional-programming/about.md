@@ -84,7 +84,7 @@ Error in switch(size, small = 6, medium = 8, large = 10) :
 ```
 
 Students familiar with the [Switch Concept][concept-switch] may notice that we could alternatively replace scalar `switch` with vectorized [`recode_values()`][ref-recode_values] from the [`dplyr`][ref-dplyr] library.
-Vectorization is good, and there are multiple ways to achieve it.
+Vectorization is good, and modern R provides multiple ways to achieve it.
 
 ```R
 library(dplyr)
@@ -104,7 +104,8 @@ h(v)
 
 ### `sapply()`
 
-"Simplified-apply" will do something similar to `lapply`, but in this case returns a named vector instead of a list.
+"Simplified-apply" will do something similar to `lapply`, but also tries to simplify the return value: for example,+
+ a named vector instead of a list.
 Depending on context, use of `unname()` may be necessary:
 
 ```R
@@ -146,7 +147,7 @@ R has other and often better options: vectorized functions and higher-order func
 
 However, recursion is supported in R, and can be useful in contexts such as traversing tree structures.
 
-The maximum recursion depth defaults to 5000, which is relatively generous (Python defaults to 1000).
+The maximum recursion depth defaults to 5000, which is relatively generous (_Python defaults to 1000_).
 It is possible to override the default.
 
 Tail-call optimization is not standard in R, though some workarounds have been developed.

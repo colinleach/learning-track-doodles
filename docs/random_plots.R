@@ -93,5 +93,38 @@ tibble(
   ) |>
   ggplot(aes(value, color = lambda)) + 
     geom_bar() +
-    facet_wrap(~lambda, ncol = 1)
+    facet_wrap(~lambda, ncol = 1) +
+    theme(legend.position = "none")
+
+tibble(
+  "x" = 0:20,
+  "p = 0.4" = pbinom(x, size = 20, prob = 0.4),
+  "p = 0.5" = pbinom(x, size = 20, prob = 0.5),
+  "p = 0.6" = pbinom(x, size = 20, prob = 0.6)
+)  |>
+  pivot_longer(
+    cols = starts_with("p = "),
+    names_to = "p",
+    values_to = "value"
+  ) |>
+  ggplot(aes(x = x, y = value, color = p)) +
+  geom_col() +
+  facet_wrap(~p, ncol = 1) +
+  theme(legend.position = "none")
+
+n <- 10000
+tibble(
+  "p = 0.4" = rbinom(n, size = 20, prob = 0.4),
+  "p = 0.5" = rbinom(n, size = 20, prob = 0.5),
+  "p = 0.6" = rbinom(n, size = 20, prob = 0.6)
+)  |>
+  pivot_longer(
+    cols = starts_with("p = "),
+    names_to = "p",
+    values_to = "value"
+  ) |>
+  ggplot(aes(value)) + 
+  geom_bar() +
+  facet_wrap(~p, ncol = 1) +
+  theme(legend.position = "none")
 
