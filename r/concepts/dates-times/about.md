@@ -80,7 +80,7 @@ The international standard is defined in [`ISO 8601`][wiki-ISO8601], with two ma
 - Parsing is quick and unambiguous.
 - Sorting is easy, as the datetime can be treated as normal text and sorted alphabetically.
 
-However, data science is about working with whatever data you con find, and it it pointless to complain about how other people format it.
+However, data science is about working with whatever data you can find, and it is pointless to complain about how other people format it.
 
 Base R has conversion functions which take a format string (defaulting to ISO 8601).
 
@@ -93,7 +93,9 @@ Base R has conversion functions which take a format string (defaulting to ISO 86
 [1] "2026-04-22 15:30:09 MST"
 ```
 
-More helpfully, `lubridate'` provides a wide range of [helper functions][ref-parsing], with names that represent the order of fields.
+The format strings resemble the decades-old `strptime()` function, included in [many languages][wiki-strptime].
+
+More helpfully, `lubridate` provides a wide range of [helper functions][ref-parsing], with names that represent the order of fields.
 Once the functions know which values to look for, and in which order, parsing is impressively flexible.
 
 ```R
@@ -104,12 +106,12 @@ Once the functions know which values to look for, and in which order, parsing is
 > mdy("Wednesday, April 22nd 2026")
 [1] "2026-04-22"
 > mdy_hm("Wednesday, April 22nd 2026, 4:14 pm")
-[1] "2026-04-22 16:14:00 UTC"  # defaults to the OS timezone
+[1] "2026-04-22 16:14:00 UTC"  # defaults to your OS timezone
 ```
 
 ### Constructing from numerical values
 
-In situations where your programs has components of a date/datetime as separate numbers, they can be assembled with [`make_date()`][ref-make_date] or [`make_datetime()`][ref-make_datetime].
+In situations where your programs has components of a date/datetime as separate numbers, they can be assembled with [`make_date()` or `make_datetime()`][ref-make_datetime].
 
 These are the components that can be supplied, showing their ordering and default values:
 
@@ -123,22 +125,101 @@ make_datetime(
   sec = 0,
   tz = "UTC"
 )
-```
 
-Naturally, `make_date()` has only the year, month and day arguments.
-
-```R
 > make_datetime(2026, 4, 22, 17)
 [1] "2026-04-22 17:00:00 UTC"
 ```
 
+Naturally, `make_date()` takes only year, month and day arguments.
+
 ### Outputting in human-readable form
 
+The R console automatically displays dates/datetimes as a string representation.
+This is usually convenient, but sometimes misleading.
+
+Internally, dates and datetimes are numbers (plus a few attributes), not strings.
+Returning a date(time) when a string is expected will cause problems, so we need to know how to do the conversion.
+
+A simple approach is to use [`as.character()`][ref-ascharacter] from Base R, which outputs a string in ISO 8601 format.
+
+There is also a [`format_ISO8601()`][ref-iso8601] function for datetimes, which has options for rounding to a desired precision.
+
+```R
+> today() |> as.character()  # a date
+[1] "2026-04-23"
+> now() |> as.character()  # a datetime
+[1] "2026-04-23 09:07:09.779319"
+> now() |> format_ISO8601() # defaults to nearest second
+[1] "2026-04-23T09:07:38"
+```
+
+Few non-progammers want to see ISO 8601 output, so handling culture-specific date/time formats is essential.
+
+Base R provides the [`format()`][ref-format] function, which uses format strings similar to the venerable `strftime()` functions included in many other languages.
+
+```R
+> format(today(), "%A, %d %B %Y")
+[1] "Thursday, 23 April 2026"
+```
+
+Lubridate provides a more human-friendly alternative with the [`stamp()`][ref-stamp] function, and the narrower `stamp_date()` and `stamp_time()`.
+
+These take a template string which is an example of the desired output, and create a custom function to generate that format.
+
+Lubridate attempts to guess the format, but often runs into ambiguities and produces the wrong result.
+Be prepared to provide format string (such as `"dmy"`) to disambiguate.
 
 ### Setting or extracting components
 
+Lubridate provides [many functions][ref-set-get] to get or set elements of a date or datetime: obvious ones such as `year()` and `second()`, but also more specialist ones such as `quarter()` and `epiweek()`.
+
+All such functions can be used to get a value, and most can also be used to set the value.
+
+```R
+> dt <- now()
+> dt
+[1] "2026-04-23 15:47:11 MST"
+
+# get
+> month(dt)
+[1] 4
+
+# set
+> month(dt) <- 11
+> dt
+[1] "2026-11-23 15:47:11 MST"
+```
+
+For `wday()` (day of week) and `month()`, the default is integer output but:
+
+- Setting `labels = TRUE` returns an abbreviated character string corresponding to the current locale.
+- Also setting `abbr = FALSE` returns the full name.
+
+```R
+> d <- today()
+> d
+[1] "2026-04-23"
+> wday(d)
+[1] 5
+> wday(d, label = TRUE)
+[1] Thu
+Levels: Sun < Mon < Tue < Wed < Thu < Fri < Sat
+> wday(d, label = TRUE, abbr = FALSE)
+[1] Thursday
+Levels: Sunday < Monday < Tuesday < Wednesday < Thursday < Friday < Saturday
+```
+
+The labels are `categorical variables`, which will be the subject of another Concept.
+Values are restricted to the listed `Levels`, which also show sort order.
+
+The week starts on Sunday by default, but this can be changed with the `week_start` argument (use `1` for Monday).
+
+A few utility functions return `TRUE`/`FALSE` values, such as `leap_year()` and `dst()` (is Daylight Saving Time active?).
+
+Months vary in length, so `days_in_month()` gives the integer value.
 
 ### Rounding
+
 
 
 ## Time spans
@@ -176,4 +257,5 @@ The quote below is from the Python documentation, but equally relevant to R:
 [book-dates-times]: https://r4ds.hadley.nz/datetimes.html
 [wiki-ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [ref-parsing]: https://lubridate.tidyverse.org/reference/index.html#date-time-parsing
-
+[ref-make_datetime]: https://lubridate.tidyverse.org/reference/make_datetime.html
+[ref-set-get]: https://lubridate.tidyverse.org/reference/index.html#setting-getting-and-rounding
