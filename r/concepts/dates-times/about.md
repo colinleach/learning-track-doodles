@@ -17,7 +17,7 @@ Sadly, no!
 
 Date and time functionality in Base R has a poor reputation and is now rarely used.
 
-The [`lubridate`][ref-lubridate] package is a big improvement, but be prepared for a large and complicated library, designed to handle a large and complicated range of problems.
+The [`lubridate`][web-lubridate] package is a big improvement, but be prepared for a large and complicated library, designed to handle a large and complicated range of problems.
 
 Originally independent, `lubridate` is now bundled with the `tidyverse` collection.
 Load it with either `library(lubridate)` or `library(tidyverse)`.
@@ -220,7 +220,12 @@ Months vary in length, so `days_in_month()` gives the integer value.
 
 ### Rounding
 
+Numbers can be rounded with [functions][ref-round] such as `round()`, `floor()`, and `ceiling()`.
 
+By extension, dates and datetimes have [functions][ref-round_date] `round_date()`, `floor_date()`, and `ceiling_date()`.
+
+By default, rounding is to the second, but there are many more options available with the `unit` argument.
+See the [documentation][ref-round_date] for details and copious examples.
 
 ## Time spans
 
@@ -235,12 +240,48 @@ As always, choose the one best suited to your context.
 
 ### Periods
 
+A `period`, such as `hours(3)`, just changes the clock time by adding 3 hours.
+
+Irregularities such as leap years and daylight saving time (DST) are ignored.
+
+All periods are the pluralized name of a unit: `years`, `weeks`, etc.
 
 ### Durations
 
+A `duration`, such as `dhours(3)`, advances physical time by 3 hours, respecting irregularities such as DST that cause clock time to deviate from phyical time.
+
+All durations add a `d` prefix to the corresponding period: `dyears`, `dweeks`, etc.
 
 ### Intervals
 
+An `interval` is a combination of a start and end time, created either with the [`interval()`][ref-interval] function or the `%--%` infix operator.
+
+```R
+> dt1 <- now()
+> dt2 <- now() + hours(1)
+
+> ivl <- interval(dt1, dt2)
+> ivl
+[1] 2026-04-24 16:24:54 MST--2026-04-24 17:25:27 MST
+> class(ivl)
+[1] "Interval"
+attr(,"package")
+[1] "lubridate"
+
+# conversions
+> as.period(ivl)
+[1] "1H 0M 32.738214969635S"
+> as.duration(ivl)
+[1] "3632.73821496964s (~1.01 hours)"
+
+# components
+> int_start(ivl)
+[1] "2026-04-24 16:24:54 MST"
+
+# is datetime within the interval?
+> (now() - minutes(20)) %within% ivl
+[1] TRUE
+```
 
 ## Timezones
 
@@ -259,3 +300,6 @@ The quote below is from the Python documentation, but equally relevant to R:
 [ref-parsing]: https://lubridate.tidyverse.org/reference/index.html#date-time-parsing
 [ref-make_datetime]: https://lubridate.tidyverse.org/reference/make_datetime.html
 [ref-set-get]: https://lubridate.tidyverse.org/reference/index.html#setting-getting-and-rounding
+[ref-round]: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round
+[ref-round_date]: https://lubridate.tidyverse.org/reference/round_date.html
+[ref-interval]: https://lubridate.tidyverse.org/reference/interval.html

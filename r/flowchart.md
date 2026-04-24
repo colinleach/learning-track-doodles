@@ -67,12 +67,16 @@ matrices-arrays --dataframes--> dataframes
 
 dataframes -.factors.-> factors["??"]
 
+dataframes -.data-operations.-> data-operations["??"]
+
 dataframes -.dates-times.-> dates-times["booking-up-for-beauty"]
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
 
 nothingness --errors--> errors["factory-sensors "]
+
+dates-times --classes--> classes["??"]
 
 ```
 
