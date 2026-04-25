@@ -93,7 +93,8 @@ Base R has conversion functions which take a format string (defaulting to ISO 86
 [1] "2026-04-22 15:30:09 MST"
 ```
 
-The format strings resemble the decades-old `strptime()` function, included in [many languages][wiki-strptime].
+The format strings resemble the decades-old `strptime()` function, included in _many_ languages.
+Programmers familiar with this syntax can optionally use the [`fast_strptime()`][ref-parse_dt] in lubridate.
 
 More helpfully, `lubridate` provides a wide range of [helper functions][ref-parsing], with names that represent the order of fields.
 Once the functions know which values to look for, and in which order, parsing is impressively flexible.
@@ -108,6 +109,8 @@ Once the functions know which values to look for, and in which order, parsing is
 > mdy_hm("Wednesday, April 22nd 2026, 4:14 pm")
 [1] "2026-04-22 16:14:00 UTC"  # defaults to your OS timezone
 ```
+
+These helper functions are special cases of the [`parse_date_time()`][ref-parse_dt] function, which takes a format string such as `"mdy_hm"` as its second argument.
 
 ### Constructing from numerical values
 
@@ -238,19 +241,44 @@ Students familiar with other science-oriented languages may be aware of `datetim
 In contrast, R has no less than three ways to represent time spans, with different strengths and limitations.
 As always, choose the one best suited to your context.
 
+The various spans can easily be interconverted, with `as.period()`, `as_duration()` and `as.interval()`.
+
+Span types can be interrogated with `is.period()`, etc.
+
 ### Periods
 
 A `period`, such as `hours(3)`, just changes the clock time by adding 3 hours.
 
-Irregularities such as leap years and daylight saving time (DST) are ignored.
+Irregularities such as daylight saving time (DST) are ignored.
 
 All periods are the pluralized name of a unit: `years`, `weeks`, etc.
 
+```R
+> d <- today()
+> d
+[1] "2026-04-25"
+
+> d + weeks(2)
+[1] "2026-05-09"
+
+# dates are coerced to datetimes at midnight if necessary
+> d - hours(20)
+[1] "2026-04-24 04:00:00 UTC"
+
+hours(3)
+[1] "3H 0M 0S"
+```
+
 ### Durations
 
-A `duration`, such as `dhours(3)`, advances physical time by 3 hours, respecting irregularities such as DST that cause clock time to deviate from phyical time.
+A `duration`, such as `dhours(3)`, advances physical time by 3 hours, respecting irregularities such as DST that cause clock time to deviate from physical time.
 
 All durations add a `d` prefix to the corresponding period: `dyears`, `dweeks`, etc.
+
+```R
+dhours(3)
+[1] "10800s (~3 hours)"
+```
 
 ### Intervals
 
@@ -260,6 +288,7 @@ An `interval` is a combination of a start and end time, created either with the 
 > dt1 <- now()
 > dt2 <- now() + hours(1)
 
+# interval(0 function)
 > ivl <- interval(dt1, dt2)
 > ivl
 [1] 2026-04-24 16:24:54 MST--2026-04-24 17:25:27 MST
@@ -267,6 +296,11 @@ An `interval` is a combination of a start and end time, created either with the 
 [1] "Interval"
 attr(,"package")
 [1] "lubridate"
+
+# infix operator
+iv2 <- dt1 %--% dt2
+> iv2 == iv1
+[1] TRUE
 
 # conversions
 > as.period(ivl)
@@ -290,7 +324,52 @@ The quote below is from the Python documentation, but equally relevant to R:
 
 > "The rules for time adjustment across the world are more political than rational, change frequently, and there is no standard suitable for every application aside from UTC."
 
+A few general points about timezones:
 
+- A `datetime` always includes a timezone (`tz`); a `date` is not timezone-aware.
+- Datetime constructors generally default to [UTC][wiki-UTC].
+- The [`now()`][ref-now] function is an exception: it gets your local time from the system clock, including `tz`.
+  Local `tz` is used  by default, but others can be specified such as `now("UTC")`.
+
+```R
+# timezone defaults to UTC
+> local <- ymd_hm("2026-04-25 10:32")
+> local
+[1] "2026-04-25 10:32:00 UTC"
+
+# timezone can be specified
+> AZ <- ymd_hm("2026-04-25 10:32", tz = "America/Phoenix")
+> AZ
+[1] "2026-04-25 10:32:00 MST"
+
+# same clocktime, different tz
+> local - AZ
+Time difference of -7 hours
+```
+
+Arithmetic with durations is probably more reliable then with periods, though both will make some effort to handle timezones correctly.
+
+```R
+dt <- make_datetime(2020, 10, 31, 12, tz = "Europe/Helsinki")
+
+# EET is 2h ahead of UTC
+> dt
+[1] "2020-10-31 12:00:00 EET"
+
+# A week earler, EEST (summer time) is 3h ahead of UTC
+> dt - days(7)
+[1] "2020-10-24 12:00:00 EEST"
+> dt - ddays(7)
+[1] "2020-10-24 13:00:00 EEST"
+```
+
+## Conclusion
+
+Working with dates and datetimes is much easier with lubridate than with Base R.
+
+This Concept has tried to give an overview, but inevitably misses out very many details.
+
+At the risk of repetition: _the documentation is your friend, so please use it_.
 
 [web-lubridate]: https://lubridate.tidyverse.org/index.html
 [ref-lubridate]: https://lubridate.tidyverse.org/reference/index.html
@@ -303,3 +382,11 @@ The quote below is from the Python documentation, but equally relevant to R:
 [ref-round]: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round
 [ref-round_date]: https://lubridate.tidyverse.org/reference/round_date.html
 [ref-interval]: https://lubridate.tidyverse.org/reference/interval.html
+[ref-now]: https://www.rdocumentation.org/packages/lubridate/versions/1.7.4/topics/now
+[ref-parse_dt]:  https://lubridate.tidyverse.org/reference/parse_date_time.html
+[ref-ascharacter]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/character
+[ref-iso8601]: https://lubridate.tidyverse.org/reference/format_ISO8601.html
+[ref-hms]: https://www.rdocumentation.org/packages/hms/versions/1.0.0/topics/hms-package
+[ref-stamp]: https://lubridate.tidyverse.org/reference/stamp.html
+[wiki-UTC]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time
+[ref-format]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/format
