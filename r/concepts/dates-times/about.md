@@ -9,7 +9,7 @@ Anyone doing non-trivial programming with dates and times should at least be pre
 This document will attempt to give an overview of how R handles dates and times, but consulting the full documentation will be necessary for further details.
 
 As a data science language, dates and times have a particular importance in R.
-So much of the data arrives in the form of time series: daily patient numbers during a disease outbreak, monthly employment figures reported by goverments, bird populations in a nesting colony, annual GDP for major economies, and endless more examples.
+Much of the data arrives in the form of time series: daily patient numbers during a disease outbreak, monthly employment figures reported by goverments, bird populations in a nesting colony, annual GDP for major economies, and endless more examples.
 
 _Does this mean that R makes data and time handling simple?_
 
@@ -45,7 +45,7 @@ Internally, dates are stored as the (signed) number of days since `1970-01-01`.
 
 A `datetime` combines date, time and timezone information.
 
-Internally, it is stored as the number of seconds since the beginning 0f 1970 in the UTC timezone.
+Internally, it is stored as the number of seconds since the beginning of 1970 in the UTC timezone.
 
 ```R
 > now()
@@ -57,7 +57,7 @@ Internally, it is stored as the number of seconds since the beginning 0f 1970 in
 [1] "POSIXct" "POSIXt"
 ```
 
-Parhaps surprisingly, R has no internal representation for time-only values.
+Perhaps surprisingly, R has no internal representation for time-only values.
 Anyone needing this functionality (outside Exercism) can install the [`hms`][ref-hms] package.
 
 ## Working with `date` and `datetime` values
@@ -80,7 +80,7 @@ The international standard is defined in [`ISO 8601`][wiki-ISO8601], with two ma
 - Parsing is quick and unambiguous.
 - Sorting is easy, as the datetime can be treated as normal text and sorted alphabetically.
 
-However, data science is about working with whatever data you can find, and it is pointless to complain about how other people format it.
+However, data science is about working with whatever data you can find, and it is often pointless to complain about how other people format it.
 
 Base R has conversion functions which take a format string (defaulting to ISO 8601).
 
@@ -114,7 +114,7 @@ These helper functions are special cases of the [`parse_date_time()`][ref-parse_
 
 ### Constructing from numerical values
 
-In situations where your programs has components of a date/datetime as separate numbers, they can be assembled with [`make_date()` or `make_datetime()`][ref-make_datetime].
+In situations where your program has components of a date/datetime as separate numbers, they can be assembled with [`make_date()` or `make_datetime()`][ref-make_datetime].
 
 These are the components that can be supplied, showing their ordering and default values:
 
@@ -170,7 +170,7 @@ Lubridate provides a more human-friendly alternative with the [`stamp()`][ref-st
 These take a template string which is an example of the desired output, and create a custom function to generate that format.
 
 Lubridate attempts to guess the format, but often runs into ambiguities and produces the wrong result.
-Be prepared to provide format string (such as `"dmy"`) to disambiguate.
+Be prepared to provide format strings (such as `"dmy"`) to disambiguate.
 
 ### Setting or extracting components
 
@@ -249,7 +249,7 @@ Span types can be interrogated with `is.period()`, etc.
 
 A `period`, such as `hours(3)`, just changes the clock time by adding 3 hours.
 
-Irregularities such as daylight saving time (DST) are ignored.
+Irregularities such as daylight saving time (DST) are largely ignored.
 
 All periods are the pluralized name of a unit: `years`, `weeks`, etc.
 
