@@ -48,7 +48,7 @@ strings --nothingness--> nothingness["name-badges"]
 style nothingness fill:#0f0
 
 strings --randomness--> randomness["captains-log"]
-style randomness stroke:#0f0
+style randomness stroke:#00f
 
 strings --regular-expressions--> regular-expressions["regular-chatbot"]
 
@@ -60,6 +60,7 @@ functions --functional-programming--> functional-programming["??"]
 loops --functional-programming--> functional-programming["??"]
 
 vector-functions --matrices-arrays--> matrices-arrays["??"]
+style functions stroke:#00f
 
 functional-programming --dataframes--> dataframes["??"]
 
@@ -75,8 +76,10 @@ vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
 
 nothingness --errors--> errors["factory-sensors "]
+style errors stroke:#00f
 
 dates-times --classes--> classes["??"]
+style dates-times stroke:#00f
 
 ```
 
