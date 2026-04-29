@@ -78,7 +78,7 @@ nothingness --functions--> functions["??"]
 nothingness --errors--> errors["factory-sensors "]
 style errors stroke:#00f
 
-dates-times --classes--> classes["??"]
+dates-times --classes--> classes["none?"]
 style dates-times stroke:#00f
 
 ```
@@ -90,8 +90,7 @@ This isn't quite as tangled as it may appear.
 ```mermaid
 graph TD
     
-todo(("TODO")) --> classes
-todo --> macros
+todo(("TODO")) -->  macros
 todo --> raw-type
 todo --> environments
 ```
