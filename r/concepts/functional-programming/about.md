@@ -26,6 +26,13 @@ library(stringr)
 #> [1] "MON, 25, FEB"
 ```
 
+This type of pipe was added to Base R in v4.1.0, and you may see it referred to as the "native pipe".
+
+Previously, piping was done with `%>%` from the `magrittr` package (a [pun][wiki-pipe] for the art lovers).
+The "magrittr pipe" is still available, but native pipes avoid the need for an external package, and the implementation is simpler in some details.
+
+The RStudio editor (among others) uses `Ctrl-Shift-M` as a keyboard shortcut to add a pipe surrounded by single spaces.
+
 ## Apply functions
 
 We saw previously that many functions in R are "vectorized": they will operate across entire vectors, with no need to write explicit loops. 
@@ -319,3 +326,4 @@ You can use recursion in R, and sometimes it is valuable, but there are often si
 [ref-keep]: https://purrr.tidyverse.org/reference/keep.html
 [ref-every]: https://purrr.tidyverse.org/reference/every.html
 [ref-unname]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/unname
+[wiki-pipe]: https://en.wikipedia.org/wiki/The_Treachery_of_Images
