@@ -16,7 +16,7 @@ This 2019 book is aimed largely at people who want to understand and maintain th
 
 More end-user-oriented textbooks vary.
 
-- The Art of R Programming (2011, print-only) has an OOP chapter covering S3 and (more briefly) S4, which were important at the time.
+- The Art of R Programming (2011, print-only) has an OOP chapter covering S3 and (more briefly) S4, which were important at that time.
   The comment that "S3 classes have a rather cobbled-together structure" is still strikingly true.
 - R in Action (3e, 2022) relegates OOP to 3 pages in a chapter on Advanced Programming near the end.
 - [R for Data Science, 2e][book-r-data-sci] (2023, with 548 pages in the print edition) makes no mention of OOP.
@@ -27,7 +27,7 @@ This Concept will concentrate on S3 classes, which are the simplest, most common
 
 These are old: the name just means they were introduced in version 3 of the S language (a commercial precursor of R).
 
-An S3 class is also very simple: essentially, a [List][concept-lists] with two extra attributes.
+An S3 class is also very simple: typically, a [List][concept-lists] with at least one extra attribute.
 
 [book-advanced-r]: https://adv-r.hadley.nz/oo.html
 [book-r-data-sci]: https://r4ds.hadley.nz/

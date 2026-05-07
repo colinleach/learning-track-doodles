@@ -1,11 +1,16 @@
 # About
 
 When handling collections of homegeneous atomic data (e.g. all numeric or all character), the following structures are available in R:
+
 - `vector` for 1-dimensional data, accessed with a single index
 - `matrix` for 2-dimensional, rectangular (not ragged) data
 - `array` for the general N-dimensional case. A `matrix` is just an `array` with N=2.
 
-**Note for Python programmers**: This section may look familiar. Any resemblance to NumPy is not coincidental (but R is older, and has all this in the core language).
+~~~~exercism/note
+**For Python programmers**: This section may look familiar. 
+
+Any resemblance to NumPy is not coincidental (but R is older, and has all this in the core language).
+~~~~
 
 ## Matrices
 
@@ -29,7 +34,7 @@ There is a `matrix()` function to create them:
 
 Note that the data is stored in column-major order (i.e. down then across).
 
-Find the dimensions of a matrix with `dim()` for both rows and columns, `nrow()` or `ncol()` to get one. 
+Find the dimensions of a matrix with `dim()` for both rows and columns, `nrow()` or `ncol()` to get one dimension.
 Using `length()` will just return the length of the underlying vector (6 in the example above).
 
 ## Matrix indexing
@@ -88,10 +93,23 @@ For finer control
 
 ## Linear algebra
 
+~~~~exercism/note
 *This sub-section assumes a level of mathematical knowledge outside the scope of Exercism.*
 
-Please skip it if it makes no sense to you. However, R is a data science language and many users have a background in applied mathematics and statistics, so it may be of interest.
+Please skip it if it makes no sense to you.
 
-----
+However, R is a data science language, and many users have a background in applied mathematics and statistics, so it may be of interest.
+~~~~
 
-A full range of linear algebra operations are available. 
+Modern R is "obviously" a data science language: designed to work mainly with data tables, and popular with users such as statisticians, epidemiologists and social scientists.
+The main competitor in this field is the Python scientific stack, including packages such as Pandas or Polars.
+
+However, in earlier decades R was also seen as a potential engineering language, competing directly with Matlab.
+
+Perhaps surprisingly, Base R still supports a full range of linear algebra operations on vectors and matrices.
+It is not clear how much these are now used by end users, but such techniques remain very important internally.
+
+LinAlg in R is still taught in some college courses, such as [econometrics][web-econ407].
+
+
+[web-econ407]: https://econ.pages.code.wm.edu/407/notes/docs/R_linalg.html

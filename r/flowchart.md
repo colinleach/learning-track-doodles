@@ -55,22 +55,21 @@ strings --regular-expressions--> regular-expressions["regular-chatbot"]
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
-lists --functional-programming--> functional-programming["??"]
-functions --functional-programming--> functional-programming["??"]
-loops --functional-programming--> functional-programming["??"]
-
-vector-functions --matrices-arrays--> matrices-arrays["??"]
+functional-programming --matrices-arrays--> matrices-arrays["??"]
 style functions stroke:#00f
 
-functional-programming --dataframes--> dataframes["??"]
+lists --functional-programming--> functional-programming["cheese-club?"]
+functions --functional-programming--> functional-programming["cheese-club?"]
+loops --functional-programming--> functional-programming["cheese-club?"]
+style functional-programming stroke:#00f
 
-matrices-arrays --dataframes--> dataframes
+functional-programming --dataframes--> dataframes["??"]
 
 dataframes -.factors.-> factors["??"]
 
 dataframes -.data-operations.-> data-operations["??"]
 
-dataframes -.dates-times.-> dates-times["booking-up-for-beauty"]
+functional-programming --dates-times--> dates-times["booking-up-for-beauty"]
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
@@ -79,7 +78,7 @@ nothingness --errors--> errors["factory-sensors "]
 style errors stroke:#00f
 
 dates-times --classes--> classes["none?"]
-style dates-times stroke:#00f
+style dates-times stroke:#048
 
 ```
 
