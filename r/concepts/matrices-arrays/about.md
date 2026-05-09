@@ -73,11 +73,22 @@ class(m[2,])
 This type of `dimension reduction` is not always wanted, especially in a function pipeline that expects matrix inputs.
 
 Specifying `drop=FALSE` will guarantee a matrix return value from matrix input.
+Note that a matrix with only one row or one column is _not_ the same type as a vector.
 
 ```R
 m[2, , drop = FALSE]
      [,1] [,2] [,3]
 [1,]    2    4    6
+```
+
+As with vectors, portions of a matrix can be modified simply by assigning new values.
+
+```R
+m[, 2] <- c(10, 20)
+m
+     [,1] [,2] [,3]
+[1,]    1   10    5
+[2,]    2   20    6
 ```
 
 ## Adding and deleting rows/columns
@@ -93,6 +104,7 @@ m
 [1,]    1    3    5
 [2,]    2    4    6
 m2 <- matrix(7:9, nrow = 1, ncol = 3)
+
 rbind(m, m2)
      [,1] [,2] [,3]
 [1,]    1    3    5
@@ -143,11 +155,11 @@ The [`apply()`][ref-apply] function is part of Base R, and still the best tool f
 The parameters, in order, are:
 
 1. The input matrix.
-2. The dimesion to operate on (1 for rows, 2 for columns).
+2. The dimension to operate on (1 for rows, 2 for columns).
 3. The function to apply.
 4. Optionally, any extra parameters for the function.
 
-The [`rowMeans()`][ref-rowmeans] function exists in Base R, but we could also simulate it with `apply()`.
+The [`rowMeans()`][ref-colsums] function exists in Base R, but we could also simulate it with `apply()` and `mean()`.
 
 ```R
 randm <- matrix(sample(1:10, 16, replace = TRUE), 4, 4)
@@ -185,10 +197,103 @@ It is not clear how much these are now used by end users, but such techniques re
 
 LinAlg in R is still taught in some college courses, such as this [econometrics class][web-econ407].
 
+### Diagonals
+
+The main diagonal of a _square_ matrix runs from top left (`A[1,1]`) to bottom right.
+
+The ['diag()`][ref-diag] function behaves differently, depending on the argument passed to it.
+
+With a vector `v`, `diag(v)` creates a diagonal matrix.
+
+```R
+> diag(1:3)
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    2    0
+[3,]    0    0    3
+```
+
+With a matrix `A`, `diag(A)` returns the elements on the main diagonal as a vector.
+
+```R
+> A
+     [,1] [,2] [,3]
+[1,]   10    5    2
+[2,]    9    3    7
+[3,]    8   10    4
+> diag(A)
+[1] 10  3  4
+```
+
+With a single integer `k`, `diag(k)` creates a `k × k` identity matrix.
+Even serious R textbooks tend to add comments like _Go figure_ at this point.
+
+```R
+> diag(3)
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1
+```
+
+### Transpose and inverse
+
+To exchange rows and columns, the [`t()`][ref-t] function will transpose any matrix.
+
+```R
+> m
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> t(m)
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+```
+
+For a complex-valued matrix, the result is _not_ the complex conjugate.
+Use `Conj(t(A))` to get the conjugate transpose (adjoint) of matrix `A`.
+
+For higher-dimensional arrays, [`aperm()`][ref-aperm] will permutate dimensions.
+
+For the inverse of a square matrix `A` we can use `solve(A)`.
+Some of us find this ... _unexpected_.
+
+Multiplying a matrix by its inverse gives the identity matrix (subject to very small roundoff errors).
+
+```R
+> A <- matrix(sample(1:10, 9, replace = TRUE), 3, 3)
+> A
+     [,1] [,2] [,3]
+[1,]   10    5    2
+[2,]    9    3    7
+[3,]    8   10    4
+
+> solve(A)
+            [,1]        [,2]        [,3]
+[1,]  0.16666667  0.00000000 -0.08333333
+[2,] -0.05747126 -0.06896552  0.14942529
+[3,] -0.18965517  0.17241379  0.04310345
+
+> A %*% solve(A) |> round(digits = 10)
+     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1
+```
+
+### Multiplication
+
+
+
 [ref-dim]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/dim
 [ref-nrow]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/nrow
 [ref-length]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/length
 [ref-c]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/c
 [ref-cbind]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/cbind
 [ref-colsums]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/colSums
+[ref-apply]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/apply
 [web-econ407]: https://econ.pages.code.wm.edu/407/notes/docs/R_linalg.html
+[concept-functional-progamming]: https://exercism.org/tracks/r/concepts/functional-programming
+[concept-dataframes]: https://exercism.org/tracks/r/concepts/dataframes
