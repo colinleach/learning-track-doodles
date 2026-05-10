@@ -93,7 +93,7 @@ Note the default print format: the comment line with dimensions is printed autom
 
 Tibbles are one relatively recent evolution of the original `data.frame`, fully integrated into the Tidyverse packages and available in the Exercism test runner.
 
-Separately, [`data.table`][data-table] is an alternative attempt to improve on the `data.frame`, in a third-party package.
+Separately, [`data.table`][ref-data-table] is an alternative attempt to improve on the `data.frame`, in a third-party package.
 
 Both are well-respected, and there is inevitably much argument about which is "better".
 Maybe there is some degree of consensus around the following points (_even if they will be criticized as simplistic_).
@@ -110,19 +110,38 @@ Tibbles are a core part of the Tidyverse, so add them with either `library(tibbl
 Documentation is fairly extensive, in the Tidyverse style:
 
 - A [website][web-tibble].
-- A [function reference][ref-tibble].
+- A [function reference][ref-tibbles].
 - A [chapter][book-tibble] in R for Data Science.
 
 ### Creating a tibble
 
+Most simply, we can use the [`tibble()`][ref-tibble] function to join column vectors, as for `data.frame()`.
+An example of this was shown in a previous section.
+
+If it is more convenient to enter values row-wise, the corresponding function is [`tribble()`][ref-tribble].
+
+```R
+
+```
+
+In practice, there are dozens of ways to create tibbles, as they are the ddefault output format from a diverse variety of Tidyverse functions.
+We will return to this in a future Concept.
 
 ### Manipulating a tibble
+
+The [Functional Programming][concept-funcprog] Concept discussed the `purrr` library to manipulate vectors and lists (1-D data structures).
+
+For dataframes (whether traditional or tibbles), the corresponding library to use is [`dplyr`][web-dplyr].
+
+We introduced `dplyr` previously, in the [Switch Concept][concept-switch].
+That just used a few utility functions, but now we can start to explore the rest of this large library.
 
 
 
 
 [web-dataframe]: https://bioinformatics.ccr.cancer.gov/docs/rintro/Lesson_3/
 [web-tibble]: https://tibble.tidyverse.org/
-[ref-tibble]: https://tibble.tidyverse.org/reference/index.html
+[ref-tibbles]: https://tibble.tidyverse.org/reference/index.html
 [book-tibble]: https://r4ds.had.co.nz/tibbles.html
-[data-table]: https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
+[ref-data-table]: https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
+[ref-tibble]
