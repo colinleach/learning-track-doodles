@@ -1,5 +1,7 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
-  "blurb": "Matrices are 2-dimensional data structures, arrays can be of higher dimension."
+  "blurb": "Matrices are 2-dimensional, homogeneous data structures. Arrays can be of higher dimension."
 }

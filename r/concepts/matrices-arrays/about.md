@@ -1,9 +1,9 @@
 # About
 
-When handling collections of homegeneous atomic data (e.g. all numeric or all character), the following structures are available in R:
+When handling collections of homogeneous atomic data (e.g. all numeric or all character), the following structures are available in R:
 
-- `vector` for 1-dimensional data, accessed with a single index
-- `matrix` for 2-dimensional, rectangular (not ragged) data
+- `vector` for 1-dimensional data, accessed with a single index.
+- `matrix` for 2-dimensional, rectangular (not ragged) data.
 - `array` for the general N-dimensional case. A `matrix` is just an `array` with N=2.
 
 ~~~~exercism/note
@@ -37,7 +37,7 @@ Note that the data is stored in column-major order (i.e. down then across).
 Find the dimensions of a matrix with [`dim()`][ref-dim] for both rows and columns, [`nrow()`][ref-nrow] or [`ncol()`][ref-nrow] to get a single dimension.
 Using [`length()`][ref-length] will just return the length of the underlying vector (6 in the example above).
 
-Some other functions create matrix output, for example ['str_split_fixed()'][ref-str_split_fixed].
+Some other functions create matrix output, for example [`str_split_fixed()`][ref-str_split_fixed].
 
 ```R
 library(stringr)
@@ -90,6 +90,16 @@ Note that a matrix with only one row or one column is _not_ the same type as a v
 m[2, , drop = FALSE]
 #>      [,1] [,2] [,3]
 #> [1,]    2    4    6
+```
+
+The [`as.matrix()`][ref-matrix] function converts a vector to a single-column matrix.
+
+```R
+as.matrix(1:3)
+#>      [,1]
+#> [1,]    1
+#> [2,]    2
+#> [3,]    3
 ```
 
 As with vectors, portions of a matrix can be modified simply by assigning new values.
@@ -209,8 +219,8 @@ It is not clear how much these are now used by end users, but such techniques re
 LinAlg in R is still taught in some college courses, such as this [econometrics class][web-econ407].
 A good guide to the mathematics (not programming) is on [3Blue1Brown][3blue1brown].
 
-The most complete discussion of linear algebra within exercism is in the Julia syllabus (same authors as the R syllabus).
-We believe that Julia (or Python in contexts where the `numpy.linalg` module is available) would now be more appropriate for serious linear algebra work than R.
+The most complete discussion of linear algebra within Exercism is in the Julia syllabus (same authors as the R syllabus).
+We believe that Julia (or Python in contexts where the `numpy.linalg` module is available) would now be a more appropriate language for serious linear algebra work than R.
 
 - [Linear Algebra Basics][concept-linalg-basics]
 - [Linear Equation Solving][concept-lin-eq-solving]
@@ -219,7 +229,7 @@ We believe that Julia (or Python in contexts where the `numpy.linalg` module is 
 
 The main diagonal of a _square_ matrix runs from top left (`A[1,1]`) to bottom right.
 
-The ['diag()`][ref-diag] function behaves differently, depending on the argument passed to it.
+The [`diag()`][ref-diag] function behaves differently, depending on the argument passed to it.
 
 With a vector `v`, `diag(v)` creates a diagonal matrix.
 
@@ -244,7 +254,7 @@ diag(A)
 ```
 
 With a single integer `k`, `diag(k)` creates a `k × k` identity matrix.
-Even serious R textbooks tend to add comments like _Go figure_ at this point.
+Even serious R textbooks tend to add comments like _"Go figure"_ at this point.
 
 ```R
 diag(3)
@@ -275,7 +285,7 @@ Use `Conj(t(A))` to get the conjugate transpose (adjoint) of matrix `A`.
 
 For higher-dimensional arrays, [`aperm()`][ref-aperm] will permutate dimensions.
 
-For the inverse of a square matrix `A` we can use `solve(A)`.
+For the inverse of a square matrix `A` we can use [`solve(A)`][ref-solve].
 Some of us find this ... _unexpected_.
 
 Multiplying a matrix by its inverse gives the identity matrix (subject to very small roundoff errors).
@@ -346,6 +356,7 @@ In very brief summary:
 [ref-matmult]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/matmult
 [ref-outer]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/outer
 [ref-crossprod]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/crossprod
+[ref-solve]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/solve
 [web-econ407]: https://econ.pages.code.wm.edu/407/notes/docs/R_linalg.html
 [concept-functional-progamming]: https://exercism.org/tracks/r/concepts/functional-programming
 [concept-vector-filtering]: https://exercism.org/tracks/r/concepts/vector-filtering
