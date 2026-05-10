@@ -205,7 +205,8 @@ rowMeans(randm)
 
 Please skip it if it makes no sense to you.
 
-However, R is a data science language, and many users have a background in applied mathematics and statistics, so it may be of interest.
+However, R is a data science language, and many users have a background in applied mathematics and statistics.
+This terse summary may be of interest to some students.
 ~~~~
 
 Modern R is "obviously" a data science language: designed to work mainly with tabular data, and popular with users such as statisticians, epidemiologists and social scientists.
@@ -214,7 +215,7 @@ The main competitor in this field is the Python scientific stack, including pack
 However, in earlier decades R was also seen as a potential engineering language, competing directly with Matlab.
 
 Perhaps surprisingly, Base R still supports a full range of linear algebra operations on vectors and matrices.
-It is not clear how much these are now used by end users, but such techniques remain very important internally for implementing statistical functions.
+It is not clear how much these now feature in end-user code, but such techniques remain very important _internally_ for implementing statistical functions.
 
 LinAlg in R is still taught in some college courses, such as this [econometrics class][web-econ407].
 A good guide to the mathematics (not programming) is on [3Blue1Brown][3blue1brown].
@@ -222,8 +223,8 @@ A good guide to the mathematics (not programming) is on [3Blue1Brown][3blue1brow
 The most complete discussion of linear algebra within Exercism is in the Julia syllabus (same authors as the R syllabus).
 We believe that Julia (or Python in contexts where the `numpy.linalg` module is available) would now be a more appropriate language for serious linear algebra work than R.
 
-- [Linear Algebra Basics][concept-linalg-basics]
-- [Linear Equation Solving][concept-lin-eq-solving]
+- [Linear Algebra Basics][concept-linalg-basics] in Julia
+- [Linear Equation Solving][concept-lin-eq-solving] in Julia
 
 ### Diagonals
 
@@ -286,7 +287,7 @@ Use `Conj(t(A))` to get the conjugate transpose (adjoint) of matrix `A`.
 For higher-dimensional arrays, [`aperm()`][ref-aperm] will permutate dimensions.
 
 For the inverse of a square matrix `A` we can use [`solve(A)`][ref-solve].
-Some of us find this ... _unexpected_.
+Some of us find this syntax ... _unexpected_.
 
 Multiplying a matrix by its inverse gives the identity matrix (subject to very small roundoff errors).
 
