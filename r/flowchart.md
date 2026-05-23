@@ -55,8 +55,8 @@ strings --regular-expressions--> regular-expressions["regular-chatbot"]
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
-functional-programming --matrices-arrays--> matrices-arrays["??"]
-style functions stroke:#00f
+functional-programming --matrices-arrays--> matrices-arrays["exercism-matrix?"]
+style matrices-arrays stroke:#00f
 
 lists --functional-programming--> functional-programming["cheese-club?"]
 functions --functional-programming--> functional-programming["cheese-club?"]
@@ -70,9 +70,11 @@ dataframes -.factors.-> factors["??"]
 dataframes -.data-operations.-> data-operations["??"]
 
 functional-programming --dates-times--> dates-times["booking-up-for-beauty"]
+style dates-times stroke:#00f
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
+style functions stroke:#00f
 
 nothingness --errors--> errors["factory-sensors "]
 style errors stroke:#00f

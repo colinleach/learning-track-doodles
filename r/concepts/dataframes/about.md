@@ -136,6 +136,35 @@ For dataframes (whether traditional or tibbles), the corresponding library to us
 We introduced `dplyr` previously, in the [Switch Concept][concept-switch].
 That just used a few utility functions, but now we can start to explore the rest of this large library.
 
+### Subsetting
+
+Dataframes, including tibbles, can be treated as lists of column vectors, so list indexing recovers a specified column.
+
+```R
+> tbl
+# A tibble: 4 × 3
+  languages created has.syllabus
+  <chr>       <dbl> <lgl>       
+1 Fortran      1957 FALSE       
+2 R            1993 TRUE        
+3 Python       1991 TRUE        
+4 Julia        2012 TRUE  
+
+> tbl$created
+[1] 1957 1993 1991 2012
+```
+
+A dataframe can also be indexed with [matrix-style][concept-matices-arrays] indexing.
+
+```R
+> tbl[c(2, 4), 1:2]
+# A tibble: 2 × 2
+  languages created
+  <chr>       <dbl>
+1 R            1993
+2 Julia        2012
+```
+
 
 
 
