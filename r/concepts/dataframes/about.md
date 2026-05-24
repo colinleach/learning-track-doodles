@@ -167,8 +167,11 @@ A dataframe can also be indexed with [matrix-style][concept-matrices-arrays] ind
 
 In modern R with the Tidyverse ecosystem, `dplyr` functions are generally more flexible and convenient, and will be the focus for the rest of this Concept.
 
-Because many (_not all!_) students interested in dataframes have previous experience of Python-Pandas and/or SQL, we will provide examples in those other languages for operations we descibe in R.
+~~~~exercism/note
+Because many (_not all!_) students interested in dataframes have previous experience of Python-Pandas and/or SQL, we will provide examples in those other languages for operations we descibe in R (where appropriate).
+
 Such examples are just a convenience for some students, so _please feel free to ignore them_.
+~~~~
 
 ### Column-wise operations
 
@@ -181,9 +184,12 @@ Get a single column with [`pull()`][ref-pull] with the name or sequential number
 
 This is the same result as `tbl$created`, but using a pipeline-friendly function.
 
-To get multiple columns, the appropriate function is [`select()`][ref-select].
+To get multiple columns, the appropriate function is [`select()`][ref-select], which is highly versatile.
+Get (or drop) columns based on properties of their name or type.
 
+```R
 
+```
 
 ### Row-wise operations
 
