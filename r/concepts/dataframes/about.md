@@ -127,7 +127,7 @@ If it is more convenient to enter values row-wise, the corresponding function is
 In practice, there are dozens of ways to create tibbles, as they are the ddefault output format from a diverse variety of Tidyverse functions.
 We will return to this in a future Concept.
 
-### Manipulating a tibble
+## Manipulating a tibble
 
 The [Functional Programming][concept-funcprog] Concept discussed the `purrr` library to manipulate vectors and lists (1-D data structures).
 
@@ -154,7 +154,7 @@ Dataframes, including tibbles, can be treated as lists of column vectors, so lis
 [1] 1957 1993 1991 2012
 ```
 
-A dataframe can also be indexed with [matrix-style][concept-matices-arrays] indexing.
+A dataframe can also be indexed with [matrix-style][concept-matrices-arrays] indexing.
 
 ```R
 > tbl[c(2, 4), 1:2]
@@ -165,7 +165,27 @@ A dataframe can also be indexed with [matrix-style][concept-matices-arrays] inde
 2 Julia        2012
 ```
 
+In modern R with the Tidyverse ecosystem, `dplyr` functions are generally more flexible and convenient, and will be the focus for the rest of this Concept.
 
+Because many (_not all!_) students interested in dataframes have previous experience of Python-Pandas and/or SQL, we will provide examples in those other languages for operations we descibe in R.
+Such examples are just a convenience for some students, so _please feel free to ignore them_.
+
+### Column-wise operations
+
+Get a single column with [`pull()`][ref-pull] with the name or sequential number (negative numbers to count right-to-left).
+
+```R
+> tbl |> pull(created)
+[1] 1957 1993 1991 2012
+```
+
+This is the same result as `tbl$created`, but using a pipeline-friendly function.
+
+To get multiple columns, the appropriate function is [`select()`][ref-select].
+
+
+
+### Row-wise operations
 
 
 [web-dataframe]: https://bioinformatics.ccr.cancer.gov/docs/rintro/Lesson_3/
@@ -173,4 +193,11 @@ A dataframe can also be indexed with [matrix-style][concept-matices-arrays] inde
 [ref-tibbles]: https://tibble.tidyverse.org/reference/index.html
 [book-tibble]: https://r4ds.had.co.nz/tibbles.html
 [ref-data-table]: https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
-[ref-tibble]
+[ref-tibble]: https://tibble.tidyverse.org/reference/tibble.html
+[ref-tribble]: https://tibble.tidyverse.org/reference/tribble.html
+[ref-pull]: https://dplyr.tidyverse.org/reference/pull.html
+[ref-select]: https://dplyr.tidyverse.org/reference/select.html
+[ref-relocate]: https://dplyr.tidyverse.org/reference/relocate.html
+[concept-switch]: https://exercism.org/tracks/r/concepts/switch
+[concept-funcprog]: https://exercism.org/tracks/r/concepts/functional-programming
+[concept-matrices-arrays]: https://exercism.org/tracks/r/concepts/matrices-arrays
