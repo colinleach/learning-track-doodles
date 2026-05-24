@@ -18,9 +18,8 @@ For new code, it is _strongly_ recommended to use the [`stringr`][web-stringr] l
 As noted in the [Strings Concept][concept-strings], `stringr` has good documentation, typically written by the package author(s).
 
 - A [reference website][ref-stringr]
-- A [cheatsheet][cheat-stringr]
-- A [Strings chapter][book-strings] in "R for Data Science".
-- A [RegEx chapter][book-regex] in "R for Data Science".
+- A [cheatsheet][cheat-stringr]. Page 2 is mostly RegEx content.
+- A [Strings chapter][book-strings] and a [RegEx chapter][book-regex] in "R for Data Science".
 
 ~~~~exercism/note
 This R syllabus assumes that you are already familiar with basic Regex syntax.
@@ -41,12 +40,11 @@ Some resources to refresh your regular expression knowledge are listed below.
 [regexone]: https://regexone.com/
 ~~~~
 
-R's interface to regular expressions is described in the [manual][regex].
 
-A regular expression in R is simply a string prefaced by `r` before the opening `"`.
-All the basic functionality is part of the standard library.
 
-In fact, many of the functions already discussed in the [`Strings`][strings] Concept are designed for Regex searches as standard, such as [`occursin()`][occursin].
+Many of the functions already discussed in the [`Strings`][concept-strings] Concept are designed for Regex searches as standard, including any `stringr` function that takes a pattern as one of its arguments.
+
+We kept the Strings Concept relatively simple by only matching on string literals, but any RegEx pattern can be used instead.
 
 ```R
 re = r"test$"
