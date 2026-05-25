@@ -188,11 +188,140 @@ To get multiple columns, the appropriate function is [`select()`][ref-select], w
 Get (or drop) columns based on properties of their name or type.
 
 ```R
+# Range with position and/or name
+> tbl |> select(1:created)
+# A tibble: 4 × 2
+  languages created
+  <chr>       <dbl>
+1 Fortran      1957
+2 R            1993
+3 Python       1991
+4 Julia        2012
 
+# Exclude a column
+> tbl |> select(!created)
+# A tibble: 4 × 2
+  languages has.syllabus
+  <chr>     <lgl>       
+1 Fortran   FALSE       
+2 R         TRUE        
+3 Python    TRUE        
+4 Julia     TRUE        
+
+# Use type of column
+> tbl |> select(where(is.numeric))
+# A tibble: 4 × 1
+  created
+    <dbl>
+1    1957
+2    1993
+3    1991
+4    2012
+```
+
+Multiple criteria are allowed, using Boolean operators `&`, `|` and `!` (and, or not).
+
+Column names that are _valid R identifiers_ do not need quotes within a `select()`.
+Invalid names (e.g. those including spaces) can be enclosed in backticks, though renaming them might be better.
+
+The `select()` function can work with a range of helper functions to pick column names: [`starts_with`][ref-starts_with], [`contains`][ref-contains], [`num_range`][ref-num_range] and various others.
+[`matches`][ref-matches] allows full [RegEx][concept-regex] matching.
+See the [documentation][ref-select] for details.
+
+This seems quite silly with our toy dataframe of languages.
+The `starwars` tibble is included with `dplyr`, giving us something bigger to practice with.
+
+```R
+# limit display to top 3 rows of non-list columns
+starwars |> 
+  select(!where(is.list)) |> 
+  head(3)
+# A tibble: 3 × 11
+  name           height  mass hair_color skin_color  eye_color birth_year sex   gender    homeworld species
+  <chr>           <int> <dbl> <chr>      <chr>       <chr>          <dbl> <chr> <chr>     <chr>     <chr>  
+1 Luke Skywalker    172    77 blond      fair        blue              19 male  masculine Tatooine  Human  
+2 C-3PO             167    75 NA         gold        yellow           112 none  masculine Tatooine  Droid  
+3 R2-D2              96    32 NA         white, blue red               33 none  masculine Naboo     Droid  
+
+# pick a subset of columns
+> starwars |> 
+  select(name | ends_with("color")) |> 
+  head(5)
+# A tibble: 5 × 4
+  name           hair_color skin_color  eye_color
+  <chr>          <chr>      <chr>       <chr>    
+1 Luke Skywalker blond      fair        blue     
+2 C-3PO          NA         gold        yellow   
+3 R2-D2          NA         white, blue red      
+4 Darth Vader    none       white       yellow   
+5 Leia Organa    brown      light       brown    
 ```
 
 ### Row-wise operations
 
+~~~~exercism/note
+Clearly, `dplyr` provides powerful ways to select columns by name.
+
+Can we do similar things with row names?
+
+_No!_
+Traditional R dataframes can have row names, but (after a history of bugs and performance issues) row names are _not allowed_ in `tibbles`.
+
+If you want names, put them in a character column (typically column 1), used like any other column.
+Import functions such as [`as.tibble()`][ref-astibble] will create this automatically when importing data with named rows.
+
+If this row-name limitation seems oddly restrictive, remember that most large database systems handle tables the same way: Oracle, SQL Server, PostgreSQL, MySQL...
+
+[ref-astibble]
+~~~~
+
+Get rows matching some criteria with [`filter()`][ref-filter], or exclude them with `filter_out()`.
+
+```R
+starwars |> 
+  select(name:mass) |> 
+  filter(between(height, 150, 165) & !is.na(mass))
+# A tibble: 4 × 3
+  name               height  mass
+  <chr>               <int> <dbl>
+1 Leia Organa           150    49
+2 Beru Whitesun Lars    165    75
+3 Nien Nunb             160    68
+4 Ben Quadinaros        163    65
+```
+
+Filter criteria can be arbitrarily complex, but always based on row contents.
+
+If row numbers are known, we can use a variety of [`slice()`][ref-slice] functions.
+
+```R
+starwars |> 
+  select(name | homeworld) |> 
+  slice(20:25)
+# A tibble: 6 × 2
+  name             homeworld
+  <chr>            <chr>    
+1 Palpatine        Naboo    
+2 Boba Fett        Kamino   
+3 IG-88            NA       
+4 Bossk            Trandosha
+5 Lando Calrissian Socorro  
+6 Lobot            Bespin   
+
+# random sample of rows
+> starwars |> 
+  select(name | homeworld) |> 
+  slice_sample(n = 4)
+# A tibble: 4 × 2
+  name            homeworld
+  <chr>           <chr>    
+1 Shaak Ti        Shili    
+2 Luminara Unduli Mirial   
+3 Grievous        Kalee    
+4 Palpatine       Naboo    
+```
+
+To remove duplicate rows, use [`distinct()`][ref-distinct].
 
 [web-dataframe]: https://bioinformatics.ccr.cancer.gov/docs/rintro/Lesson_3/
 [web-tibble]: https://tibble.tidyverse.org/
@@ -207,3 +336,5 @@ Get (or drop) columns based on properties of their name or type.
 [concept-switch]: https://exercism.org/tracks/r/concepts/switch
 [concept-funcprog]: https://exercism.org/tracks/r/concepts/functional-programming
 [concept-matrices-arrays]: https://exercism.org/tracks/r/concepts/matrices-arrays
+[concept-strings]: https://exercism.org/tracks/r/concepts/strings
+[concept-regex]: https://exercism.org/tracks/r/concepts/regular-expressions
