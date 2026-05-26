@@ -4,7 +4,7 @@ In other parts of the syllabus, we have seen various data types with different c
 
 - Atomic [vectors][concept-vectors] are 1-dimensional and homogenous in type.
 - [Lists][concept-lists] are 1-dimensional and elements can be of heterogenous types.
-- [Matrices and arrays] are multi-dimensional and homogeneous.
+- [Matrices and arrays][concept-matrices-arrays] are multi-dimensional and homogeneous.
 
 This Concept will look at ways to store multi-dimensional, heterogenous data.
 In practice, _most_ real-world data is like this, so we are now getting to the heart of how R is (mostly) used in practice.
@@ -31,27 +31,28 @@ has.syllabus <- c(FALSE, TRUE, TRUE, TRUE)
 # join columns to create the dataframe
 df <- data.frame(languages, created, has.syllabus)
 df
-  languages created has.syllabus
-1   Fortran    1957        FALSE
-2         R    1993         TRUE
-3    Python    1991         TRUE
-4     Julia    2012         TRUE
+#>   languages created has.syllabus
+#> 1   Fortran    1957        FALSE
+#> 2         R    1993         TRUE
+#> 3    Python    1991         TRUE
+#> 4     Julia    2012         TRUE
+
 # look at the structure
 str(df)
-'data.frame':	4 obs. of  3 variables:
- $ languages   : chr  "Fortran" "R" "Python" "Julia"
- $ created     : num  1957 1993 1991 2012
- $ has.syllabus: logi  FALSE TRUE TRUE TRUE
+#> 'data.frame':	4 obs. of  3 variables:
+ #> $ languages   : chr  "Fortran" "R" "Python" "Julia"
+ #> $ created     : num  1957 1993 1991 2012
+ #> $ has.syllabus: logi  FALSE TRUE TRUE TRUE
  ```
 
  We have a column of character strings, a column of numbers and a column of booleans.
- Scaled up, this is an intuitive way to represent many collections of real world data.
+ When scaled up, this is an intuitive way to represent many collections of real world data.
 
 ### The `tibble`
 
 The `data.frame` design is _old_.
 
-Multi-decade experience, plus changing patterns of how R is used, led to a redesign to create a modernized alternative in the Tidyverse: [tibbles][web-tibble].
+Multi-decade experience, plus changing patterns of how R is used, led to a redesign, creating a modernized alternative in the Tidyverse: [tibbles][web-tibble].
 
 Compared to Base R, tibbles have:
 
@@ -60,9 +61,9 @@ Compared to Base R, tibbles have:
 - More and clearer error messages.
 - Different, usually better, display formats.
 
-In short, a `tibble` aims to "do less and complain more", also described as "lazy and surly".
+In short, a `tibble` aims to "_do less and complain more_", also described as "_lazy and surly_".
 
-However, the types are interchangeable: any function which accepts a `data.frame` will also accept a `tibble`, and _vice versa_.
+The types are usually interchangeable: any function which accepts a `data.frame` will also accept a `tibble`, and _vice versa_.
 
 For new work, using tibbles will probably help you create more robust code.
 However, legacy code and legacy data is very plentiful in the R world, so the `data.frame` is likely to remain common for a long time.
@@ -72,19 +73,19 @@ However, legacy code and legacy data is very plentiful in the R world, so the `d
 library(tibble)
 tbl <- tibble(languages, created, has.syllabus)
 tbl
-# A tibble: 4 × 3
-  languages created has.syllabus
-  <chr>       <dbl> <lgl>       
-1 Fortran      1957 FALSE       
-2 R            1993 TRUE        
-3 Python       1991 TRUE        
-4 Julia        2012 TRUE      
+  # A tibble: 4 × 3
+#>   languages created has.syllabus
+#>   <chr>       <dbl> <lgl>       
+#> 1 Fortran      1957 FALSE       
+#> 2 R            1993 TRUE        
+#> 3 Python       1991 TRUE        
+#> 4 Julia        2012 TRUE      
   
 str(tbl)
-tibble [4 × 3] (S3: tbl_df/tbl/data.frame)
- $ languages   : chr [1:4] "Fortran" "R" "Python" "Julia"
- $ created     : num [1:4] 1957 1993 1991 2012
- $ has.syllabus: logi [1:4] FALSE TRUE TRUE TRUE
+#> tibble [4 × 3] (S3: tbl_df/tbl/data.frame)
+#>  $ languages   : chr [1:4] "Fortran" "R" "Python" "Julia"
+#>  $ created     : num [1:4] 1957 1993 1991 2012
+#>  $ has.syllabus: logi [1:4] FALSE TRUE TRUE TRUE
 ```
 
 Note the default print format: the comment line with dimensions is printed automatically, and column types are also displayed.
@@ -145,7 +146,7 @@ We will return to this in a future Concept.
 
 ## Manipulating a tibble
 
-The [Functional Programming][concept-funcprog] Concept discussed the `purrr` library to manipulate vectors and lists (1-D data structures).
+The [Functional Programming][concept-funcprog] Concept discussed the [`purrr`][web-purrr] library to manipulate vectors and lists (1-D data structures).
 
 For dataframes (whether traditional or tibbles), the corresponding library to use is [`dplyr`][web-dplyr].
 
@@ -204,9 +205,9 @@ To get multiple columns, the appropriate function is [`select()`][ref-select], w
 Get (or drop) columns based on properties of their name or type.
 
 ```R
-  # Range with position and/or name
+# Range with position and/or name
 tbl |> select(1:created)
-# A tibble: 4 × 2
+  # A tibble: 4 × 2
 #>   languages created
 #>   <chr>       <dbl>
 #> 1 Fortran      1957
@@ -218,7 +219,7 @@ tbl |> select(1:created)
 tbl |> select(!created)
   # A tibble: 4 × 2
 #>   languages has.syllabus
-  #> <chr>     <lgl>       
+#>   <chr>     <lgl>       
 #> 1 Fortran   FALSE       
 #> 2 R         TRUE        
 #> 3 Python    TRUE        
@@ -244,8 +245,8 @@ The [`select()`][ref-select] function can work with a range of helper functions 
 [`matches`][ref-starts_with] allows full [RegEx][concept-regex] matching.
 See the [documentation][ref-select] for details.
 
-This seems quite silly with our toy dataframe of languages.
-The [`starwars`][ref-starwars] tibble is included in `dplyr`, giving us something bigger to practice with.
+Such power seems quite silly with our toy dataframe of languages.
+Fortunately, the [`starwars`][ref-starwars] tibble is included in `dplyr`, giving us something bigger to practice with.
 
 ```R
 # limit display to top 3 rows of non-list columns
@@ -283,7 +284,7 @@ Can we do similar things with row names?
 _No!_
 Traditional R dataframes can have row names, but (after a history of bugs and performance issues) row names are _not allowed_ in `tibbles`.
 
-If you want names, put them in a character column (typically column 1), used like any other column.
+If you want names, put them in a `<chr>` column (typically column 1), used like any other column.
 Import functions such as [`as_tibble()`][ref-as_tibble] will create this automatically when importing data with named rows.
 
 If this row-name limitation seems oddly restrictive, remember that most large database systems handle tables the same way: Oracle, SQL Server, PostgreSQL, MySQL...
@@ -306,9 +307,9 @@ starwars |>
 #> 4 Ben Quadinaros        163    65
 ```
 
-Filter criteria can be arbitrarily complex, but always based on row contents.
+Filter criteria can be arbitrarily complex, but always based on row _contents_.
 
-If row numbers are known, we can use a variety of [`slice()`][ref-slice] functions.
+If row _numbers_ are known, we can use a variety of [`slice()`][ref-slice] functions.
 
 ```R
 starwars |> 
@@ -341,12 +342,15 @@ To remove duplicate rows, use [`distinct()`][ref-distinct].
 
 ## Modifying a tibble
 
-First caveat: the _copy-on-modify_ default means that the original tibble usually remains unchanged.
+First caveat: the [_copy-on-modify_][concept-functions] default means that the original tibble usually remains unchanged.
 
 Most modifications are applied column-wise.
 
 Column names can be changed with [`rename(newname = oldname)`][ref-rename], or `rename_with()` to apply a function.
 A typical use would be cleaning up imported names to make them easier to work with in R, by removing whitespace and forcing a consistent format for related names.
+
+Note the syntax within `rename()`.
+The _contents_ of column `oldname` are _bound_ to name `newname`, hence the order.
 
 Column order can be changed with [`relocate()`][ref-relocate].
 Specified column(s) are moved to the left-most position(s) by default, but a `.before` or `.after` argument can be used for finer positioning.
@@ -437,6 +441,7 @@ Later concepts will discuss several other aspects of dataframes (_within the tec
 [ref-data-table]: https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html
 [ref-tibble]: https://tibble.tidyverse.org/reference/tibble.html
 [ref-tribble]: https://tibble.tidyverse.org/reference/tribble.html
+[web-purrr]: https://purrr.tidyverse.org/index.html
 [web-dplyr]: https://dplyr.tidyverse.org/index.html
 [ref-pull]: https://dplyr.tidyverse.org/reference/pull.html
 [ref-select]: https://dplyr.tidyverse.org/reference/select.html
@@ -454,7 +459,7 @@ Later concepts will discuss several other aspects of dataframes (_within the tec
 [concept-switch]: https://exercism.org/tracks/r/concepts/switch
 [concept-funcprog]: https://exercism.org/tracks/r/concepts/functional-programming
 [concept-matrices-arrays]: https://exercism.org/tracks/r/concepts/matrices-arrays
-[concept-strings]: https://exercism.org/tracks/r/concepts/strings
+[concept-functions]: https://exercism.org/tracks/r/concepts/functions
 [concept-regex]: https://exercism.org/tracks/r/concepts/regular-expressions
 [concept-nothingness]: https://exercism.org/tracks/r/concepts/nothingness
 [wiki-bmi]: https://en.wikipedia.org/wiki/Body_mass_index
