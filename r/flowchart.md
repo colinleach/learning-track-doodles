@@ -50,13 +50,13 @@ style nothingness fill:#0f0
 strings --randomness--> randomness["captains-log"]
 style randomness stroke:#00f
 
-strings --regular-expressions--> regular-expressions["regular-chatbot"]
+functional-programming --regular-expressions--> regular-expressions["regular-chatbot"]
 
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
-functional-programming --matrices-arrays--> matrices-arrays["exercism-matrix?"]
-style matrices-arrays stroke:#00f
+functional-programming --matrices-arrays--> matrices-arrays["N/A"]
+style matrices-arrays fill:#0f0
 
 lists --functional-programming--> functional-programming["cheese-club?"]
 functions --functional-programming--> functional-programming["cheese-club?"]
@@ -64,6 +64,7 @@ loops --functional-programming--> functional-programming["cheese-club?"]
 style functional-programming stroke:#00f
 
 functional-programming --dataframes--> dataframes["??"]
+style dataframes stroke:#00f
 
 dataframes -.factors.-> factors["??"]
 
@@ -79,7 +80,7 @@ style functions stroke:#00f
 nothingness --errors--> errors["factory-sensors "]
 style errors stroke:#00f
 
-dates-times --classes--> classes["none?"]
+dates-times --classes--> classes["N/A"]
 style dates-times stroke:#048
 
 ```

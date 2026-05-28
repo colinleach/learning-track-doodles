@@ -3,7 +3,7 @@
 Regular expressions are a highly versatile way to _pattern match_ strings, using a Domain Specific Language (DSL) designed for the purpose.
 
 ~~~~exercism/advanced
-Like many other programming languages, R makes no attempt to implement its own Regex library.
+Like many other programming languages, R makes no attempt to implement its own regex library.
 Instead, it wraps the [ICU][web-icu] regular expression engine.
 ICU is similar to the popular [PCRE2][web-PCRE] library used by most newer languages, though some edge cases are handled differently.
 
@@ -11,18 +11,18 @@ ICU is similar to the popular [PCRE2][web-PCRE] library used by most newer langu
 [web-icu]: https://unicode-org.github.io/icu/userguide/strings/regexp.html
 ~~~~
 
-Many RegEx capabilities are built into Base R, and you may see examples in older code.
+Many regex capabilities are built into Base R, and you may see examples in older code.
 
 For new code, it is _strongly_ recommended to use the [`stringr`][web-stringr] library.
 
 As noted in the [Strings Concept][concept-strings], `stringr` has good documentation, typically written by the package author(s).
 
-- A [reference website][ref-stringr]
-- A [cheatsheet][cheat-stringr]. Page 2 is mostly RegEx content.
-- A [Strings chapter][book-strings] and a [RegEx chapter][book-regex] in "R for Data Science".
+- A [reference website][web-stringr]
+- A [cheatsheet][cheat-stringr].
+- A [strings chapter][book-strings] and a [regex chapter][book-regex] in "R for Data Science".
 
 ~~~~exercism/note
-This R syllabus assumes that you are already familiar with basic Regex syntax.
+This R syllabus assumes that you are already familiar with basic regex syntax.
 We will concentrate solely on R-specific features.
 
 Some resources to refresh your regular expression knowledge are listed below.
@@ -40,162 +40,218 @@ Some resources to refresh your regular expression knowledge are listed below.
 [regexone]: https://regexone.com/
 ~~~~
 
+Many of the functions already discussed in the [`Strings`][concept-strings] Concept are designed for regex searches as standard.
 
+We kept the Strings Concept relatively simple by only matching on string literals, but any regex pattern can be used instead.
 
-Many of the functions already discussed in the [`Strings`][concept-strings] Concept are designed for Regex searches as standard, including any `stringr` function that takes a pattern as one of its arguments.
-
-We kept the Strings Concept relatively simple by only matching on string literals, but any RegEx pattern can be used instead.
+Formally, a regex is created in R by calling [`regex()`][ref-regex].
+For convenience, `stringr` functions will treat any pattern string as a regex.
+In the example below the first `str_replace_all()` is syntactic sugar for the second version:
 
 ```R
-re = r"test$"
-r"test$"
+input <- "Some input string"
 
-typeof(re)
-Regex
+# "\\s" matches any whitespace character
+input |> str_replace_all("\\s", "_")
+[1] "Some_input_string"
 
-# Does a string end with "test"?
-occursin(re, "this is a test")
-true
-
-occursin(re, "these are tests")
-false
+input |> str_replace_all(regex("\\s"), "_")
+[1] "Some_input_string"
 ```
 
-Modifier characters can follow the closing quote, such as `i` for a case-insensitive match.
+The [cheatsheet][cheat-stringr] is a useful guide: all functions with a `pattern` argument (printed in red) accept a regex, and page 2 summarizes regex syntax.
+
+Note that the [`regex()`][ref-regex] function can still be important if you need to override the defaults, such as case sensitivity or locale.
 
 ```R
-occursin(r"test", "Testing")
-false
+# default is case sensitive
+"A Mixed Assortment" |> 
+    str_replace_all(regex("[aeiou]", ignore_case = TRUE), "*")
+#> [1] "* M*x*d *ss*rtm*nt"
+```
 
-occursin(r"test"i, "Testing")
-true
+Many regex codes include a backslash, such as the `\s` used above.
+In normal R strings, `\` needs to be escaped by doubling, hence `"\\s"`.
+
+Backslashes can proliferate and become confusing, so it may help to use [raw strings][book-raw] in complex cases.
+
+By default, the syntax to define a raw string is `r"( )"`, but other delimiters are allowed.
+As parentheses `( )` and brackets `[ ]` are both commmon in regex syntax (for capture groups and option groups), braces `{ }` might be a good choice.
+
+```R
+input |> str_replace_all(r"{\s\w}", "__")
+#> [1] "Some__nput__tring"
+```
+
+## Detecting matches
+
+Here are some questions, and functions that can help answer them.
+
+Some examples use [`fruit`][ref-fruit], a vector of 80 fruit names included with `stringr` for practicing.
+
+_Does a string contain a match?_
+[`str_detect()`][ref-str_detect], or [`str_starts()`][ref-str_starts], `str_ends()` to avoid using the `^` or `$` anchors.
+
+```R
+# berries begining with b
+fruit |> str_detect("^b.*berry") |> head(15)
+#> [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+
+# alternative syntax
+fruit |> str_starts("b.*berry") |> head(15)
+#> [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
+```
+
+_Return only strings containing a match?_
+Use [`str_subset()`][ref-str_subset] to get the strings, `str_which()` to get the indices.
+
+```R
+fruit |> str_subset("a...e")
+[1] "apple"       "blackberry"  "mandarine"   "nectarine"   "pineapple"   "pomegranate" "raspberry"   "salal berry"
+> fruit |> str_which("a...e")
+[1]  1  7 48 51 62 64 70 73
+```
+
+_How many matches in each string?_
+[`str_count()`][ref-str_count]
+
+```R
+# count vowels
+fruit |> str_count("[aeiou]") |> head(10)
+#> [1] 2 3 4 3 3 2 2 3 5 3
+```
+
+_Where is the match?_
+[`str_view()`][ref-str_view] for interactive use, [`str_locate()`][ref-str_locate] or `str_locate_all()` more generally.
+
+```R
+# str_view only shows matching elements, with match in < > delimiters
+fruit |> str_view("a...e")
+ [1] │ <apple>
+ [7] │ bl<ackbe>rry
+[48] │ mand<arine>
+[51] │ nect<arine>
+[62] │ pine<apple>
+[64] │ pomegr<anate>
+[70] │ r<aspbe>rry
+[73] │ sal<al be>rry
+
+# str_locate returns all elements
+fruit |> str_locate("a...e") |> head(10)
+      start end
+ [1,]     1   5
+ [2,]    NA  NA
+ [3,]    NA  NA
+ [4,]    NA  NA
+ [5,]    NA  NA
+ [6,]    NA  NA
+ [7,]     3   7
+ [8,]    NA  NA
+ [9,]    NA  NA
+[10,]    NA  NA
 ```
 
 ## Captures
 
-Commonly, we want to know _what_ matches. This is achieved by including capture groups in parentheses within the regex, then using the [`match()`][match] function.
+Commonly, we want to know _what_ matches. 
+This is achieved by including capture groups in parentheses within the regex.
+
+It is possible to refer back to captures within the same regex, using `\1`, `\2`, etc.
+For example, finding repeated pairs of letters:
 
 ```R
-m = match(r"(\d+g) .* (\d+ml)", "dissolve 25g sugar in 200ml water")
-RegexMatch("25g sugar in 200ml", 1="25g", 2="200ml")
+fruit |> str_subset("(..)\\1")
+[1] "banana"      "coconut"     "cucumber"    "jujube"      "papaya"      "salal berry"
+```
 
-m.captures
-2-element Vector{Union{Nothing, SubString{String}}}:
- "25g"
- "200ml"
+With similar syntax, captures can be used in replacement strings:
 
-# how many matches?
-length(m.captures)
-2
+```R
+# double to triple
+fruit |> 
+  str_subset("(..)\\1") |> 
+  str_replace("(..)\\1", "\\1\\1\\1")
+[1] "bananana"      "cococonut"     "cucucumber"    "jujujube"      "papapaya"      "salalal berry"
+```
 
-# what matched?
-m[1], m[2]
-("25g", "200ml")
+Gather matches for later processing using the [`str_match()`][ref-str_match] function (or `str_match_all()` if you are prepared to deal with the rather confusing results).
 
-# Starting positions of the matches (character index)
-m.offsets
-2-element Vector{Int64}:
- 10
- 23
+Capture groups tend to produce complicated output in any language.
+The R approach (_which is also vectorized as an added challenge_) is to generate a matrix from `str_match()`, with one row per input string, column 1 containing the full matched string, remaining columns containing the various capture groups.
+
+Using named groups can be an advantage, as they become column names in the results matrix.
+
+```R
+recipe <- "dissolve 25g sugar in 200ml water"
+recipe |> str_match("(\\d+g) .* (\\d+ml)")
+     [,1]                 [,2]  [,3]   
+[1,] "25g sugar in 200ml" "25g" "200ml"
+
+# use named capture groups
+recipe |> str_match("(?<wt>\\d+g) .* (?<vol>\\d+ml)")
+                          wt    vol    
+[1,] "25g sugar in 200ml" "25g" "200ml"
+```
+
+We have not said much about matrices in this syllabus, though there is a [concept document][concept-matrices-arrays] you can access.
+Matrices do not fit well with the Tidyverse ecosystem, despite being part of Base R for a long time.
+
+In quick summary: treat matrices like vectors with 2 indices, in the order `[rows, cols]`.
+Leave either index blank to get the whole row/column.
+
+```R
+> amounts <- recipe |> str_match("(?<wt>\\d+g) .* (?<vol>\\d+ml)")
+
+# get all of row 1, as a named vector
+> amt1 <- amounts[1,]
+> amt1
+                                       wt                  vol 
+"25g sugar in 200ml"                "25g"              "200ml" 
+
+# get a vector element
+amt1["wt"] |> unname()
+[1] "25g"
 ```
 
 Of course, matches can fail.
-The result will then be the special value `Nothing` instead of a `RegexMatch`, so be ready to test for this.
+The result will then be the special value `NA`, so be ready to test for this.
 
 ```R
 # failed match
-m = match(r"(not here)", "dissolve 25g sugar in 200ml water")
-
-typeof(m)
-Nothing
-
-isnothing(m)
-true
+recipe |> str_match("(not here)")
+     [,1] [,2]
+[1,] NA   NA  
 ```
 
-Though `match` defaults to starting at the begining of the string, we can also specify an offset `n` to ignore the first `n` characters.
+~~~~exercism/note
+[R for Data science][book-str_match] notes:
 
-```R
-# capture first match
-m = match(r"(\wat)", "cat, sat, mat")
-RegexMatch("cat", 1="cat")
+> `str_match()` returns a matrix, so it’s not particularly easy to work with.
 
-# ignore first 5 characters, then match
-m = match(r"(\wat)", "cat, sat, mat", 5)
-RegexMatch("sat", 1="sat")
-```
+With the footnote:
 
-In R, `match()` will only find the _first_ match within the target string: there is no global modifier as in some other languages.
+> Mostly because we never discuss matrices in this book!
 
-Instead, we have [`eachmatch()`][eachmatch], which returns an iterator of matches.
-This is lazily evaluated, so you may need to convert it to your desired format.
+One of the authors of the book also wrote the `stringr` library and is criticizing his own work.
 
-```R
-matches = eachmatch(r"(\wat)", "cat, sat, mat")
-Base.RegexMatchIterator{String}(r"(\wat)", "cat, sat, mat", false)
+It will be interesting to see how the implementation of this function evolves in future releases.
 
-# convert to vector
-collect(matches)
-3-element Vector{RegexMatch}:
- RegexMatch("cat", 1="cat")
- RegexMatch("sat", 1="sat")
- RegexMatch("mat", 1="mat")
-
-# convert with comprehension
-[m.match for m in matches]
-3-element Vector{SubString{String}}:
- "cat"
- "sat"
- "mat"
-
-# broadcast an anonymous function
-(m -> m.match).(matches)
-3-element Vector{SubString{String}}:
- "cat"
- "sat"
- "mat"
-```
-
-Overlapping matches are not allowed by default.
-Add `overlap = true` as a keyword argument to override this.
-
-```R
-eachmatch(r"aba", "abababa") |> collect  # matches at positions 1, 5
-2-element Vector{RegexMatch}:
- RegexMatch("aba")
- RegexMatch("aba")
-
-eachmatch(r"aba", "abababa"; overlap = true) |> collect  # also matches at position 3
-3-element Vector{RegexMatch}:
- RegexMatch("aba")
- RegexMatch("aba")
- RegexMatch("aba")
-```
-
-## Replace
-
-One common reason to use a Regex is to replace the match with a different string.
-
-The [`replace()`][replace] function was discussed in the [`Strings`][strings] Concept, using string literals to search on.
-The same function can exploit the full power of Regex matching.
-
-```R
-replace("some string", r"[aeiou]" => "*")
-"s*m* str*ng"
-
-replace("first second", r"(\w+) (?<agroup>\w+)" => s"\g<agroup> \1")
-"second first"
-```
-
-The second example above shows how both numbered and named capture groups can be used in the replacement, within an `s" "` string.
-
-See the [manual][regex] for more details: this is a topic which constantly forces most programmers back to the documentation!
-
-
+[book-str_match]: https://r4ds.hadley.nz/regexps.html#grouping-and-capturing
+~~~~
 
 [concept-strings]: https://exercism.org/tracks/R/concepts/strings
-[ref-stringr]: https://stringr.tidyverse.org/index.html
-[ref-tidyverse]: https://tidyverse.org/
+[concept-matrices-arrays]: https://exercism.org/tracks/r/concepts/matrices-arrays
+[web-stringr]: https://stringr.tidyverse.org/index.html
+[ref-regex]: https://stringr.tidyverse.org/reference/modifiers.html
+[ref-str_detect]: https://stringr.tidyverse.org/reference/str_detect.html
+[ref-str_count]: https://stringr.tidyverse.org/reference/str_count.html
+[ref-str_view]: https://stringr.tidyverse.org/reference/str_view.html
+[ref-str_locate]: https://stringr.tidyverse.org/reference/str_locate.html
+[ref-str_starts]: https://stringr.tidyverse.org/reference/str_starts.html
+[ref-str_subset]: https://stringr.tidyverse.org/reference/str_subset.html
+[ref-str_match]: https://stringr.tidyverse.org/reference/str_match.html
+[ref-fruit]: https://stringr.tidyverse.org/reference/stringr-data.html
 [cheat-stringr]: https://github.com/rstudio/cheatsheets/blob/main/strings.pdf
 [book-strings]: https://r4ds.hadley.nz/strings.html
 [book-regex]: https://r4ds.hadley.nz/regexps.html
+[book-raw]: https://r4ds.hadley.nz/strings.html#sec-raw-strings
