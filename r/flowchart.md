@@ -48,7 +48,7 @@ strings --nothingness--> nothingness["name-badges"]
 style nothingness fill:#0f0
 
 strings --randomness--> randomness["captains-log"]
-style randomness stroke:#f00
+style randomness stroke:#0f0
 
 functional-programming --regular-expressions--> regular-expressions["regular-chatbot"]
 style regular-expressions stroke:#0f0

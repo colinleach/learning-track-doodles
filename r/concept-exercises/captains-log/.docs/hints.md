@@ -16,7 +16,7 @@
 ## 4. Pick some random starships from a list
 
 - More sampling from an input vector.
-- Another approach is to shuffle the input, then return the number needed from the start of the resulting vector.
+- Another approach is to shuffle the starships, then return the number needed from the start of the resulting vector.
 
 [ref-sample]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sample
 [ref-sprintf]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/sprintf
