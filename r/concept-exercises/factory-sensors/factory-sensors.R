@@ -4,7 +4,7 @@ check_humidity_level <- function(pct_humidity) {
 }
 
 report_overheating <- function(temperature) {
-  if (is.null(temperature)) stop("Argument Error")
+  if (is.null(temperature)) stop("Sensor Broken")
   if (temperature > 500) stop(sprintf("Overheating: %d C", temperature))
   message(sprintf("temperature check passed: %d °C", temperature))
 }

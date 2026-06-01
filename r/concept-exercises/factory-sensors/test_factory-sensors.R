@@ -23,7 +23,7 @@ test_that("2. Should not throw if the temperature is 200°C", {
 })
 
 test_that("2. Should throw an error if the temperature is NULL", {
-  expect_error(report_overheating(NULL), "Argument Error")
+  expect_error(report_overheating(NULL), "Sensor Broken")
 })
 
 test_that("2. Should throw an error if the temperature is 501°C", {

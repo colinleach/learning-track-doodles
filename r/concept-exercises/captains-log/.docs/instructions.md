@@ -12,7 +12,7 @@ Implement the `random_planet` function. It should return one of the planetary cl
 
 ```R
 random_planet_class()
-# => "K"
+#> "K"
 ```
 
 ## 2. Generate a random starship registry number
@@ -25,7 +25,7 @@ Implement the `random_ship_registry_number` function that returns a random stars
 
 ```R
 random_ship_registry_number()
-# => "NCC-1947"
+#> "NCC-1947"
 ```
 
 ## 3. Generate a random stardate
@@ -38,5 +38,19 @@ Implement the function `random_stardate` that returns a floating point number be
 
 ```R
 random_stardate()
-# => 41458.15721310934
+#> 41037.6
+```
+
+## 4. Pick some random starships from a list
+
+One version of the game involves interacting with other starships, and Mary needs a selection.
+
+There is a full list of possible starships, but only a few of these is needed in each game, and they should be chosen at random.
+
+Implement the `pick_starships(starships, number_needed)` function, which takes a vector of unique starship registry numbers, and returns a vector of length `number_needed`.
+Result values should be taken from `starships`, with no duplicates.
+
+```R
+pick_starships(c("NCC-5011", "NCC-1228", "NCC-7039", "NCC-3978", "NCC-1476"), 2)
+#> [1] "NCC-5011" "NCC-7039"
 ```
