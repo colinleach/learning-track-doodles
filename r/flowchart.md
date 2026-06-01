@@ -48,40 +48,42 @@ strings --nothingness--> nothingness["name-badges"]
 style nothingness fill:#0f0
 
 strings --randomness--> randomness["captains-log"]
-style randomness stroke:#00f
+style randomness stroke:#f00
 
 functional-programming --regular-expressions--> regular-expressions["regular-chatbot"]
+style regular-expressions stroke:#0f0
 
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
-functional-programming --matrices-arrays--> matrices-arrays["N/A"]
-style matrices-arrays fill:#0f0
-
 lists --functional-programming--> functional-programming["cheese-club?"]
 functions --functional-programming--> functional-programming["cheese-club?"]
 loops --functional-programming--> functional-programming["cheese-club?"]
-style functional-programming stroke:#00f
+style functional-programming stroke:#f00
 
 functional-programming --dataframes--> dataframes["??"]
-style dataframes stroke:#00f
+style dataframes stroke:#f00
 
 dataframes -.factors.-> factors["??"]
 
 dataframes -.data-operations.-> data-operations["??"]
 
 functional-programming --dates-times--> dates-times["booking-up-for-beauty"]
-style dates-times stroke:#00f
+style dates-times stroke:#0f0
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
-style functions stroke:#00f
+style functions stroke:#f00
 
 nothingness --errors--> errors["factory-sensors "]
-style errors stroke:#00f
+style errors stroke:#f00
 
-dates-times --classes--> classes["N/A"]
-style dates-times stroke:#048
+unattached(("docs")) --classes--> classes["N/A"]
+
+unattached --matrices-arrays--> matrices-arrays["N/A"]
+style matrices-arrays fill:#0f0
+
+unattached --complex-numbers--> complex-numbers["N/A"]
 
 ```
 

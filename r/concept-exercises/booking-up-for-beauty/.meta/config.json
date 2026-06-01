@@ -1,11 +1,21 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
   "files": {
-    "solution": ["{slug}.R"],
-    "test": ["test_{slug}.R"],
-    "exemplar": [".meta/exemplar.R"]
+    "solution": [
+      "booking-up-for-beauty.R"
+    ],
+    "test": [
+      "test_booking-up-for-beauty.R"
+    ],
+    "exemplar": [
+      ".meta/exemplar.R"
+    ]
   },
-  "forked_from": [""],
-  "blurb": ""
+  "forked_from": [
+    "julia/booking-up-for-beauty"
+  ],
+  "blurb": "Learn about date/time manipulation by handling beauty salon appointments."
 }
