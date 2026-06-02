@@ -27,39 +27,6 @@ stopifnot(1 < 2, 1 == 2)
 #> Error: 1 == 2 is not TRUE
 ```
 
-## `try()`
-
-R has a variety of ways to handle errors.
-These are based on Common Lisp and differ significantly from many popular languages.
-
-The simplest is to wrap potentially problematic code in `try()`.
-
-```R
-g <- function(val) {
-  log10(val)
-}
-
-g(3)
-#> [1] 0.4771213
-
-g("3")
-#> Error in log10(val) : non-numeric argument to mathematical function
-
-# with try() and a default value
-h <- function(val) {
-  result <- NA
-  try(result <- log10(val))
-  result
-}
-
-h(3) # works as before
-#> [1] 0.4771213
-
-h("3") # returns a default value plus the error message
-#> Error in log10(val) : non-numeric argument to mathematical function
-#> [1] NA
-```
-
 ## `warning()` and `message()`
 
 These are reponses to non-fatal conditions, for example:
