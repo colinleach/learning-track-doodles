@@ -48,10 +48,10 @@ strings --nothingness--> nothingness["name-badges"]
 style nothingness fill:#0f0
 
 strings --randomness--> randomness["captains-log"]
-style randomness stroke:#0f0
+style randomness fill:#0f0
 
 functional-programming --regular-expressions--> regular-expressions["regular-chatbot"]
-style regular-expressions stroke:#0f0
+style regular-expressions fill:#0f0
 
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
@@ -76,7 +76,7 @@ nothingness --functions--> functions["??"]
 style functions stroke:#f00
 
 nothingness --errors--> errors["factory-sensors "]
-style errors stroke:#f00
+style errors stroke:#0f0
 
 unattached(("docs")) --classes--> classes["N/A"]
 
