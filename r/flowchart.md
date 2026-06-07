@@ -69,7 +69,7 @@ dataframes -.factors.-> factors["??"]
 dataframes -.data-operations.-> data-operations["??"]
 
 functional-programming --dates-times--> dates-times["booking-up-for-beauty"]
-style dates-times stroke:#0f0
+style dates-times fill:#0f0
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
