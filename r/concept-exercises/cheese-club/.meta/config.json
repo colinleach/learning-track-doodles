@@ -1,11 +1,21 @@
 {
-  "authors": ["colinleach"],
+  "authors": [
+    "colinleach"
+  ],
   "contributors": [],
   "files": {
-    "solution": ["{slug}.R"],
-    "test": ["test_{slug}.R"],
-    "exemplar": [".meta/exemplar.R"]
+    "solution": [
+      "cheese-club.R"
+    ],
+    "test": [
+      "test_cheese-club.R"
+    ],
+    "exemplar": [
+      ".meta/exemplar.R"
+    ]
   },
-  "forked_from": [""],
+  "forked_from": [
+    ""
+  ],
   "blurb": ""
 }

@@ -76,7 +76,7 @@ nothingness --functions--> functions["??"]
 style functions stroke:#f00
 
 nothingness --errors--> errors["factory-sensors "]
-style errors stroke:#0f0
+style errors fill:#0f0
 
 unattached(("docs")) --classes--> classes["N/A"]
 
