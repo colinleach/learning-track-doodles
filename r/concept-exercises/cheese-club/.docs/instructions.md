@@ -8,7 +8,7 @@ As this can end up irrevocably biasing a more nuanced algorithm, there is a sepa
 You are asked to provide some helper functions to wrangle their data.
 
 ~~~~exercism/note
-While there may be different ways to solve the following tasks, each can be solved with a different single higher order function.
+While there may be different ways to solve the following tasks, each can be solved with no more than two higher order functions.
 ~~~~
 
 ## 1. Classify customers
@@ -19,74 +19,67 @@ The emphatic customers will only give ratings of `1` or `5`, and we want to know
 Implement `all_15()` which takes a vector of ratings and returns `true` if all ratings are either `1` or `5`, and false otherwise.
 
 ```R
-julia> ratings = [2, 3, 4, 4, 1];
+all_15(c(2, 3, 4, 4, 1))
+#> [1] FALSE
 
-julia> all_15(ratings)
-false
-
-julia> ratings = [1, 5, 5, 1, 5];
-
-julia> all_15(ratings)
-true
+all_15(c(1, 5, 5, 1, 5))
+#> [1] TRUE
 ```
 
-## 2. Separate out emphatic customers
+## 2. Name customers
+
+We need to associate the customer name (or ID) with their ratings.
+
+Implement `name_customers()`, which takes a vector of names and a list of ratings, and "zips" them into a list of lists.
+
+Inner list elements should have names `name` and `rating`.
+
+```R
+names <- c("c1", "c2")
+ratings <- list(c(2, 3, 5), c(1, 1, 5))
+name_customers(names, ratings)
+#> [[1]]
+#> [[1]]$name
+#> [1] "c1"
+
+#> [[1]]$rating
+#> [1] 2 3 5
+
+#> [[2]]
+#> [[2]]$name
+#> [1] "c2"
+
+#> [[2]]$rating
+#> [1] 1 1 5
+```
+
+## 3. Separate out emphatic customers
 
 We need to separate the more emphatic customers from the others.
 
-Implement `emphatics()` which takes a dictionary of customers and ratings.
-Returns a similar dictionary with those who only use only `1` or `5` star ratings.`
+Implement `emphatics()` which takes customers and ratings.
+Returns a list restricted to those who only use only `1` or `5` star ratings.`
 
 ```R
-julia> ratings = ([2, 3, 5, 1, 1], [1, 1, 5, 5, 1], [4, 5, 5, 3, 2], [5, 5, 1, 1, 5]);
+# names and ratings as in the task 2 example
 
-julia> names = ("c1", "c2", "c3", "c4");
+emphatics(names, ratings)
+#> [[1]]
+#> [[1]]$name
+#> [1] "c2"
 
-julia> customers = Dict(zip(names, ratings))
-Dict{String, Vector{Int64}} with 4 entries:
-  "c2" => [1, 1, 5, 5, 1]
-  "c1" => [2, 3, 5, 1, 1]
-  "c3" => [4, 5, 5, 3, 2]
-  "c4" => [5, 5, 1, 1, 5]
-
-julia> emphatics(customers)
-Dict{String, Vector{Int64}} with 2 entries:
-  "c2" => [1, 1, 5, 5, 1]
-  "c4" => [5, 5, 1, 1, 5]
+#> [[1]]$rating
+#> [1] 1 1 5
 ```
 
-## 3. Change ratings to binary
+## 4. Change ratings to binary
 
 Since the emphatic customers only use `1` and `5` ratings, it will more computationally convenient if these are changed these to `0` and `1`.
 
-Implement `tobinary()` which takes vector of emphatic ratings.
+Implement `to_binary()` which takes vector of emphatic ratings.
 Returns binary ratings, where `1` has been changed to `0` and `5` has been changed to `1`.
 
 ```R
-julia> ratings = [1, 1, 5, 5, 1];
-
-julia> tobinary(ratings)
-5-element Vector{Int64}:
- 0
- 0
- 1
- 1
- 0
+to_binary(c(1, 1, 5, 5, 1))
+#> [1] 0 0 1 1 0
 ```
-
-## 4. Make ratings into a matrix
-
-Our algorithms use `Matrix` inputs, so we will need to transform the data into one.
-
-Implement `tobinarymatrix()` which takes a vector of emphatic rating vectors.
-Returns a `Matrix` of the transformed data, with each rating vector a *row* in the matrix.
-
-```R
-julia> customersratings = [[1, 1, 5, 5, 1],[5, 5, 1, 1, 5]];
-
-julia> tobinarymatrix(customersratings)
-2×5 Matrix{Int64}:
- 0  0  1  1  0
- 1  1  0  0  1
-```
-

@@ -1,47 +1,71 @@
 source("./cheese-club.R")
 library(testthat)
 
-# 
+# all_15
 
-test_that("1. Should throw if the humidity percentage is 100", {
-  expect_error(check_humidity_level(100), NULL)
+test_that("1. classify customers, false", {
+  expect_false(all_15(c(2, 3, 4, 4, 1)))
+  expect_false(all_15(c(5, 1, 5, 1, 5, 4, 2, 3, 1, 5, 4, 4, 2, 3)))
 })
 
+test_that("1. classify customers, true", {
+  expect_true(all_15(c(1, 5, 5, 1, 5)))
+  expect_true(all_15(c(5, 1, 5, 1, 5, 5, 1, 1, 1, 5, 5, 5, 1, 5)))
+})
 
+# name_customers
 
-#' @testset verbose = true "tests" begin
-#'     @testset "1. classify customers" begin
-#'         @test all_15([2, 3, 4, 4, 1]) == false
-#'         @test all_15([5, 1, 5, 1, 5, 4, 2, 3, 1, 5, 4, 4, 2, 3]) == false
-#' 
-#'         @test all_15([1, 5, 5, 1, 5]) == true
-#'         @test all_15([5, 1, 5, 1, 5, 5, 1, 1, 1, 5, 5, 5, 1, 5]) == true
-#'     end
-#' 
-#'     @testset "2. separate out emphatic customers" begin
-#'         customers = Dict(zip(("c1", "c2", "c3", "c4"),([2, 3, 5, 1, 1], [1, 1, 5, 5, 1], [4, 5, 5, 3, 2], [5, 5, 1, 1, 5])))
-#'         @test emphatics(customers) == Dict(zip(("c2", "c4"),([1, 1, 5, 5, 1], [5, 5, 1, 1, 5])))
-#' 
-#'         customers = Dict(zip(("c1", "c2"), ([1, 5, 5], [5, 1, 1], [1, 5, 1])))
-#'         @test emphatics(customers) == Dict(zip(("c1", "c2"), ([1, 5, 5], [5, 1, 1], [1, 5, 1])))
-#' 
-#'         customers = Dict(zip(("c1", "c2"), ([1, 2, 5], [3, 1, 4], [4, 2, 1])))
-#'         @test emphatics(customers) == Dict{String, Int}()
-#'     end
-#' 
-#'     @testset "3. change ratings to binary" begin
-#'         @test tobinary([1, 1, 5, 5, 1]) == [0, 0, 1, 1, 0]
-#'         @test tobinary([5, 1, 5, 1, 5, 5, 1, 1, 1, 5, 5, 5, 1, 5]) == [1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1]
-#'     end
-#' 
-#'     @testset "4. make ratings into a matrix" begin
-#'         ratings = [[1, 1, 5, 5, 1], [5, 5, 1, 1, 5]]
-#'         @test tobinarymatrix(ratings) == [0 0 1 1 0; 1 1 0 0 1]
-#' 
-#'         ratings = [[1, 5, 1], [5, 5, 1], [5, 5, 5]]
-#'         @test tobinarymatrix(ratings) == [0 1 0; 1 1 0; 1 1 1]
-#' 
-#'         ratings = [[1, 5, 1], [5, 5, 1], [5, 5, 5], [1, 1, 5], [1, 1, 1]]
-#'         @test tobinarymatrix(ratings) == [0 1 0; 1 1 0; 1 1 1; 0 0 1; 0 0 0]
-#'     end
-#' end
+test_that("2. name customers", {
+  names <- c("c1", "c2", "c3", "c4")
+  ratings = list(c(2, 3, 5, 1, 1), c(1, 1, 5, 5, 1), 
+                 c(4, 5, 5, 3, 2), c(5, 5, 1, 1, 5))
+  expected <- list(
+    list(name = "c1", rating = c(2, 3, 5, 1, 1)),
+    list(name = "c2", rating = c(1, 1, 5, 5, 1)),
+    list(name = "c3", rating = c(4, 5, 5, 3, 2)),
+    list(name = "c4", rating = c(5, 5, 1, 1, 5))
+  )
+  
+  expect_equal(name_customers(names, ratings), expected)
+})
+
+# emphatics
+
+test_that("3. separate out emphatic customers, some true", {
+  names <- c("c1", "c2", "c3", "c4")
+  ratings = list(c(2, 3, 5, 1, 1), c(1, 1, 5, 5, 1), 
+                 c(4, 5, 5, 3, 2), c(5, 5, 1, 1, 5))
+  expected <- list(
+    list(name = "c2", rating = c(1, 1, 5, 5, 1)),
+    list(name = "c4", rating = c(5, 5, 1, 1, 5))
+  )
+  
+  expect_equal(emphatics(names, ratings), expected)
+})
+
+test_that("3. separate out emphatic customers, all true", {
+  names <- c("c1", "c2")
+  ratings = list(c(1, 5, 5), c(5, 1, 1))
+  expected <- list(
+    list(name = "c1", rating = c(1, 5, 5)),
+    list(name = "c2", rating = c(5, 1, 1))
+  )
+  
+  expect_equal(emphatics(names, ratings), expected)
+})
+
+test_that("3. separate out emphatic customers, none true", {
+  names <- c("c1", "c2")
+  ratings = list(c(1, 2, 5), c(3, 1, 4))
+  expected <- list()
+
+  expect_equal(emphatics(names, ratings), expected)
+})
+
+# to_binary
+
+test_that("4. change ratings to binary", {
+  expect_equal(to_binary(c(1, 1, 5, 5, 1)), c(0, 0, 1, 1, 0))
+  expect_equal(to_binary(c(5, 1, 5, 1, 5, 5, 1, 1, 1, 5, 5, 5, 1, 5)), 
+                         c(1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1))
+})
