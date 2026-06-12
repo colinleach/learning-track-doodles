@@ -15,7 +15,7 @@
     ]
   },
   "forked_from": [
-    ""
+    "julia/cheese-club"
   ],
-  "blurb": ""
+  "blurb": "Use higher order functions to wrangle some data for a cheese club."
 }

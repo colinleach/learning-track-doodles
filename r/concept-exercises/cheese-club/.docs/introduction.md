@@ -195,7 +195,7 @@ We will see in a future Concept on matrices and arrays that the concept of dimen
 The `sum()` function is built in (as are many other statistical functions).
 However, we need a way to apply arbitrary dimension-reducing functions across a data structure, using some higher-order function equivalent to `map()`.
 
-In several other languages, function names such as `fold`, `foldl` and `foldr` are used. In R, the relevant function is [`reduce()`][ref-reduce], corresponding to the well-known (to algorithm enthusiasts) [MapReduce][wiki-mapreduce] framework.
+In several other languages, function names such as `fold`, `foldl` and `foldr` are used. In R, the relevant function is [`reduce()`][ref-reduce], corresponding to the well-known (to algorithm enthusiasts) MapReduce framework.
 
 The first argument is, as usual, the input data. The second argument is a 2-argument function: often an anonymous function, but possibly as simple as an arithmetic operator such as `+`.
 
@@ -288,7 +288,6 @@ Also, we have [`every()`][ref-every], [`some()`][ref-every] and [`none()`][ref-e
 [concept-switch]: https://exercism.org/tracks/r/concepts/switch
 [ref-recode_values]: https://dplyr.tidyverse.org/reference/recode-and-replace-values.html
 [ref-dplyr]: https://dplyr.tidyverse.org/
-[wiki-mapreduce]: https://en.wikipedia.org/wiki/MapReduce
 [ref-modify]: https://purrr.tidyverse.org/reference/modify.html
 [ref-modify_tree]: https://purrr.tidyverse.org/reference/modify_tree.html
 [ref-reduce]: https://purrr.tidyverse.org/reference/reduce.html
@@ -299,6 +298,3 @@ Also, we have [`every()`][ref-every], [`some()`][ref-every] and [`none()`][ref-e
 [ref-keep]: https://purrr.tidyverse.org/reference/keep.html
 [ref-every]: https://purrr.tidyverse.org/reference/every.html
 [ref-unname]: https://www.rdocumentation.org/packages/base/versions/3.3.0/topics/unname
-[wiki-pipe]: https://en.wikipedia.org/wiki/The_Treachery_of_Images
-[wiki-funcprog]: https://en.wikipedia.org/wiki/Functional_programming
-[book-funcprog]: https://adv-r.hadley.nz/fp.html

@@ -56,13 +56,13 @@ style regular-expressions fill:#0f0
 strings --switch--> switch["blackjack"]
 style switch fill:#0f0
 
-lists --functional-programming--> functional-programming["cheese-club?"]
-functions --functional-programming--> functional-programming["cheese-club?"]
-loops --functional-programming--> functional-programming["cheese-club?"]
-style functional-programming stroke:#f00
+lists --functional-programming--> functional-programming["cheese-club"]
+functions --functional-programming--> functional-programming["cheese-club"]
+loops --functional-programming--> functional-programming["cheese-club"]
+style functional-programming fill:#0f0
 
-functional-programming --dataframes--> dataframes["??"]
-style dataframes stroke:#f00
+functional-programming --dataframes--> dataframes["trees-and-tribbleations"]
+style dataframes stroke:#0f0
 
 dataframes -.factors.-> factors["??"]
 
