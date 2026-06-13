@@ -73,7 +73,7 @@ style dates-times fill:#0f0
 
 vector-functions --functions--> functions["??"]
 nothingness --functions--> functions["??"]
-style functions stroke:#f00
+style functions stroke:#0f0
 
 nothingness --errors--> errors["factory-sensors "]
 style errors fill:#0f0
