@@ -62,7 +62,7 @@ loops --functional-programming--> functional-programming["cheese-club"]
 style functional-programming fill:#0f0
 
 functional-programming --dataframes--> dataframes["trees-and-tribbleations"]
-style dataframes stroke:#0f0
+style dataframes fill:#0f0
 
 dataframes -.factors.-> factors["??"]
 
@@ -71,9 +71,9 @@ dataframes -.data-operations.-> data-operations["??"]
 functional-programming --dates-times--> dates-times["booking-up-for-beauty"]
 style dates-times fill:#0f0
 
-vector-functions --functions--> functions["??"]
-nothingness --functions--> functions["??"]
-style functions stroke:#0f0
+vector-functions --functions--> functions["coordinate-transformation"]
+nothingness --functions--> functions["coordinate-transformation"]
+style functions fill:#0f0
 
 nothingness --errors--> errors["factory-sensors "]
 style errors fill:#0f0
