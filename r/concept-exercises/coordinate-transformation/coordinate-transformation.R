@@ -15,5 +15,3 @@ scale2d <- function(scaling) {
 }
 
 
-g <- translate_point(c(.5, .6))
-class(g)

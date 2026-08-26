@@ -4,7 +4,7 @@ In data science, many variables can only take one of a limited set of discrete v
 
 Also, it may be convenient to simplify continuous variables (such as height) by creating discrete categories (short, medium, tall). This can help with graphical representation (bar or pie charts) and some types of statistical analysis.
 
-Naturally, R has ways to handle this type of data, implemented as `factors`.
+Naturally, Base R has ways to handle this type of data, implemented as `factors`.
 
 ```R
 > v <- sample(c("H", "T"), 5, replace = TRUE) # 5 coin flips
@@ -57,6 +57,8 @@ How are these represented internally?
  ```
 
  Quite different: the vector stores the values, the factor stores the levels plus the *positional indices* of the levels. For large datasets, this can be a substantial saving on memory.
+
+
 
 ### Modifying factors
 
